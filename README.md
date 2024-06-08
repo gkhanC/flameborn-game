@@ -1,10 +1,10 @@
-# Flamebon
+# Flameborn
 
-Flamebon is a multiplayer strategy game developed with Unity. In this project, players will develop their strategies to gain an advantage over their opponents. Strategic moves with different units and resource management will be crucial in the game.
+Flameborn is a multiplayer strategy game developed with Unity. In this project, players will develop their strategies to gain an advantage over their opponents. Strategic moves with different units and resource management will be crucial in the game.
 
 ## About the Project
 
-Flamebon aims to offer a unique gaming experience by combining deep strategic elements and multiplayer interaction. The project is still in development, and new features are continuously being added.
+Flameborn aims to offer a unique gaming experience by combining deep strategic elements and multiplayer interaction. The project is still in development, and new features are continuously being added.
 
 ## Development Log and Game Design Document
 
