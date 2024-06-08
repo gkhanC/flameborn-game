@@ -6,7 +6,7 @@
 
 ## Contents {#contents}
 
-1. [Game Overview](#game-overview)
+1. [Game Overview](#Game-Overview)
 2. [Gameplay Mechanics](#gameplay-mechanics)
    - [Player Movement](#player-movement)
    - [Character Selection](#character-selection)
@@ -23,7 +23,7 @@
 
 ---
 
-## 1. Game Overview {#game-overview}
+## 1. Game Overview
 Flameborn is a real-time multiplayer strategy game where players control a team of characters to gather resources and defend or attack campfires. The goal is to collect wood and use strategic commands to make your campfire bigger than your opponents'.
 
 ## 2. Gameplay Mechanics {#gameplay-mechanics}
