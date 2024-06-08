@@ -1,70 +1,68 @@
-# Game Design Document: Flameborn
-
-## Game Title: Flameborn
+## Game Design Document: Flameborn {#game-design-document}
 
 **Platform:** Mobile (iOS, Android)
 
 **Genre:** Real-Time Strategy (RTS), Multiplayer
 
-## Contents
+## Contents {#contents}
 
-1. Game Overview
-2. Gameplay Mechanics
-   - Player Movement
-   - Character Selection
-   - Command System
-3. Character Roles and Abilities
-   - Workers
-   - Soldiers
-4. Multiplayer Dynamics
-5. Resource Management
-6. User Interface (UI)
-7. Monetization Strategy
-8. Technical Specifications
-9. Art and Sound Design
+1. [Game Overview](#game-overview)
+2. [Gameplay Mechanics](#gameplay-mechanics)
+   - [Player Movement](#player-movement)
+   - [Character Selection](#character-selection)
+   - [Command System](#command-system)
+3. [Character Roles and Abilities](#character-roles-and-abilities)
+   - [Workers](#workers)
+   - [Soldiers](#soldiers)
+4. [Multiplayer Dynamics](#multiplayer-dynamics)
+5. [Resource Management](#resource-management)
+6. [User Interface (UI)](#user-interface-ui)
+7. [Monetization Strategy](#monetization-strategy)
+8. [Technical Specifications](#technical-specifications)
+9. [Art and Sound Design](#art-and-sound-design)
 
 ---
 
-## 1. Game Overview
+## 1. Game Overview {#game-overview}
 Flameborn is a real-time multiplayer strategy game where players control a team of characters to gather resources and defend or attack campfires. The goal is to collect wood and use strategic commands to make your campfire bigger than your opponents'.
 
-## 2. Gameplay Mechanics
+## 2. Gameplay Mechanics {#gameplay-mechanics}
 
-### Player Movement
+### Player Movement {#player-movement}
 - Players can drag the screen to move their view around the map.
 - Tap on a character to select it and activate command options.
 
-### Character Selection
+### Character Selection {#character-selection}
 - Players can select characters by tapping on them.
 - When a character is selected, an action menu with various commands appears.
 
-### Command System
+### Command System {#command-system}
 - **Idle:** The character stands still.
 - **Gather Resources:** The character gathers nearby resources (wood).
 - **Defense Mode:** (Soldiers only) The character defends the campfire.
 - **Attack Mode:** (Soldiers only) The character attacks designated targets.
 
-## 3. Character Roles and Abilities
+## 3. Character Roles and Abilities {#character-roles-and-abilities}
 
-### Workers
+### Workers {#workers}
 - **Move:** Walk to a designated location.
 - **Gather Resources:** Collect wood from the nearest resource point.
 - **Auto-Gather:** Automatically gather resources within a certain range.
 - **Call:** Summon all workers to the player's current screen location.
 
-### Soldiers
+### Soldiers {#soldiers}
 - **Defend Campfire:** Protect the campfire from enemy attacks.
 - **Attack Enemy Character:** Fight with a selected enemy character.
 - **Attack Enemy Campfire:** Target and damage the enemy campfire.
 - **Move:** Walk to a designated location.
 - **Guard Area:** Protect a specific area from enemy entry.
 
-## 4. Multiplayer Dynamics
+## 4. Multiplayer Dynamics {#multiplayer-dynamics}
 - **Real-Time Strategy:** Players compete in real-time to grow their campfires by gathering resources and attacking opponents.
 - **Resource Competition:** Players must strategically gather wood from shared resource points.
 - **Campfire Battle:** The size of the campfire reflects the player's progress and strength. Attacks on enemy campfires reduce their size.
 
-## 5. Resource Management
+## 5. Resource Management {#resource-management}
 - **Wood:** The primary resource used to grow the campfire and upgrade units.
 
 ### Balance
@@ -76,7 +74,7 @@ Flameborn is a real-time multiplayer strategy game where players control a team 
 - **Create Worker:** Increase the number of workers to gather resources faster.
 - **Create Soldier:** Increase the number of soldiers for defense and attack.
 
-## 6. User Interface (UI)
+## 6. User Interface (UI) {#user-interface-ui}
 
 ### Main Screen
 - Drag to move the view around the map.
@@ -90,7 +88,7 @@ Flameborn is a real-time multiplayer strategy game where players control a team 
 - Shows the size and health of the campfire.
 - Displays available upgrades and current resource amount.
 
-## 7. Monetization Strategy
+## 7. Monetization Strategy {#monetization-strategy}
 
 ### In-App Purchases
 - Cosmetic skins for characters.
@@ -101,13 +99,13 @@ Flameborn is a real-time multiplayer strategy game where players control a team 
 - Optional video ads for rewards.
 - Banner ads on the main menu screen.
 
-## 8. Technical Specifications
+## 8. Technical Specifications {#technical-specifications}
 - **Engine:** Unity
 - **Supported Devices:** iOS 10.0+ and Android 5.0+
 - **Network:** Real-time multiplayer via P2P or dedicated servers
 - **Performance:** Optimized for smooth performance on mid-range mobile devices
 
-## 9. Art and Sound Design
+## 9. Art and Sound Design {#art-and-sound-design}
 
 ### Art Style
 - **Visuals:** Stylized, colorful graphics suitable for mobile screens.
