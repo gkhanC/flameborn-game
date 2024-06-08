@@ -6,7 +6,7 @@
 
 ## Contents {#contents}
 
-1. [Game Overview](#Game-Overview)
+1. [Game Overview](#1.-Game-Overview)
 2. [Gameplay Mechanics](#gameplay-mechanics)
    - [Player Movement](#player-movement)
    - [Character Selection](#character-selection)
