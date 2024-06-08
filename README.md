@@ -10,8 +10,8 @@ Flamebon aims to offer a unique gaming experience by combining deep strategic el
 
 You can follow our development process and design details from the links below:
 
-- [Development Log](#)
-- [Game Design Document](#)
+- [Development Log](https://github.com/gkhanC/flameborn-game/blob/dev/documents/diaries/daily-log.md)
+- [Game Design Document](https://github.com/gkhanC/flameborn-game/blob/dev/documents/game-desing-doc-flameborn.md)
 
 ## Contributing
 
