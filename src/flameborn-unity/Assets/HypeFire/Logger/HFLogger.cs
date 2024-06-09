@@ -3,6 +3,7 @@ using HF.Logger.CLogger;
 using UnityEngine.Events;
 using Object = UnityEngine.Object;
 using System;
+using HF.Logger.FileLogger;
 
 namespace HF.Logger
 {
@@ -23,7 +24,7 @@ namespace HF.Logger
         ///  </para>
         /// </para>
         /// </summary>
-        private static readonly CLog console_log = new CLog();
+        private static readonly CLog console_log = new CLog();        
 
         private static readonly Dictionary<Type, ILogType> _loggers = new Dictionary<Type, ILogType>();
 
