@@ -17,7 +17,8 @@ API keys are not included in the git repository. The API packages are located in
 
 You can follow our development process and design details from the links below:
 
-- [Development Log](https://github.com/gkhanC/flameborn-game/blob/dev/documents/diaries/daily-log.md)
+- [Daily](https://github.com/gkhanC/flameborn-game/blob/dev/documents/diaries/daily-log.md)
+- [Development Log](https://github.com/gkhanC/flameborn-game/blob/dev/logs/Logs.md)
 - [Game Design Document](https://github.com/gkhanC/flameborn-game/blob/dev/documents/game-desing-doc-flameborn.md)
 - [Architecture Diagram](https://github.com/gkhanC/flameborn-game/blob/dev/images/Architecture%20Diagram.png)
 

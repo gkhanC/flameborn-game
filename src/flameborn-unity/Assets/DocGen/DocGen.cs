@@ -6,6 +6,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEditor;
 
+using Flameborn;
+using Flameborn.Configurations;
+using Flameborn.Manager;
+using Flameborn.PlayFab;
+using Flameborn.User;
+
 namespace MADD
 {
     #region utility classes
@@ -167,7 +173,7 @@ namespace MADD
 
             var centeredStyle = GUI.skin.GetStyle("Label");
             centeredStyle.alignment = TextAnchor.MiddleCenter;
-            GUILayout.Label(_logo, centeredStyle,GUILayout.MaxHeight(200), GUILayout.MinHeight(10), GUILayout.MaxWidth(200), GUILayout.MinWidth(10));
+            GUILayout.Label(_logo, centeredStyle, GUILayout.MaxHeight(200), GUILayout.MinHeight(10), GUILayout.MaxWidth(200), GUILayout.MinWidth(10));
 
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
