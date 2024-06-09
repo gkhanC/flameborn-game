@@ -1,20 +1,38 @@
 using System;
 using System.IO;
-using HF.Logger;
+using MADD;
 using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Flameborn.Configurations
 {
+    /// <summary>
+    /// Controller for managing PlayFab configuration.
+    /// </summary>
+    [Docs("Controller for managing PlayFab configuration.")]
     public class PlayFabConfigurationController : ConfigurationController<PlayFabConfiguration>, IConfigurationController<PlayFabConfiguration>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayFabConfigurationController"/> class with the specified configuration.
+        /// </summary>
+        /// <param name="configuration">The configuration instance.</param>
+        [Docs("Initializes a new instance of the PlayFabConfigurationController class with the specified configuration.")]
         public PlayFabConfigurationController(IConfiguration configuration) : base(configuration)
         {
         }
 
+        /// <summary>
+        /// Loads the PlayFab configuration.
+        /// </summary>
+        /// <param name="errorLog">Outputs an error log if the load fails.</param>
+        /// <returns>True if the configuration was loaded successfully, otherwise false.</returns>
+        [Docs("Loads the PlayFab configuration and outputs an error log if it fails.")]
         public override bool LoadConfiguration(out string errorLog)
         {
-            base.LoadConfiguration(out errorLog);
+            if (!base.LoadConfiguration(out errorLog))
+            {
+                return false;
+            }
 
             string json = File.ReadAllText(Configuration.ConfigurationFilePath);
             PlayFabConfiguration fabConfiguration = JsonConvert.DeserializeObject<PlayFabConfiguration>(json);
@@ -22,19 +40,23 @@ namespace Flameborn.Configurations
 
             if (String.IsNullOrEmpty(fabConfiguration.TitleId))
             {
-                errorLog = $"Title Id is not found, Please check configuration file.";
+                errorLog = "Title Id is not found, please check the configuration file.";
                 return false;
             }
 
             errorLog = string.Empty;
             return true;
-
         }
 
+        /// <summary>
+        /// Saves the PlayFab configuration.
+        /// </summary>
+        /// <param name="errorLog">Outputs an error log if the save fails.</param>
+        /// <param name="config">The configuration to save.</param>
+        /// <returns>True if the configuration was saved successfully, otherwise false.</returns>
+        [Docs("Saves the PlayFab configuration and outputs an error log if it fails.")]
         public override bool SaveConfiguration(out string errorLog, PlayFabConfiguration config)
         {
-            base.SaveConfiguration(out errorLog, config);
-
             errorLog = String.Empty;
             var isCompleted = false;
 

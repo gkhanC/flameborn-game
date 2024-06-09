@@ -261,3 +261,40 @@ Parameter name: path
 
 [00:07][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
 
+# FileLogger Initialized at 10.06.2024 00:48
+[00:48][ SUCCESS ]: NullObject => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:48][ LOG ]: GameManager => Start Game from PlayFabTestScene
+
+[00:48][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:48][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:48][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+[00:48][ ERROR ]: PlayFabManager => Configuration file update error => PlayFabConfiguration is not found. Please check the configuration file at C:/Users/gkhan/Documents/Development/Games/flameborn-game/src/flameborn-unity/Assets/StreamingAssets.
+
+# FileLogger Initialized at 10.06.2024 00:50
+[00:50][ SUCCESS ]: NullObject => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:50][ LOG ]: GameManager => Start Game from PlayFabTestScene
+
+[00:50][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:50][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:50][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+[00:50][ ERROR ]: PlayFabManager => Configuration file update error => PlayFabConfiguration is not found. Please check the configuration file at C:/Users/gkhan/Documents/Development/Games/flameborn-game/src/flameborn-unity/Assets/StreamingAssets.
+
+# FileLogger Initialized at 10.06.2024 00:51
+[00:51][ SUCCESS ]: NullObject => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:51][ LOG ]: GameManager => Start Game from PlayFabTestScene
+
+[00:51][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:51][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:51][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
