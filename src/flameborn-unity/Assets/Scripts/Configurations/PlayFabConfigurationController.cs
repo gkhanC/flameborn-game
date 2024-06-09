@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using MADD;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -9,14 +8,12 @@ namespace Flameborn.Configurations
     /// <summary>
     /// Controller for managing PlayFab configuration.
     /// </summary>
-    [Docs("Controller for managing PlayFab configuration.")]
     public class PlayFabConfigurationController : ConfigurationController<PlayFabConfiguration>, IConfigurationController<PlayFabConfiguration>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayFabConfigurationController"/> class with the specified configuration.
         /// </summary>
         /// <param name="configuration">The configuration instance.</param>
-        [Docs("Initializes a new instance of the PlayFabConfigurationController class with the specified configuration.")]
         public PlayFabConfigurationController(IConfiguration configuration) : base(configuration)
         {
         }
@@ -26,7 +23,6 @@ namespace Flameborn.Configurations
         /// </summary>
         /// <param name="errorLog">Outputs an error log if the load fails.</param>
         /// <returns>True if the configuration was loaded successfully, otherwise false.</returns>
-        [Docs("Loads the PlayFab configuration and outputs an error log if it fails.")]
         public override bool LoadConfiguration(out string errorLog)
         {
             if (!base.LoadConfiguration(out errorLog))
@@ -54,7 +50,6 @@ namespace Flameborn.Configurations
         /// <param name="errorLog">Outputs an error log if the save fails.</param>
         /// <param name="config">The configuration to save.</param>
         /// <returns>True if the configuration was saved successfully, otherwise false.</returns>
-        [Docs("Saves the PlayFab configuration and outputs an error log if it fails.")]
         public override bool SaveConfiguration(out string errorLog, PlayFabConfiguration config)
         {
             errorLog = String.Empty;
