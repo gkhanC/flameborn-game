@@ -24,7 +24,7 @@ namespace HF.Logger
         ///  </para>
         /// </para>
         /// </summary>
-        private static readonly CLog console_log = new CLog();        
+        private static readonly CLog console_log = new CLog();
 
         private static readonly Dictionary<Type, ILogType> _loggers = new Dictionary<Type, ILogType>();
 
@@ -255,6 +255,12 @@ namespace HF.Logger
             log_success.AddListener(logType.LogSuccess);
             log_validate.AddListener(logType.LogValidate);
 
+            log_obj.AddListener(logType.Log);
+            log_error_obj.AddListener(logType.LogError);
+            log_warning_obj.AddListener(logType.LogWarning);
+            log_success_obj.AddListener(logType.LogSuccess);
+            log_validate_obj.AddListener(logType.LogValidate);
+
             logType.Init();
 
             msg = $"{logType.GetType()} added on HFLogger.";
@@ -287,6 +293,12 @@ namespace HF.Logger
             log_warning.RemoveListener(logType.LogWarning);
             log_success.RemoveListener(logType.LogSuccess);
             log_validate.RemoveListener(logType.LogValidate);
+
+            log_obj.RemoveListener(logType.Log);
+            log_error_obj.RemoveListener(logType.LogError);
+            log_warning_obj.RemoveListener(logType.LogWarning);
+            log_success_obj.RemoveListener(logType.LogSuccess);
+            log_validate_obj.RemoveListener(logType.LogValidate);
 
             logType.Kill();
 
