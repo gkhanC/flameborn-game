@@ -1916,3 +1916,55 @@ Don't use this function in the constructor or field initializers, instead move i
 
 [00:15][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
 
+# FileLogger Initialized at 12.06.2024 01:11
+[01:11][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:11][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:11][ ERROR ]: GameManager => No internet connection.
+
+[01:11][ LOG ]: GameManager => Game stop.
+
+# FileLogger Initialized at 12.06.2024 01:12
+[01:12][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:12][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:12][ ERROR ]: GameManager => No internet connection.
+
+[01:12][ LOG ]: GameManager => Game stop.
+
+# FileLogger Initialized at 12.06.2024 01:12
+[01:12][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:12][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:12][ ERROR ]: GameManager => No internet connection.
+
+[01:12][ LOG ]: GameManager => Game stop.
+
+# FileLogger Initialized at 12.06.2024 01:13
+[01:13][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:13][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:13][ SUCCESS ]: GameManager => Game running.
+
+[01:13][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[01:13][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[01:13][ WARNING ]: AzureManager => User email not found.
+
+[01:13][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[01:13][ SUCCESS ]: CheckDeviceIdResponse => Response saved. success: True
+
+[01:13][ LOG ]: CheckDeviceIdResponse => Device is found.
+
+[01:13][ WARNING ]: AzureManager => User email not found.
+
+[01:13][ LOG ]: PlayFabLogin => Login process completed.
+
+[01:13][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
