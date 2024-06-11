@@ -1,15 +1,25 @@
+using Flameborn.UI;
 using HF.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Scene = UnityEngine.SceneManagement.Scene;
 
-namespace Flameborn.Manager
+namespace Flameborn.Managers
 {
     /// <summary>
     /// Manages the user interface elements and their interactions.
     /// </summary>
     public class UIManager : MonoBehaviour
     {
+        [field: SerializeField]
+        public LoadingUIController LoadingUIController { get; private set; }
+
+        [field: SerializeField]
+        public MainMenuUIController MainMenuUIController { get; private set; }
+
+        [field: SerializeField]
+        public UIAlertController AlertController { get; private set; }
+
         /// <summary>
         /// Singleton instance of UIManager.
         /// </summary>
@@ -38,7 +48,8 @@ namespace Flameborn.Manager
         /// <param name="mode">The mode in which the scene was loaded.</param>
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            // Implementation of scene loading logic goes here.
+            LoadingUIController.CloseAll();
+            MainMenuUIController.CloseAll();
         }
 
         /// <summary>

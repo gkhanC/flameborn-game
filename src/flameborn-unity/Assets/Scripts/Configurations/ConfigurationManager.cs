@@ -1,4 +1,7 @@
+using System;
 using System.IO;
+using System.Threading.Tasks;
+using Flameborn.Managers;
 using HF.Extensions;
 using HF.Logger;
 using UnityEngine;
@@ -11,10 +14,12 @@ namespace Flameborn.Configurations
     /// </summary>
     public class ConfigurationManager : MonoBehaviour, IConfigurationManager
     {
+        private bool isAzureConfLoaded, isPlayFabConfLoaded;
+
         /// <summary>
         /// Indicates if the configuration is loaded.
         /// </summary>
-        private bool isLoaded;
+        public bool isLoaded => isAzureConfLoaded && isPlayFabConfLoaded;
 
         /// <summary>
         /// Singleton instance of the ConfigurationManager.
@@ -25,22 +30,34 @@ namespace Flameborn.Configurations
         /// Controller for PlayFab configuration.
         /// </summary>
         public PlayFabConfigurationController playFabConfigurationController { get; private set; }
+        public AzureConfigurationController azureConfigurationController { get; private set; }
 
         /// <summary>
         /// Event triggered when the configuration is loaded.
         /// </summary>
-        private UnityEvent<PlayFabConfiguration> OnConfigurationLoad { get; set; } = new UnityEvent<PlayFabConfiguration>();
+        private UnityEvent<PlayFabConfiguration> OnConfigurationLoadPlayFabEvent { get; set; } = new UnityEvent<PlayFabConfiguration>();
+        private UnityEvent<AzureConfiguration> OnConfigurationLoadAzureEvent { get; set; } = new UnityEvent<AzureConfiguration>();
 
         /// <summary>
         /// Subscribes to the OnConfigurationLoad event.
         /// </summary>
         /// <param name="onConfigurationLoad">The action to perform when the configuration is loaded.</param>
-        public void SubscribeOnConfigurationLoad(UnityAction<PlayFabConfiguration> onConfigurationLoad)
+        public void SubscribeOnConfigurationLoadPlayFabEvent(UnityAction<PlayFabConfiguration> onConfigurationLoad)
         {
-            OnConfigurationLoad.AddListener(onConfigurationLoad);
-            if (isLoaded)
+            OnConfigurationLoadPlayFabEvent.AddListener(onConfigurationLoad);
+            if (isPlayFabConfLoaded)
             {
                 var conf = playFabConfigurationController.Configuration as PlayFabConfiguration;
+                onConfigurationLoad.Invoke(conf);
+            }
+        }
+
+        public void SubscribeOnConfigurationLoadAzureEvent(UnityAction<AzureConfiguration> onConfigurationLoad)
+        {
+            OnConfigurationLoadAzureEvent.AddListener(onConfigurationLoad);
+            if (isAzureConfLoaded)
+            {
+                var conf = azureConfigurationController.Configuration as AzureConfiguration;
                 onConfigurationLoad.Invoke(conf);
             }
         }
@@ -59,19 +76,89 @@ namespace Flameborn.Configurations
         public void Start()
         {
             playFabConfigurationController = new PlayFabConfigurationController(new PlayFabConfiguration(Path.Combine(Application.streamingAssetsPath, "PlayFabConfiguration.json")));
+            azureConfigurationController = new AzureConfigurationController(new AzureConfiguration(Path.Combine(Application.streamingAssetsPath, "AzureConfiguration.json")));
 
-            if (!playFabConfigurationController.LoadConfiguration(out var errorLog))
+            if (GameManager.Instance.IsNull() || GameManager.Instance.gameObject.IsNull())
             {
-                HFLogger.LogError(playFabConfigurationController, errorLog);
+                HFLogger.LogError(GameManager.Instance, "Game Manager instance is null.");
+                Application.Quit();
+                return;
             }
-            else
+
+            GameManager.Instance.SubscribeOnGameRunningEvent(this.OnGameRunningEvent);
+        }
+
+        public void OnGameRunningEvent(bool isRunning)
+        {
+            if (isRunning)
             {
-                HFLogger.LogSuccess(playFabConfigurationController, "PlayFab Configurations loaded.");
-                isLoaded = true;
-                var conf = playFabConfigurationController.Configuration as PlayFabConfiguration;
-                OnConfigurationLoad.Invoke(conf);
+                LoadConf();
             }
         }
+
+        private async void LoadConf()
+        {
+            try
+            {
+                // Load Azure configuration asynchronously
+                string azureErrorLog = await Task.Run(() =>
+                {
+                    if (!azureConfigurationController.LoadConfiguration(out var errorLog))
+                    {
+                        UIManager.Instance.AlertController.ShowCriticalError("error");
+                        return errorLog;
+                    }
+                    return null;
+                });
+
+                // Process Azure configuration result on the main thread
+                if (!string.IsNullOrEmpty(azureErrorLog))
+                {
+                    HFLogger.LogError(azureConfigurationController, azureErrorLog);
+                    UIManager.Instance.AlertController.ShowCriticalError("error");
+                }
+                else
+                {
+                    HFLogger.LogSuccess(azureConfigurationController, "Azure Configurations loaded.");
+                    isAzureConfLoaded = true;
+                    var confA = azureConfigurationController.Configuration as AzureConfiguration;
+
+                    OnConfigurationLoadAzureEvent?.Invoke(confA);
+                }
+
+                // Load PlayFab configuration asynchronously
+                string playFabErrorLog = await Task.Run(() =>
+                {
+                    if (!playFabConfigurationController.LoadConfiguration(out var errorLog))
+                    {
+                        UIManager.Instance.AlertController.ShowCriticalError("error");
+                        return errorLog;
+                    }
+                    return null;
+                });
+
+                // Process PlayFab configuration result on the main thread
+                if (!string.IsNullOrEmpty(playFabErrorLog))
+                {
+                    UIManager.Instance.AlertController.ShowCriticalError("error");
+                    HFLogger.LogError(playFabConfigurationController, playFabErrorLog);
+                }
+                else
+                {
+                    HFLogger.LogSuccess(playFabConfigurationController, "PlayFab Configurations loaded.");
+                    isPlayFabConfLoaded = true;
+                    var confP = playFabConfigurationController.Configuration as PlayFabConfiguration;
+                    OnConfigurationLoadPlayFabEvent?.Invoke(confP);
+                }
+            }
+            catch (Exception ex)
+            {
+                UIManager.Instance.AlertController.ShowCriticalError("error");
+                HFLogger.LogError(ex, ex.Message);
+            }
+        }
+
+
 
         /// <summary>
         /// Called when the object becomes enabled and active.

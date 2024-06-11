@@ -243,7 +243,7 @@ namespace HF.Logger
             if (logType.GetType() == console_log.GetType() || _loggers.ContainsKey(logType.GetType()))
             {
                 msg = $"HFLogger has a {logType.GetType()}. You can not add any LogType multiple times.";
-                LogWarning(null, msg);
+                LogWarning(logType, msg);
                 return;
             }
 
@@ -264,7 +264,7 @@ namespace HF.Logger
             logType.Init();
 
             msg = $"{logType.GetType()} added on HFLogger.";
-            LogSuccess(null, msg);
+            LogSuccess(logType, msg);
         }
 
         /// <summary>

@@ -11,9 +11,19 @@ namespace Flameborn.User
         bool IsRegistered { get; }
 
         /// <summary>
+        /// Gets a value indicating whether the user device is registered.
+        /// </summary>
+        bool IsDeviceRegistered { get; }
+
+        /// <summary>
         /// Gets the user's email address.
         /// </summary>
         string EMail { get; }
+
+        // <summary>
+        /// Gets or sets the user's password.
+        /// </summary>
+        string Password { get; }
 
         /// <summary>
         /// Gets the user's username.
@@ -25,9 +35,7 @@ namespace Flameborn.User
         /// </summary>
         string DeviceId { get; }
 
-        /// <summary>
-        /// Gets the count of how many times the application has been launched.
-        /// </summary>
         int LaunchCount { get; }
+        int Rating { get; }
     }
 }

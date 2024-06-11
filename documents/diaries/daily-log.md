@@ -22,3 +22,23 @@
 - PlayFab üzerinde user register işlemleri için kullanıcının, ilk oyununu bitirmesini veya 2.kez oyunu başlatmasını bekleyecek şekilde yapılandıracağım.
 
 # [3.Gün] [10/06/2024] PlayFab User Register
+- Azure portal üzerinde tablo oluşturdum
+- Device temelli deneysel bir register sistemi kurguladım tabloyu buna uygun olarak şekillendirdim. 
+    Tablo şunları içerir:
+        - DeviceId
+        - EMail
+        - LaunchCount
+        - Password
+        - Rating
+        - UserName
+- Register olan kullanıcılar bu bilgilerle azure'da kayıt edilicek.
+- Tabloda ki veriler üzerinde crud işlemleri yapabilmem için Azure Functionları oluşturdum.
+- [Function](https://github.com/gkhanC/flameborn-game/tree/playfab-register/AzureCode) source kodu [buarda](https://github.com/gkhanC/flameborn-game/tree/playfab-register/AzureCode).
+- Functionları power shell kullanarak test ettim.
+- Azure API oluşturmak için Unity'de logic'i şekillendirdim.
+- Azure functionların bağlantı adresini tutan Azure Configuration dosyasını json formatında oluşturdum. Dosya değişiklikleri git tarafından izlenmeyecek şekilde ayarlandı.
+- [Configuration](https://github.com/gkhanC/flameborn-game/blob/playfab-register/src/flameborn-unity/Assets/StreamingAssets/AzureConfiguration.json) dosyası [buarada](https://github.com/gkhanC/flameborn-game/blob/playfab-register/src/flameborn-unity/Assets/StreamingAssets/AzureConfiguration.json) dosyanın sizin functionlarınıza göre doldurulması gerekir.
+- Dosyadaki değişkenlerin isimlerini sonra düzenleyeceğim.
+
+# [4.Gün] [11/06/2024] Azure Configurasyonlarını Tamamla
+

@@ -1,3 +1,5 @@
+using Flameborn.Configurations;
+
 namespace Flameborn.PlayFab.Abstract
 {
     /// <summary>
@@ -10,6 +12,6 @@ namespace Flameborn.PlayFab.Abstract
         /// </summary>
         /// <param name="logMessage">Outputs a log message indicating the result of the login attempt.</param>
         /// <returns>True if the login was successful, otherwise false.</returns>
-        bool Login(out string logMessage);
+        bool Login(out string logMessage, PlayFabConfiguration config);
     }
 }

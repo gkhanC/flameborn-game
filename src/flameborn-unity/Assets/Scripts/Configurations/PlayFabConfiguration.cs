@@ -11,12 +11,7 @@ namespace Flameborn.Configurations
         /// <summary>
         /// Gets or sets the Title ID for PlayFab.
         /// </summary>
-        public string TitleId { get; set; } = String.Empty;
-
-        /// <summary>
-        /// Gets or sets the user data.
-        /// </summary>
-        public UserData UserData { get; set; } = new UserData();
+        public string TitleId { get; set; } = String.Empty;       
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayFabConfiguration"/> class with the specified configuration path.

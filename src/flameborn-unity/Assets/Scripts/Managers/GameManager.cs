@@ -2,9 +2,10 @@ using HF.Extensions;
 using HF.Logger;
 using HF.Logger.FileLogger;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-namespace Flameborn.Manager
+namespace Flameborn.Managers
 {
     /// <summary>
     /// This class manages the game lifecycle and logging.
@@ -22,10 +23,16 @@ namespace Flameborn.Manager
         /// </summary>
         public static GameManager Instance { get; private set; }
 
+        private bool isInternetConnected;
+
         /// <summary>
         /// File logger instance.
         /// </summary>
         private FileLog fileLog;
+
+
+        public bool IsGameRunning { get; private set; } = false;
+        private UnityEvent<bool> OnGameRunning { get; set; } = new UnityEvent<bool>();
 
         /// <summary>
         /// Called when the script instance is being loaded.
@@ -43,6 +50,34 @@ namespace Flameborn.Manager
         private void Start()
         {
             HFLogger.Log(this, $"Start Game from {SceneManager.GetActiveScene().name}");
+            CheckInternetConnection();
+
+            if (isInternetConnected)
+                GameStart();
+        }
+
+        public void SubscribeOnGameRunningEvent(UnityAction<bool> onGameRunningEvent)
+        {
+            OnGameRunning.AddListener(onGameRunningEvent);
+            onGameRunningEvent.Invoke(IsGameRunning);
+        }
+
+        public void GameStart() { IsGameRunning = true; OnGameRunning.Invoke(IsGameRunning); HFLogger.LogSuccess(this, "Game running."); }
+        public void GameStop() { IsGameRunning = false; OnGameRunning.Invoke(IsGameRunning); HFLogger.Log(this, "Game stop."); }
+
+        private void CheckInternetConnection()
+        {
+
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                isInternetConnected = false;
+                HFLogger.LogError(this, "No internet connection.");
+                UIManager.Instance.AlertController.ShowNetworkError();
+                GameStop();
+                return;
+            }
+
+            isInternetConnected = true;
         }
 
         /// <summary>
