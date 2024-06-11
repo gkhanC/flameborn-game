@@ -1,7 +1,9 @@
 namespace Flameborn.PlayFab
 {
     using System;
+    using Flameborn.Azure;
     using Flameborn.Configurations;
+    using Flameborn.Managers;
     using global::PlayFab;
     using global::PlayFab.ClientModels;
     using HF.Extensions;
@@ -69,7 +71,23 @@ namespace Flameborn.PlayFab
         {
             onLoginFailure = new Action<PlayFabError>(this.OnLoginFailure);
             onLoginSuccess = new Action<LoginResult>(this.OnLoginSuccess);
-            ConfigurationManager.Instance.SubscribeOnConfigurationLoad(OnConfigurationLoaded);
+
+            if (ConfigurationManager.Instance.IsNull() || ConfigurationManager.Instance.gameObject.IsNull())
+            {
+                HFLogger.LogError(ConfigurationManager.Instance, "Configuration Manager instance is null.");
+                Application.Quit();
+                return;
+            }
+
+            if (AzureManager.Instance.IsNull() || AzureManager.Instance.gameObject.IsNull())
+            {
+                HFLogger.LogError(ConfigurationManager.Instance, "Azure Manager instance is null.");
+                Application.Quit();
+                return;
+            }
+
+            AzureManager.Instance.SubscribeOnUserDataLoadCompleted(OnUserDataCompleted);
+            ConfigurationManager.Instance.SubscribeOnConfigurationLoadPlayFabEvent(OnConfigurationLoaded);
         }
 
         /// <summary>
@@ -92,7 +110,7 @@ namespace Flameborn.PlayFab
         {
             var loginObj = new PlayFabLogin(new PlayFabLoginData(true, SystemInfo.deviceUniqueIdentifier, ref onLoginSuccess, ref onLoginFailure));
 
-            if (loginObj.Login(out string logMessage))
+            if (loginObj.Login(out string logMessage, config))
             {
                 HFLogger.Log(loginObj, "Login process completed.");
             }
@@ -100,6 +118,11 @@ namespace Flameborn.PlayFab
             {
                 HFLogger.Log(loginObj, "Login process did not complete.");
             }
+        }
+
+        public void OnUserDataCompleted()
+        {
+            Login(config);
         }
 
         /// <summary>
@@ -110,7 +133,6 @@ namespace Flameborn.PlayFab
         {
             this.config = configuration;
             CheckPlayFabTitleId(configuration.TitleId);
-            Login(configuration);
         }
 
         /// <summary>
@@ -132,18 +154,15 @@ namespace Flameborn.PlayFab
         {
             HFLogger.LogSuccess(loginResult, "Device login: " + loginResult.PlayFabId);
 
-            if (!config.UserData.IsRegistered)
+            if (!UserManager.Instance.currentUserData.IsRegistered)
             {
-                config.UserData.EMail = string.Empty;
-                config.UserData.UserName = "#" + loginResult.PlayFabId.Substring(0, 4);
-                config.UserData.DeviceId = SystemInfo.deviceUniqueIdentifier;
-                config.UserData.LaunchCount += 1;
-
-                if (!ConfigurationManager.Instance.playFabConfigurationController.SaveConfiguration(out var errorLog, config))
-                {
-                    HFLogger.LogError(this, "Configuration file update error => " + errorLog);
-                }
+                UserManager.Instance.currentUserData.EMail = string.Empty;
+                UserManager.Instance.currentUserData.UserName = "#" + loginResult.PlayFabId.Substring(0, 4);
+                UserManager.Instance.currentUserData.DeviceId = SystemInfo.deviceUniqueIdentifier;
             }
+
+            isLogin = true;
+            LoginSuccess.Invoke();
         }
 
         /// <summary>
