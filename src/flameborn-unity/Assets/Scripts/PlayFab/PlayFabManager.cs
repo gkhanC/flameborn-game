@@ -86,7 +86,7 @@ namespace Flameborn.PlayFab
                 return;
             }
 
-            AzureManager.Instance.SubscribeOnUserDataLoadCompleted(OnUserDataCompleted);
+            AzureManager.Instance.SubscribeOnUserDataLoadCompleted(OnUserDataLoadCompleted);
             ConfigurationManager.Instance.SubscribeOnConfigurationLoadPlayFabEvent(OnConfigurationLoaded);
         }
 
@@ -120,7 +120,7 @@ namespace Flameborn.PlayFab
             }
         }
 
-        public void OnUserDataCompleted()
+        public void OnUserDataLoadCompleted()
         {
             Login(config);
         }
@@ -152,7 +152,7 @@ namespace Flameborn.PlayFab
         /// <param name="loginResult">The result of the login operation.</param>
         private void OnLoginSuccess(LoginResult loginResult)
         {
-            HFLogger.LogSuccess(loginResult, "Device login: " + loginResult.PlayFabId);
+            HFLogger.LogSuccess(loginResult, "Device login: " + loginResult.PlayFabId ) ;
 
             if (!UserManager.Instance.currentUserData.IsRegistered)
             {

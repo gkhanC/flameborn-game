@@ -1968,3 +1968,253 @@ Don't use this function in the constructor or field initializers, instead move i
 
 [01:13][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
 
+# FileLogger Initialized at 12.06.2024 01:33
+[01:33][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:33][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:33][ SUCCESS ]: GameManager => Game running.
+
+[01:33][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[01:33][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[01:33][ WARNING ]: AzureManager => User email not found.
+
+[01:33][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[01:33][ SUCCESS ]: CheckDeviceIdResponse => Response saved. success: True
+
+[01:33][ LOG ]: CheckDeviceIdResponse => Device is found.
+
+[01:33][ WARNING ]: AzureManager => User email not found.
+
+[01:33][ LOG ]: PlayFabLogin => Login process completed.
+
+[01:33][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+# FileLogger Initialized at 12.06.2024 01:37
+[01:37][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:37][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:37][ SUCCESS ]: GameManager => Game running.
+
+[01:37][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[01:37][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[01:37][ WARNING ]: AzureManager => User email not found.
+
+[01:37][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[01:37][ SUCCESS ]: CheckDeviceIdResponse => Response saved. success: True
+
+[01:37][ LOG ]: CheckDeviceIdResponse => Device is found.
+
+[01:37][ WARNING ]: AzureManager => User email not found.
+
+# FileLogger Initialized at 12.06.2024 01:40
+[01:40][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:40][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:40][ SUCCESS ]: GameManager => Game running.
+
+[01:40][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[01:40][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[01:40][ WARNING ]: AzureManager => User email not found.
+
+[01:40][ LOG ]: PlayFabLogin => Login process completed.
+
+[01:40][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[01:40][ SUCCESS ]: CheckDeviceIdResponse => Response saved. success: True
+
+[01:40][ LOG ]: CheckDeviceIdResponse => Device is found.
+
+[01:40][ WARNING ]: AzureManager => User email not found.
+
+[01:40][ LOG ]: PlayFabLogin => Login process completed.
+
+[01:40][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+[01:40][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+# FileLogger Initialized at 12.06.2024 01:41
+[01:41][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:41][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:41][ SUCCESS ]: GameManager => Game running.
+
+[01:41][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[01:41][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[01:41][ WARNING ]: AzureManager => User email not found.
+
+[01:41][ LOG ]: PlayFabLogin => Login process completed.
+
+[01:41][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[01:41][ SUCCESS ]: CheckDeviceIdResponse => Response saved. success: True
+
+[01:41][ LOG ]: CheckDeviceIdResponse => Device is found.
+
+[01:41][ WARNING ]: AzureManager => User email not found.
+
+[01:41][ LOG ]: PlayFabLogin => Login process completed.
+
+[01:41][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+[01:41][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+# FileLogger Initialized at 12.06.2024 01:45
+[01:45][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:45][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:45][ SUCCESS ]: GameManager => Game running.
+
+[01:45][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[01:45][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[01:45][ WARNING ]: AzureManager => User email not found.
+
+[01:45][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[01:45][ SUCCESS ]: CheckDeviceIdResponse => Response saved. success: True
+
+[01:45][ LOG ]: CheckDeviceIdResponse => Device is found.
+
+[01:45][ WARNING ]: AzureManager => User email not found.
+
+# FileLogger Initialized at 12.06.2024 01:46
+[01:46][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[01:46][ LOG ]: GameManager => Start Game from LoadingScene
+
+[01:46][ SUCCESS ]: GameManager => Game running.
+
+[01:46][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[01:46][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[01:46][ WARNING ]: AzureManager => User email not found.
+
+[01:46][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[01:46][ SUCCESS ]: CheckDeviceIdResponse => Response saved. success: True
+
+[01:46][ LOG ]: CheckDeviceIdResponse => Device is found.
+
+[01:46][ WARNING ]: AzureManager => User email not found.
+
+[01:46][ LOG ]: PlayFabLogin => Login process completed.
+
+[01:46][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+# FileLogger Initialized at 12.06.2024 03:38
+[03:38][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[03:38][ LOG ]: GameManager => Start Game from LoadingScene
+
+[03:38][ SUCCESS ]: GameManager => Game running.
+
+[03:38][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[03:38][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[03:38][ WARNING ]: AzureManager => User email not found.
+
+[03:38][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[03:38][ SUCCESS ]: ValidateDeviceIdResponse => Response saved. success: True
+
+[03:38][ LOG ]: ValidateDeviceIdResponse => Device is found.
+
+[03:38][ WARNING ]: AzureManager => User email not found.
+
+[03:38][ LOG ]: PlayFabLogin => Login process completed.
+
+[03:38][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+# FileLogger Initialized at 12.06.2024 04:28
+[04:28][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[04:28][ LOG ]: GameManager => Start Game from LoadingScene
+
+[04:28][ SUCCESS ]: GameManager => Game running.
+
+[04:28][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[04:28][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[04:28][ WARNING ]: AzureManager => User email not found.
+
+[04:28][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[04:28][ SUCCESS ]: ValidateDeviceIdResponse => Response saved. Success: True
+
+[04:28][ LOG ]: ValidateDeviceIdResponse => Device is found.
+
+[04:28][ WARNING ]: AzureManager => User email not found.
+
+[04:28][ LOG ]: PlayFabLogin => Login process completed.
+
+[04:28][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+# FileLogger Initialized at 12.06.2024 04:33
+[04:33][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[04:33][ LOG ]: GameManager => Start Game from LoadingScene
+
+[04:33][ SUCCESS ]: GameManager => Game running.
+
+[04:33][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[04:33][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[04:33][ WARNING ]: AzureManager => User email not found.
+
+[04:33][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[04:33][ SUCCESS ]: ValidateDeviceIdResponse => Response saved. Success: True
+
+[04:33][ LOG ]: ValidateDeviceIdResponse => Device is found.
+
+[04:33][ WARNING ]: AzureManager => User email not found.
+
+[04:33][ LOG ]: PlayFabLogin => Login process completed.
+
+[04:33][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
+# FileLogger Initialized at 12.06.2024 04:37
+[04:37][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[04:37][ LOG ]: GameManager => Start Game from LoadingScene
+
+[04:37][ SUCCESS ]: GameManager => Game running.
+
+[04:37][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[04:37][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[04:37][ WARNING ]: AzureManager => User email not found.
+
+[04:37][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[04:37][ SUCCESS ]: ValidateDeviceIdResponse => Response saved. Success: True
+
+[04:37][ LOG ]: ValidateDeviceIdResponse => Device is found.
+
+[04:37][ WARNING ]: AzureManager => User email not found.
+
+[04:37][ LOG ]: PlayFabLogin => Login process completed.
+
+[04:37][ SUCCESS ]: LoginResult => Device login: 681BFE99A8F12E7F
+
