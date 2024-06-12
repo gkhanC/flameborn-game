@@ -4,10 +4,13 @@ using Newtonsoft.Json;
 namespace Flameborn.Azure
 {
     [Serializable]
-    internal class UpdateRatingResponse
+    public class UpdateUserPasswordResponse
     {
         [JsonProperty("success")]
         public bool Success { get; set; }
+
+        [JsonProperty("password")]
+        public string Password { get; set; }
 
         [JsonProperty("message")]
         public string Message { get; set; }

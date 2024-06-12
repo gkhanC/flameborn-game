@@ -8,13 +8,13 @@ namespace Flameborn.Configurations
         public string AddDeviceDataFunctionConnection { get; set; } = string.Empty;
 
         [field: SerializeField]
-        public string CheckDeviceDataLoginConnection { get; set; } = string.Empty;
+        public string ValidateUserPassword { get; set; } = string.Empty;
 
         [field: SerializeField]
-        public string CheckDeviceIdAndEmailFunctionConnection { get; set; } = string.Empty;
+        public string ValidateUserEmailFunctionConnection { get; set; } = string.Empty;
 
         [field: SerializeField]
-        public string CheckDeviceIdFunctionConnection { get; set; } = string.Empty;
+        public string ValidateDeviceIdFunctionConnection { get; set; } = string.Empty;
 
         [field: SerializeField]
         public string GetLaunchCountFunctionConnection { get; set; } = string.Empty;
@@ -30,6 +30,7 @@ namespace Flameborn.Configurations
 
         [field: SerializeField]
         public string UpdateRatingFunctionConnection { get; set; } = string.Empty;
+        public string UpdateUserPasswordFunctionConnection { get; set; } = string.Empty;
 
 
 

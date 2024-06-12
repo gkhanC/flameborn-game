@@ -1,10 +1,8 @@
-using System;
 using Newtonsoft.Json;
 
 namespace Flameborn.Azure
 {
-    [Serializable]
-    internal class GetLaunchCountResponse
+    public class UpdateDeviceDataResponse
     {
         /// <summary>
         /// Indicates whether the operation was successful.
@@ -13,10 +11,10 @@ namespace Flameborn.Azure
         public bool Success { get; set; }
 
         /// <summary>
-        /// The launch count of the device.
+        /// The device ID associated with the response.
         /// </summary>
-        [JsonProperty("launchCount")]
-        public int LaunchCount { get; set; }
+        [JsonProperty("deviceId")]
+        public string DeviceId { get; set; }
 
         /// <summary>
         /// The message associated with the response.

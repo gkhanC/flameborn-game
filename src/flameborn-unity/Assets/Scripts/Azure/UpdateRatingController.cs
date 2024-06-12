@@ -10,37 +10,33 @@ using UnityEngine.Networking;
 
 namespace Flameborn.Azure
 {
-    internal class AddDeviceDataRequestController : IAddDeviceDataRequestController
+    internal class UpdateRatingController : IUpdateRatingController
     {
         private readonly string _connectionString;
-        private readonly UnityAction<AddDeviceDataResponse> _onResponseCompleted;
+        private readonly UnityAction<UpdateRatingResponse> _onResponseCompleted;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddDeviceDataRequestController"/> class.
+        /// Initializes a new instance of the <see cref="UpdateRatingController"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string for the API.</param>
         /// <param name="onResponseCompleted">The action to invoke when the response is completed.</param>
-        internal AddDeviceDataRequestController(string connectionString, UnityAction<AddDeviceDataResponse> onResponseCompleted)
+        internal UpdateRatingController(string connectionString, UnityAction<UpdateRatingResponse> onResponseCompleted)
         {
             _connectionString = connectionString;
             _onResponseCompleted = onResponseCompleted;
         }
 
         /// <summary>
-        /// Posts request to add device data with the specified parameters.
+        /// Posts request to update rating with the specified email, password, and rating.
         /// </summary>
         /// <param name="email">The email associated with the device.</param>
-        /// <param name="userName">The username associated with the device.</param>
         /// <param name="password">The password associated with the device.</param>
-        /// <param name="launchCount">The launch count of the device.</param>
-        /// <param name="rating">The rating of the device.</param>
-        public async Task PostRequestAddDeviceData(string email, string userName, string password, int launchCount = 1, int rating = 0)
+        /// <param name="rating">The rating to be updated.</param>
+        public async Task PostRequestUpdateRating(string email, string password, int rating)
         {
             var deviceData = new DeviceDataFactory()
                 .SetEmail(email)
-                .SetUserName(userName)
                 .SetPassword(password)
-                .SetLaunchCount(launchCount)
                 .SetRating(rating)
                 .Create();
 
@@ -114,16 +110,16 @@ namespace Flameborn.Azure
         private void HandleRequestSuccess(UnityWebRequest request)
         {
             string responseText = request.downloadHandler.text;
-            var addDeviceDataResponse = JsonConvert.DeserializeObject<AddDeviceDataResponse>(responseText);
+            var ratingResponse = JsonConvert.DeserializeObject<UpdateRatingResponse>(responseText);
 
-            if (addDeviceDataResponse != null)
+            if (ratingResponse != null)
             {
-                HFLogger.LogSuccess(addDeviceDataResponse, $"Response saved. {nameof(addDeviceDataResponse.Success)}: {addDeviceDataResponse.Success} ", addDeviceDataResponse.Message);
-                _onResponseCompleted.Invoke(addDeviceDataResponse);
+                HFLogger.LogSuccess(ratingResponse, $"Response saved. {nameof(ratingResponse.Success)}: {ratingResponse.Success}, {ratingResponse.Message}");
+                _onResponseCompleted.Invoke(ratingResponse);
             }
             else
             {
-                HFLogger.LogError(addDeviceDataResponse, "Response is null.");
+                HFLogger.LogError(ratingResponse, "Response is null.");
                 UIManager.Instance.AlertController.ShowCriticalError("Something went wrong.");
             }
         }

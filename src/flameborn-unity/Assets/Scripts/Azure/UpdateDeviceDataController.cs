@@ -10,38 +10,32 @@ using UnityEngine.Networking;
 
 namespace Flameborn.Azure
 {
-    internal class AddDeviceDataRequestController : IAddDeviceDataRequestController
+    internal class UpdateDeviceDataController : IUpdateDeviceDataController
     {
         private readonly string _connectionString;
-        private readonly UnityAction<AddDeviceDataResponse> _onResponseCompleted;
+        private readonly UnityAction<UpdateDeviceDataResponse> _onResponseCompleted;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddDeviceDataRequestController"/> class.
+        /// Initializes a new instance of the <see cref="UpdateDeviceDataController"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string for the API.</param>
         /// <param name="onResponseCompleted">The action to invoke when the response is completed.</param>
-        internal AddDeviceDataRequestController(string connectionString, UnityAction<AddDeviceDataResponse> onResponseCompleted)
+        internal UpdateDeviceDataController(string connectionString, UnityAction<UpdateDeviceDataResponse> onResponseCompleted)
         {
             _connectionString = connectionString;
             _onResponseCompleted = onResponseCompleted;
         }
 
         /// <summary>
-        /// Posts request to add device data with the specified parameters.
+        /// Posts request to update device data with the specified email and password.
         /// </summary>
         /// <param name="email">The email associated with the device.</param>
-        /// <param name="userName">The username associated with the device.</param>
         /// <param name="password">The password associated with the device.</param>
-        /// <param name="launchCount">The launch count of the device.</param>
-        /// <param name="rating">The rating of the device.</param>
-        public async Task PostRequestAddDeviceData(string email, string userName, string password, int launchCount = 1, int rating = 0)
+        public async Task PostRequestUpdateDeviceData(string email, string password)
         {
             var deviceData = new DeviceDataFactory()
                 .SetEmail(email)
-                .SetUserName(userName)
                 .SetPassword(password)
-                .SetLaunchCount(launchCount)
-                .SetRating(rating)
                 .Create();
 
             if (deviceData.errorLogs.Count > 0)
@@ -114,16 +108,16 @@ namespace Flameborn.Azure
         private void HandleRequestSuccess(UnityWebRequest request)
         {
             string responseText = request.downloadHandler.text;
-            var addDeviceDataResponse = JsonConvert.DeserializeObject<AddDeviceDataResponse>(responseText);
+            var updateDeviceDataResponse = JsonConvert.DeserializeObject<UpdateDeviceDataResponse>(responseText);
 
-            if (addDeviceDataResponse != null)
+            if (updateDeviceDataResponse != null)
             {
-                HFLogger.LogSuccess(addDeviceDataResponse, $"Response saved. {nameof(addDeviceDataResponse.Success)}: {addDeviceDataResponse.Success} ", addDeviceDataResponse.Message);
-                _onResponseCompleted.Invoke(addDeviceDataResponse);
+                HFLogger.LogSuccess(updateDeviceDataResponse, $"Response saved. {nameof(updateDeviceDataResponse.Success)}: {updateDeviceDataResponse.Success} ", updateDeviceDataResponse.Message);
+                _onResponseCompleted.Invoke(updateDeviceDataResponse);
             }
             else
             {
-                HFLogger.LogError(addDeviceDataResponse, "Response is null.");
+                HFLogger.LogError(updateDeviceDataResponse, "Response is null.");
                 UIManager.Instance.AlertController.ShowCriticalError("Something went wrong.");
             }
         }
