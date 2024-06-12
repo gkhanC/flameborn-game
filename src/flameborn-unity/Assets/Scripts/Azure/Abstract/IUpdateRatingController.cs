@@ -13,6 +13,6 @@ namespace Flameborn.Azure
         /// <param name="email">The email associated with the device.</param>
         /// <param name="password">The password associated with the device.</param>
         /// <param name="rating">The rating to be updated.</param>
-        Task PostRequestUpdateRating(string email, string password, int rating);
+        Task PostRequestUpdateRating(string email, string password, int rating, bool isHash = false);
     }
 }

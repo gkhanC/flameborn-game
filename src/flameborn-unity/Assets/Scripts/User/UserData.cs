@@ -17,6 +17,7 @@ namespace Flameborn.User
         /// Gets or sets a value indicating whether the user device is registered.
         /// </summary>
         public bool IsDeviceRegistered { get; set; } = false;
+        public bool IsContainEmail { get; set; } = false;
         public bool IsPasswordCorrect { get; set; } = false;
         public bool IsLaunchCountLoaded { get; set; } = false;
         public bool IsRatingLoaded { get; set; } = false;

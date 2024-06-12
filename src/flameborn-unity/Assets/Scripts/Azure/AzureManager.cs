@@ -5,6 +5,7 @@ using HF.Extensions;
 using HF.Logger;
 using UnityEngine;
 using UnityEngine.Events;
+using Flameborn.PlayFab;
 
 namespace Flameborn.Azure
 {
@@ -61,6 +62,54 @@ namespace Flameborn.Azure
             ConfigurationManager.Instance.SubscribeOnConfigurationLoadAzureEvent(OnConfigurationLoadedEvent);
         }
 
+        private UnityEvent<bool> loginValidationEvent;
+
+        /// <summary>
+        /// Validates the user date for login.
+        /// </summary>
+        public void ValidateLogin(UnityAction<bool> validationEventListener)
+        {
+            if (isAnyTaskRunning) return;
+
+            loginValidationEvent = new UnityEvent<bool>();
+            loginValidationEvent.AddListener(validationEventListener);
+            validatePasswordController = new ValidateUserPasswordController(config.ValidateUserPassword, OnValidateLoginCompleted);
+            _ = validatePasswordController.PostRequestValidateUserPassword(UserManager.Instance.currentUserData.EMail, UserManager.Instance.currentUserData.Password);
+            isAnyTaskRunning = true;
+        }
+
+        /// <summary>
+        /// Called when validate login response is completed.
+        /// </summary>
+        /// <param name="response">The response object.</param>
+        private void OnValidateLoginCompleted(ValidateUserPasswordResponse response)
+        {
+            isAnyTaskRunning = false;
+            if (response.Success)
+            {
+                UserManager.Instance.SetPassword(response.Message, true);
+                UserManager.Instance.SetUserName(response.UserName);
+                UserManager.Instance.SetLaunchCount(response.LaunchCount);
+                UserManager.Instance.SetRating(response.Rating);
+                UserManager.Instance.SetIsRegistered(true);
+                var pass = response.Message[..6];
+                UserManager.Instance.SetPassword(pass, true);
+                PlayerPrefs.SetString("UserEmail", UserManager.Instance.currentUserData.EMail);
+                PlayerPrefs.SetString("UserPassword", pass);
+                PlayFabManager.Instance.OnUserDataLoadCompleted();
+                UIManager.Instance.AlertController.Show("SUCCESS", "You are logged in.");
+                HFLogger.LogValidate(response, $"User is logged in. {response.UserName}");
+            }
+            else
+            {
+                UserManager.Instance.SetPassword("-1");
+                HFLogger.LogWarning(response, response.Message);
+                UIManager.Instance.AlertController.Show("ERROR", response.Message);
+            }
+
+            loginValidationEvent.Invoke(response.Success);
+        }
+
         /// <summary>
         /// Finds user data and initializes necessary processes.
         /// </summary>
@@ -83,12 +132,14 @@ namespace Flameborn.Azure
         /// </summary>
         private void ProcessUserData()
         {
+            UserManager.Instance.SetIsContainEmail(true);
+
             var currentUserData = UserManager.Instance.currentUserData;
 
             if (string.IsNullOrEmpty(currentUserData.EMail))
             {
-                ValidateUserEmail();
                 isAnyTaskRunning = true;
+                ValidateUserEmail();
                 return;
             }
 
@@ -96,26 +147,9 @@ namespace Flameborn.Azure
             {
                 if (PlayerPrefs.HasKey("UserPassword") && string.IsNullOrEmpty(currentUserData.Password))
                 {
-                    ValidateUserPassword();
                     isAnyTaskRunning = true;
+                    ValidateUserPassword();
                     return;
-                }
-
-                if (currentUserData.IsPasswordCorrect)
-                {
-                    if (!currentUserData.IsLaunchCountLoaded)
-                    {
-                        GetLaunchCount();
-                        isAnyTaskRunning = true;
-                        return;
-                    }
-
-                    if (!currentUserData.IsRatingLoaded)
-                    {
-                        GetRating();
-                        isAnyTaskRunning = true;
-                        return;
-                    }
                 }
             }
 
@@ -150,6 +184,7 @@ namespace Flameborn.Azure
             isAnyTaskRunning = false;
             UserManager.Instance.SetDeviceId(new DeviceDataFactory().Create().deviceData.DeviceId);
             UserManager.Instance.SetIsDeviceRegistered(response.Success);
+            UserManager.Instance.SetIsContainEmail(false);
             HFLogger.Log(response, response.Message);
             FindUserData();
         }
@@ -189,7 +224,7 @@ namespace Flameborn.Azure
             OnUserDataAddCompleted.Invoke();
         }
 
-        public void UpdateDeviceData(out string errorLog, string email, string password)
+        public void UpdateDeviceIdData(out string errorLog, string email, string password)
         {
             errorLog = "";
             if (isAnyTaskRunning)
@@ -199,7 +234,7 @@ namespace Flameborn.Azure
             }
 
             updateDeviceDataController = new UpdateDeviceDataController(config.UpdateDeviceDataFunctionConnection, OnUpdateDeviceDateCompleted);
-            _ = updateDeviceDataController.PostRequestUpdateDeviceData(email, password);
+            _ = updateDeviceDataController.PostRequestUpdateDeviceData(email, password, true);
 
         }
 
@@ -242,7 +277,7 @@ namespace Flameborn.Azure
             }
 
             updateLaunchCountController = new UpdateLaunchCountController(config.UpdateLaunchCountFunctionConnection, OnUpdateLaunchCountCompleted);
-            _ = updateLaunchCountController.PostRequestUpdateLaunchCount(email, password, newLaunchCount);
+            _ = updateLaunchCountController.PostRequestUpdateLaunchCount(email, password, newLaunchCount, true);
         }
 
         private void OnUpdateLaunchCountCompleted(UpdateLaunchCountResponse response)
@@ -260,7 +295,7 @@ namespace Flameborn.Azure
             }
 
             updateRatingController = new UpdateRatingController(config.UpdateRatingFunctionConnection, OnUpdateRatingCompleted);
-            _ = updateRatingController.PostRequestUpdateRating(email, password, newRating);
+            _ = updateRatingController.PostRequestUpdateRating(email, password, newRating, true);
         }
 
         private void OnUpdateRatingCompleted(UpdateRatingResponse response)
@@ -287,13 +322,14 @@ namespace Flameborn.Azure
             isAnyTaskRunning = false;
             var email = PlayerPrefs.GetString("UserEmail");
             UserManager.Instance.SetDeviceId(new DeviceDataFactory().Create().deviceData.DeviceId);
-            UserManager.Instance.SetEMail(email);
-            UserManager.Instance.SetIsRegistered(response.Success);
+            UserManager.Instance.SetEmail(email);
+            UserManager.Instance.SetIsRegistered(response.Email);
+            UserManager.Instance.SetIsDeviceRegistered(response.Device);
             HFLogger.Log(response, response.Message);
 
-            if (response.Email && response.Device)
+            if (!response.Email || !response.Device)
             {
-                UIManager.Instance.AlertController.AlertPopUpError(response.Message);
+                UIManager.Instance.AlertController.Show("Your Account Lost", response.Message);
             }
 
             FindUserData();
@@ -306,7 +342,7 @@ namespace Flameborn.Azure
         {
             var password = PlayerPrefs.GetString("UserPassword");
             validatePasswordController = new ValidateUserPasswordController(config.ValidateUserPassword, OnValidateUserPasswordCompleted);
-            _ = validatePasswordController.PostRequestValidateUserPassword(UserManager.Instance.currentUserData.EMail, password);
+            _ = validatePasswordController.PostRequestValidateUserPassword(UserManager.Instance.currentUserData.EMail, password, true);
         }
 
         /// <summary>
@@ -319,38 +355,40 @@ namespace Flameborn.Azure
             if (response.Success)
             {
                 UserManager.Instance.SetPassword(response.Message, true);
-                var pass = response.Message[..4];
-                PlayerPrefs.SetString("UserPassword", pass);
+                UserManager.Instance.SetUserName(response.UserName);
+                UserManager.Instance.SetLaunchCount(response.LaunchCount);
+                UserManager.Instance.SetRating(response.Rating);
+                HFLogger.LogValidate(response, $"User legged in. {response.UserName}");
             }
             else
             {
                 UserManager.Instance.SetPassword("-1");
+                HFLogger.LogError(response, response.Message);
             }
 
-            HFLogger.Log(response, response.Message);
             FindUserData();
         }
 
         /// <summary>
         /// Gets the launch count.
         /// </summary>
-        private void GetLaunchCount()
+        public void GetLaunchCount()
         {
             var email = UserManager.Instance.currentUserData.EMail;
             var password = PlayerPrefs.GetString("UserPassword");
             getLaunchCountController = new GetLaunchCountController(config.GetLaunchCountFunctionConnection, OnGetLaunchCount);
-            _ = getLaunchCountController.PostRequestGetLaunchCount(email, password);
+            _ = getLaunchCountController.PostRequestGetLaunchCount(email, password, true);
         }
 
         /// <summary>
         /// Gets the rating.
         /// </summary>
-        private void GetRating()
+        public void GetRating()
         {
             var email = UserManager.Instance.currentUserData.EMail;
             var password = PlayerPrefs.GetString("UserPassword");
             getRatingController = new GetRatingController(config.GetRatingFunctionConnection, OnGetRatingCompleted);
-            _ = getRatingController.PostRequestGetRating(email, password);
+            _ = getRatingController.PostRequestGetRating(email, password, true);
         }
 
         /// <summary>
@@ -373,7 +411,6 @@ namespace Flameborn.Azure
             isAnyTaskRunning = false;
             UserManager.Instance.SetLaunchCount(response.LaunchCount);
             HFLogger.Log(response, response.Message);
-            FindUserData();
         }
 
         /// <summary>
@@ -385,7 +422,6 @@ namespace Flameborn.Azure
             isAnyTaskRunning = false;
             UserManager.Instance.SetRating(response.Rating);
             HFLogger.Log(response, response.Message);
-            FindUserData();
         }
 
         public void SubscribeOnUserDataLoadCompleted(UnityAction onUserDataLoadCompleted)

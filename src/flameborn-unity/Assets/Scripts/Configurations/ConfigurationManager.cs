@@ -101,21 +101,21 @@ namespace Flameborn.Configurations
             try
             {
                 // Load Azure configuration asynchronously
-                string azureErrorLog = await Task.Run(() =>
+                string azureErrorLog = await Task.Run((Func<string>)(() =>
                 {
                     if (!azureConfigurationController.LoadConfiguration(out var errorLog))
                     {
-                        UIManager.Instance.AlertController.ShowCriticalError("error");
+                        UIManager.Instance.AlertController.Show("ERROR", "error", true);
                         return errorLog;
                     }
                     return null;
-                });
+                }));
 
                 // Process Azure configuration result on the main thread
                 if (!string.IsNullOrEmpty(azureErrorLog))
                 {
                     HFLogger.LogError(azureConfigurationController, azureErrorLog);
-                    UIManager.Instance.AlertController.ShowCriticalError("error");
+                    UIManager.Instance.AlertController.Show("ERROR", "Cloud configuration lost.", true);
                 }
                 else
                 {
@@ -127,20 +127,20 @@ namespace Flameborn.Configurations
                 }
 
                 // Load PlayFab configuration asynchronously
-                string playFabErrorLog = await Task.Run(() =>
+                string playFabErrorLog = await Task.Run((Func<string>)(() =>
                 {
                     if (!playFabConfigurationController.LoadConfiguration(out var errorLog))
                     {
-                        UIManager.Instance.AlertController.ShowCriticalError("error");
+                        UIManager.Instance.AlertController.Show("ERROR", "PlayFab configuration lost.", true);
                         return errorLog;
                     }
                     return null;
-                });
+                }));
 
                 // Process PlayFab configuration result on the main thread
                 if (!string.IsNullOrEmpty(playFabErrorLog))
                 {
-                    UIManager.Instance.AlertController.ShowCriticalError("error");
+                    UIManager.Instance.AlertController.Show("ERROR", "PlayFab configuration lost.", true);
                     HFLogger.LogError(playFabConfigurationController, playFabErrorLog);
                 }
                 else
@@ -153,7 +153,7 @@ namespace Flameborn.Configurations
             }
             catch (Exception ex)
             {
-                UIManager.Instance.AlertController.ShowCriticalError("error");
+                UIManager.Instance.AlertController.Show("ERROR", ex.Message, true);
                 HFLogger.LogError(ex, ex.Message);
             }
         }

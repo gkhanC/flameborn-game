@@ -31,12 +31,23 @@ namespace Flameborn.Azure
         /// </summary>
         /// <param name="email">The email associated with the device.</param>
         /// <param name="password">The password associated with the device.</param>
-        public async Task PostRequestGetLaunchCount(string email, string password)
+        public async Task PostRequestGetLaunchCount(string email, string password, bool isHash = false)
         {
-            var deviceData = new DeviceDataFactory()
-                .SetEmail(email)
-                .SetPassword(password)
-                .Create();
+            var deviceData = new DeviceDataFactory().Create();
+            if (!isHash)
+            {
+                deviceData = new DeviceDataFactory()
+                     .SetEmail(email)
+                     .SetPassword(password)
+                     .Create();
+            }
+            else
+            {
+                deviceData = new DeviceDataFactory()
+                                     .SetEmail(email)
+                                     .Create();
+                deviceData.deviceData.SetPasswordHash(password);
+            }
 
             if (deviceData.errorLogs.Count > 0)
             {
@@ -86,7 +97,6 @@ namespace Flameborn.Azure
         {
             foreach (var error in errorLogs)
             {
-                UIManager.Instance.AlertController.AlertPopUpError(error);
                 HFLogger.LogError(typeof(DeviceData), error);
             }
         }
@@ -97,8 +107,7 @@ namespace Flameborn.Azure
         /// <param name="request">The UnityWebRequest object.</param>
         private void HandleRequestError(UnityWebRequest request)
         {
-            HFLogger.LogError(request, "API Call error.", request.result);
-            UIManager.Instance.AlertController.ShowCriticalError("API Call error.");
+            HFLogger.LogError(this, "API Call error.", request.result);
         }
 
         /// <summary>
@@ -112,13 +121,11 @@ namespace Flameborn.Azure
 
             if (launchCountResponse != null)
             {
-                HFLogger.LogSuccess(launchCountResponse, $"Response saved. {nameof(launchCountResponse.Success)}: {launchCountResponse.Success}, LaunchCount: {launchCountResponse.LaunchCount}");
                 _onResponseCompleted.Invoke(launchCountResponse);
             }
             else
             {
-                HFLogger.LogError(launchCountResponse, "Response is null.");
-                UIManager.Instance.AlertController.ShowCriticalError("Something went wrong.");
+                HFLogger.LogError(this, "Response is null.");
             }
         }
     }

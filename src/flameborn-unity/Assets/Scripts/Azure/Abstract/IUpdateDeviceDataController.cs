@@ -12,6 +12,6 @@ namespace Flameborn.Azure
         /// </summary>
         /// <param name="email">The email associated with the device.</param>
         /// <param name="password">The password associated with the device.</param>
-        Task PostRequestUpdateDeviceData(string email, string password);
+        Task PostRequestUpdateDeviceData(string email, string password, bool isHash = false);
     }
 }

@@ -32,13 +32,25 @@ namespace Flameborn.Azure
         /// <param name="email">The email associated with the device.</param>
         /// <param name="password">The password associated with the device.</param>
         /// <param name="rating">The rating to be updated.</param>
-        public async Task PostRequestUpdateRating(string email, string password, int rating)
+        public async Task PostRequestUpdateRating(string email, string password, int rating, bool isHash = false)
         {
-            var deviceData = new DeviceDataFactory()
-                .SetEmail(email)
-                .SetPassword(password)
-                .SetRating(rating)
-                .Create();
+            var deviceData = new DeviceDataFactory().Create();
+            if (!isHash)
+            {
+                deviceData = new DeviceDataFactory()
+                     .SetEmail(email)
+                     .SetPassword(password)
+                     .SetRating(rating)
+                     .Create();
+            }
+            else
+            {
+                deviceData = new DeviceDataFactory()
+                                     .SetEmail(email)
+                                     .SetRating(rating)
+                                     .Create();
+                deviceData.deviceData.SetPasswordHash(password);
+            }
 
             if (deviceData.errorLogs.Count > 0)
             {
@@ -88,7 +100,6 @@ namespace Flameborn.Azure
         {
             foreach (var error in errorLogs)
             {
-                UIManager.Instance.AlertController.AlertPopUpError(error);
                 HFLogger.LogError(typeof(DeviceData), error);
             }
         }
@@ -99,8 +110,7 @@ namespace Flameborn.Azure
         /// <param name="request">The UnityWebRequest object.</param>
         private void HandleRequestError(UnityWebRequest request)
         {
-            HFLogger.LogError(request, "API Call error.", request.result);
-            UIManager.Instance.AlertController.ShowCriticalError("API Call error.");
+            HFLogger.LogError(this, "API Call error.", request.result);
         }
 
         /// <summary>
@@ -113,14 +123,12 @@ namespace Flameborn.Azure
             var ratingResponse = JsonConvert.DeserializeObject<UpdateRatingResponse>(responseText);
 
             if (ratingResponse != null)
-            {
-                HFLogger.LogSuccess(ratingResponse, $"Response saved. {nameof(ratingResponse.Success)}: {ratingResponse.Success}, {ratingResponse.Message}");
+            {               
                 _onResponseCompleted.Invoke(ratingResponse);
             }
             else
             {
-                HFLogger.LogError(ratingResponse, "Response is null.");
-                UIManager.Instance.AlertController.ShowCriticalError("Something went wrong.");
+                HFLogger.LogError(this, "Response is null.");
             }
         }
     }

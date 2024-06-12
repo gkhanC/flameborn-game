@@ -11,7 +11,7 @@ namespace Flameborn.Azure
         /// Posts request to update user password with the specified email and password.
         /// </summary>
         /// <param name="email">The email associated with the device.</param>
-        /// <param name="password">The password to be updated.</param>
-        Task PostRequestUpdateUserPassword(string email, string password);
+        /// <param name="newPassword">The password to be updated.</param>
+        Task PostRequestUpdateUserPassword(string email, string newPassword);
     }
 }

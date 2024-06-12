@@ -82,7 +82,6 @@ namespace Flameborn.Azure
         {
             foreach (var error in errorLogs)
             {
-                UIManager.Instance.AlertController.AlertPopUpError(error);
                 HFLogger.LogError(typeof(DeviceData), error);
             }
         }
@@ -93,8 +92,7 @@ namespace Flameborn.Azure
         /// <param name="request">The UnityWebRequest object.</param>
         private void HandleRequestError(UnityWebRequest request)
         {
-            HFLogger.LogError(request, "API Call error.", request.result);
-            UIManager.Instance.AlertController.ShowCriticalError("API Call error.");
+            HFLogger.LogError(this, "API Call error.", request.result);
         }
 
         /// <summary>
@@ -108,13 +106,11 @@ namespace Flameborn.Azure
 
             if (deviceIdResponse != null)
             {
-                HFLogger.LogSuccess(deviceIdResponse, $"Response saved. {nameof(deviceIdResponse.Success)}: {deviceIdResponse.Success}");
                 _onResponseCompleted.Invoke(deviceIdResponse);
             }
             else
             {
-                HFLogger.LogError(deviceIdResponse, "Response is null.");
-                UIManager.Instance.AlertController.ShowCriticalError("Something went wrong.");
+                HFLogger.LogError(this, "Response is null.");
             }
         }
     }

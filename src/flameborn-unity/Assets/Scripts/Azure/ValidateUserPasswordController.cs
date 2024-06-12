@@ -7,6 +7,7 @@ using HF.Logger;
 using Newtonsoft.Json;
 using UnityEngine.Events;
 using UnityEngine.Networking;
+using UnityEngine;
 
 namespace Flameborn.Azure
 {
@@ -31,12 +32,23 @@ namespace Flameborn.Azure
         /// </summary>
         /// <param name="email">The email associated with the user.</param>
         /// <param name="password">The password to be validated.</param>
-        public async Task PostRequestValidateUserPassword(string email, string password)
+        public async Task PostRequestValidateUserPassword(string email, string password, bool isHash = false)
         {
-            var deviceData = new DeviceDataFactory()
-                .SetEmail(email)
-                .SetPassword(password)
-                .Create();
+            var deviceData = new DeviceDataFactory().Create();
+            if (!isHash)
+            {
+                deviceData = new DeviceDataFactory()
+                     .SetEmail(email)
+                     .SetPassword(password)
+                     .Create();
+            }
+            else
+            {
+                deviceData = new DeviceDataFactory()
+                                     .SetEmail(email)
+                                     .Create();
+                deviceData.deviceData.SetPasswordHash(password);
+            }
 
             if (deviceData.errorLogs.Count > 0)
             {
@@ -87,8 +99,11 @@ namespace Flameborn.Azure
         {
             foreach (var error in errorLogs)
             {
-                UIManager.Instance.AlertController.AlertPopUpError(error);
+                UIManager.Instance.AlertController.Show("ERROR", error);
                 HFLogger.LogError(typeof(DeviceData), error);
+                var deviceDataResponse = new ValidateUserPasswordResponse();
+                deviceDataResponse.Success = false;
+                _onResponseCompleted.Invoke(deviceDataResponse);
             }
         }
 
@@ -98,8 +113,9 @@ namespace Flameborn.Azure
         /// <param name="request">The UnityWebRequest object.</param>
         private void HandleRequestError(UnityWebRequest request)
         {
-            HFLogger.LogError(request, "API Call error.", request.result);
-            UIManager.Instance.AlertController.ShowCriticalError("API Call error.");
+            HFLogger.LogError(this, "API Call error.", request.result, request.error);
+
+            UIManager.Instance.AlertController.Show("ERROR", "API Call error.", true);
         }
 
         /// <summary>
@@ -113,13 +129,13 @@ namespace Flameborn.Azure
 
             if (deviceDataResponse != null)
             {
-                HFLogger.LogSuccess(deviceDataResponse, $"Response saved. {nameof(deviceDataResponse.Success)}: {deviceDataResponse.Success} {deviceDataResponse.Message}");
+
                 _onResponseCompleted.Invoke(deviceDataResponse);
             }
             else
             {
-                HFLogger.LogError(deviceDataResponse, "Response is null.");
-                UIManager.Instance.AlertController.ShowCriticalError("Something went wrong.");
+                HFLogger.LogError(this, "Response is null.");
+                UIManager.Instance.AlertController.Show("WARNING", "API response is lost.");
             }
         }
     }

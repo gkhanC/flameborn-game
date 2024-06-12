@@ -12,6 +12,12 @@ namespace Flameborn.UI
         private TextMeshProUGUI UserNameText { get; set; }
 
         [field: SerializeField]
+        private TextMeshProUGUI UserRatingText { get; set; }
+
+        [field: SerializeField]
+        private TextMeshProUGUI UserLaunchCountText { get; set; }
+
+        [field: SerializeField]
         private GameObject MainMenuScreen { get; set; }
 
         public void Init()
@@ -20,9 +26,11 @@ namespace Flameborn.UI
             MainMenuScreen.SetActive(true);
         }
 
-        private void SetUIData()
+        public void SetUIData()
         {
             UserNameText.text = UserManager.Instance.currentUserData.UserName;
+            UserRatingText.text = UserManager.Instance.currentUserData.Rating.ToString();
+            UserLaunchCountText.text = UserManager.Instance.currentUserData.LaunchCount.ToString();
         }
 
         public void CloseAll()

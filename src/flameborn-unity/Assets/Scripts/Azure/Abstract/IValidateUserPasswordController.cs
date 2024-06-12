@@ -12,6 +12,6 @@ namespace Flameborn.Azure
         /// </summary>
         /// <param name="email">The email associated with the user.</param>
         /// <param name="password">The password to be validated.</param>
-        Task PostRequestValidateUserPassword(string email, string password);
+        Task PostRequestValidateUserPassword(string email, string password, bool isHash = false);
     }
 }

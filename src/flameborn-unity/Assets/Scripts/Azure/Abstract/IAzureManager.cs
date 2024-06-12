@@ -24,7 +24,7 @@ namespace Flameborn.Azure
         /// <param name="errorLog">Output parameter for error logging.</param>
         /// <param name="email">Email address of the user.</param>
         /// <param name="password">Password of the user.</param>
-        void UpdateDeviceData(out string errorLog, string email, string password);
+        void UpdateDeviceIdData(out string errorLog, string email, string password);
 
         /// <summary>
         /// Updates user password with the specified email and password.

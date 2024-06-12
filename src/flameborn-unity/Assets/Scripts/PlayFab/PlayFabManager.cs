@@ -4,6 +4,7 @@ namespace Flameborn.PlayFab
     using Flameborn.Azure;
     using Flameborn.Configurations;
     using Flameborn.Managers;
+    using Flameborn.User;
     using global::PlayFab;
     using global::PlayFab.ClientModels;
     using HF.Extensions;
@@ -45,6 +46,8 @@ namespace Flameborn.PlayFab
         /// Event triggered on successful login.
         /// </summary>
         private UnityEvent LoginSuccess { get; set; } = new UnityEvent();
+
+        public bool IsLogin => isLogin;
 
         /// <summary>
         /// Subscribes to the LoginSuccess event.
@@ -88,6 +91,11 @@ namespace Flameborn.PlayFab
 
             AzureManager.Instance.SubscribeOnUserDataLoadCompleted(OnUserDataLoadCompleted);
             ConfigurationManager.Instance.SubscribeOnConfigurationLoadPlayFabEvent(OnConfigurationLoaded);
+        }
+
+        public PlayerStatistics GetPlayerStatistics()
+        {
+            return new PlayerStatistics();
         }
 
         /// <summary>
@@ -152,16 +160,22 @@ namespace Flameborn.PlayFab
         /// <param name="loginResult">The result of the login operation.</param>
         private void OnLoginSuccess(LoginResult loginResult)
         {
-            HFLogger.LogSuccess(loginResult, "Device login: " + loginResult.PlayFabId ) ;
+            isLogin = true;
+            HFLogger.LogSuccess(loginResult, "Device login: " + loginResult.PlayFabId);
 
             if (!UserManager.Instance.currentUserData.IsRegistered)
             {
                 UserManager.Instance.currentUserData.EMail = string.Empty;
-                UserManager.Instance.currentUserData.UserName = "#" + loginResult.PlayFabId.Substring(0, 4);
+                UserManager.Instance.currentUserData.UserName = "#" + loginResult.PlayFabId[..5];
                 UserManager.Instance.currentUserData.DeviceId = SystemInfo.deviceUniqueIdentifier;
+                UserManager.Instance.currentUserData.Rating = 0;
+                UserManager.Instance.currentUserData.LaunchCount = 1;
+            }
+            else
+            {
+                UserManager.Instance.UpdateLaunchCount();
             }
 
-            isLogin = true;
             LoginSuccess.Invoke();
         }
 

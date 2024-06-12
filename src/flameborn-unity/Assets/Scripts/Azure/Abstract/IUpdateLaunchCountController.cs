@@ -14,6 +14,6 @@ namespace Flameborn.Azure
         /// <param name="email">The email associated with the device.</param>
         /// <param name="password">The password associated with the device.</param>
         /// <param name="newLaunchCount">The new launch count for the device.</param>
-        Task PostRequestUpdateLaunchCount(string email, string password, int newLaunchCount);
+        Task PostRequestUpdateLaunchCount(string email, string password, int newLaunchCount, bool isHash = false);
     }
 }

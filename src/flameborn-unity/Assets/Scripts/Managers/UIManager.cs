@@ -2,6 +2,7 @@ using Flameborn.UI;
 using HF.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Flameborn.UI.Profile;
 using Scene = UnityEngine.SceneManagement.Scene;
 
 namespace Flameborn.Managers
@@ -16,6 +17,8 @@ namespace Flameborn.Managers
 
         [field: SerializeField]
         public MainMenuUIController MainMenuUIController { get; private set; }
+
+        [field: SerializeField] public UIProfileController UIProfileController { get; private set; }
 
         [field: SerializeField]
         public UIAlertController AlertController { get; private set; }
@@ -40,6 +43,8 @@ namespace Flameborn.Managers
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
+
+        public void ActiveProfileMenu() => UIProfileController.ActiveMenu();
 
         /// <summary>
         /// Called when a scene is loaded.

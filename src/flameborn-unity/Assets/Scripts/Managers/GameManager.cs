@@ -72,7 +72,7 @@ namespace Flameborn.Managers
             {
                 isInternetConnected = false;
                 HFLogger.LogError(this, "No internet connection.");
-                UIManager.Instance.AlertController.ShowNetworkError();
+                UIManager.Instance.AlertController.Show("NETWORK CONNECTION ERROR", "You have no internet connection.", true);
                 GameStop();
                 return;
             }

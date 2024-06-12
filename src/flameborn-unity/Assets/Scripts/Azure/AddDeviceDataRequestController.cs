@@ -37,12 +37,14 @@ namespace Flameborn.Azure
         public async Task PostRequestAddDeviceData(string email, string userName, string password, int launchCount = 1, int rating = 0)
         {
             var deviceData = new DeviceDataFactory()
-                .SetEmail(email)
-                .SetUserName(userName)
-                .SetPassword(password)
-                .SetLaunchCount(launchCount)
-                .SetRating(rating)
-                .Create();
+                     .SetEmail(email)
+                     .SetPassword(password)
+                     .SetUserName(userName)
+                     .SetLaunchCount(launchCount)
+                     .SetRating(rating)
+                     .Create();
+
+
 
             if (deviceData.errorLogs.Count > 0)
             {
@@ -92,7 +94,6 @@ namespace Flameborn.Azure
         {
             foreach (var error in errorLogs)
             {
-                UIManager.Instance.AlertController.AlertPopUpError(error);
                 HFLogger.LogError(typeof(DeviceData), error);
             }
         }
@@ -103,8 +104,8 @@ namespace Flameborn.Azure
         /// <param name="request">The UnityWebRequest object.</param>
         private void HandleRequestError(UnityWebRequest request)
         {
-            HFLogger.LogError(request, "API Call error.", request.result);
-            UIManager.Instance.AlertController.ShowCriticalError("API Call error.");
+            HFLogger.LogError(this.GetType(), "API Call error.", request.result);
+            UIManager.Instance.AlertController.Show("ERROR", "API Call error.", true);
         }
 
         /// <summary>
@@ -118,13 +119,12 @@ namespace Flameborn.Azure
 
             if (addDeviceDataResponse != null)
             {
-                HFLogger.LogSuccess(addDeviceDataResponse, $"Response saved. {nameof(addDeviceDataResponse.Success)}: {addDeviceDataResponse.Success} ", addDeviceDataResponse.Message);
                 _onResponseCompleted.Invoke(addDeviceDataResponse);
             }
             else
             {
-                HFLogger.LogError(addDeviceDataResponse, "Response is null.");
-                UIManager.Instance.AlertController.ShowCriticalError("Something went wrong.");
+                HFLogger.LogError(this.GetType(), "Response is null.");
+                UIManager.Instance.AlertController.Show("ERROR", "API response lost.");
             }
         }
     }

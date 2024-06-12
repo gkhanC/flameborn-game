@@ -1,11 +1,18 @@
+using System;
+using Flameborn.Azure;
+using Flameborn.PlayFab;
+using Flameborn.UI;
 using Flameborn.User;
 using HF.Extensions;
+using HF.Logger;
+using PlayFab.Internal;
 using UnityEngine;
 
 namespace Flameborn.Managers
 {
     public class UserManager : MonoBehaviour
     {
+        private bool _isLaunchCountUpdated;
         public static UserManager Instance { get; private set; }
 
         public UserData currentUserData { get; private set; } = new UserData();
@@ -33,7 +40,12 @@ namespace Flameborn.Managers
             currentUserData.IsDeviceRegistered = isRegistered;
         }
 
-        public void SetEMail(string email)
+        public void SetIsContainEmail(bool isContainEmail)
+        {
+            currentUserData.IsContainEmail = isContainEmail;
+        }
+
+        public void SetEmail(string email)
         {
             currentUserData.EMail = email;
         }
@@ -42,6 +54,11 @@ namespace Flameborn.Managers
         {
             currentUserData.Password = password;
             currentUserData.IsPasswordCorrect = isCorrect;
+        }
+
+        public void SetUserName(string userName)
+        {
+            currentUserData.UserName = userName;
         }
 
         public void SetLaunchCount(int launchCount)
@@ -54,6 +71,20 @@ namespace Flameborn.Managers
         {
             currentUserData.Rating = rating;
             currentUserData.IsRatingLoaded = true;
+        }
+
+        public void UpdateLaunchCount()
+        {
+            if (_isLaunchCountUpdated) return;
+            if (!currentUserData.IsRegistered) return;
+            if (!currentUserData.IsPasswordCorrect) return;
+            if (!PlayFabManager.Instance.IsLogin) return;
+
+            currentUserData.LaunchCount++;
+            AzureManager.Instance.UpdateLaunchCountRequest(out var errorLog, currentUserData.EMail, currentUserData.Password, currentUserData.LaunchCount);
+            UIManager.Instance.MainMenuUIController.SetUIData();
+
+            if (!string.IsNullOrEmpty(errorLog)) HFLogger.LogError(errorLog, errorLog);
         }
 
         private void OnEnable()
@@ -74,5 +105,7 @@ namespace Flameborn.Managers
                 }
             }
         }
+
+
     }
 }
