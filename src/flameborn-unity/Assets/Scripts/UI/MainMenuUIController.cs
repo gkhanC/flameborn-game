@@ -9,24 +9,33 @@ namespace Flameborn.UI
     public class MainMenuUIController : IUIController
     {
         [field: SerializeField]
-        private GameObject mainMenu { get; set; }
+        private TextMeshProUGUI UserNameText { get; set; }
 
-        public TextMeshProUGUI userName;
+        [field: SerializeField]
+        private TextMeshProUGUI UserRatingText { get; set; }
+
+        [field: SerializeField]
+        private TextMeshProUGUI UserLaunchCountText { get; set; }
+
+        [field: SerializeField]
+        private GameObject MainMenuScreen { get; set; }
 
         public void Init()
         {
             SetUIData();
-            mainMenu.SetActive(true);
+            MainMenuScreen.SetActive(true);
         }
 
-        private void SetUIData()
+        public void SetUIData()
         {
-            userName.text = UserManager.Instance.currentUserData.UserName;
+            UserNameText.text = UserManager.Instance.currentUserData.UserName;
+            UserRatingText.text = UserManager.Instance.currentUserData.Rating.ToString();
+            UserLaunchCountText.text = UserManager.Instance.currentUserData.LaunchCount.ToString();
         }
 
         public void CloseAll()
         {
-            mainMenu.SetActive(false);
+            MainMenuScreen.SetActive(false);
         }
     }
 }

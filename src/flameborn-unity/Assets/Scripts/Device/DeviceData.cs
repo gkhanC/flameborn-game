@@ -43,6 +43,12 @@ namespace Flameborn.Device
             return this;
         }
 
+        public IDeviceData SetPasswordHash(string password)
+        {
+            Password = password;
+            return this;
+        }
+
         public IDeviceData SetUserName(string userName)
         {
             UserName = userName;

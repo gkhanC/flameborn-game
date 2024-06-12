@@ -26,9 +26,9 @@ namespace Flameborn.Configurations
 
             if (String.IsNullOrEmpty(azureConfiguration.GetRatingFunctionConnection) ||
             String.IsNullOrEmpty(azureConfiguration.AddDeviceDataFunctionConnection) ||
-            String.IsNullOrEmpty(azureConfiguration.CheckDeviceDataLoginConnection) ||
-            String.IsNullOrEmpty(azureConfiguration.CheckDeviceIdAndEmailFunctionConnection) ||
-            String.IsNullOrEmpty(azureConfiguration.CheckDeviceIdFunctionConnection) ||
+            String.IsNullOrEmpty(azureConfiguration.ValidateUserPassword) ||
+            String.IsNullOrEmpty(azureConfiguration.ValidateUserEmailFunctionConnection) ||
+            String.IsNullOrEmpty(azureConfiguration.ValidateDeviceIdFunctionConnection) ||
             String.IsNullOrEmpty(azureConfiguration.GetLaunchCountFunctionConnection) ||
             String.IsNullOrEmpty(azureConfiguration.UpdateRatingFunctionConnection) ||
             String.IsNullOrEmpty(azureConfiguration.UpdateDeviceDataFunctionConnection) ||

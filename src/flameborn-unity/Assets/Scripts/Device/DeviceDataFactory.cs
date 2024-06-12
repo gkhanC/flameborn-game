@@ -29,11 +29,7 @@ namespace Flameborn.Device
 
         public IDeviceDataFactory SetEmail(string email)
         {
-            if (string.IsNullOrEmpty(email))
-            {
-                _deviceData.SetEmail("");
-            }
-            else if (IsValidEmail(email))
+            if (IsValidEmail(email))
             {
                 _deviceData.SetEmail(email);
             }
@@ -113,18 +109,20 @@ namespace Flameborn.Device
         private bool IsValidEmail(string email)
         {
             // Simplified email validation logic
+            if (email.Length < 5) return false;
             return EmailRegex.IsMatch(email);
         }
 
         private bool IsValidPassword(string password)
         {
             // Simplified password validation logic
-            return PasswordRegex.IsMatch(password);
+            if (password.Length < 6) return false;
+            return true;
         }
 
         private bool IsValidUserName(string userName)
         {
-            // Simplified username validation logic
+            if (userName.Length < 4) return false;
             return UserNameRegex.IsMatch(userName);
         }
     }
