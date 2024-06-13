@@ -13,14 +13,14 @@ namespace Flameborn.Azure
     {
         public static AzureManager Instance { get; private set; }
 
-        private bool isAnyTaskRunning;
+        public bool isAnyTaskRunning { get; private set; } = false;
         private AzureConfiguration config;
 
         private AddDeviceDataRequestController addDeviceDataRequestController;
         private GetLaunchCountController getLaunchCountController;
         private GetRatingController getRatingController;
         private UpdateDeviceDataController updateDeviceDataController;
-        private UpdateUserPasswordController updateUserPasswordController;
+        private RecoveryUserPasswordController recoveryUserPasswordController;
         private UpdateLaunchCountController updateLaunchCountController;
         private UpdateRatingController updateRatingController;
         private ValidateDeviceIdController validateDeviceIdController;
@@ -189,6 +189,8 @@ namespace Flameborn.Azure
             FindUserData();
         }
 
+        private UnityEvent<bool> onAddDeviceDataCompleted = new UnityEvent<bool>();
+
         /// <summary>
         /// Adds device data request with specified parameters.
         /// </summary>
@@ -198,7 +200,7 @@ namespace Flameborn.Azure
         /// <param name="password">Password of the user.</param>
         /// <param name="launchCount">Launch count of the device.</param>
         /// <param name="rating">Rating of the device.</param>
-        public void AddDeviceDataRequest(out string errorLog, string email, string userName, string password, int launchCount = 1, int rating = 0)
+        public void AddDeviceDataRequest(out string errorLog, string email, string userName, string password, int launchCount, int rating, UnityAction<bool> onCompletedListener)
         {
             errorLog = "";
             if (isAnyTaskRunning)
@@ -207,8 +209,17 @@ namespace Flameborn.Azure
                 return;
             }
 
+            isAnyTaskRunning = true;
+            onAddDeviceDataCompleted.AddListener(onCompletedListener);
             addDeviceDataRequestController = new AddDeviceDataRequestController(config.AddDeviceDataFunctionConnection, OnAddDeviceDataCompleted);
             _ = addDeviceDataRequestController.PostRequestAddDeviceData(email, userName, password, launchCount, rating);
+        }
+
+        public void OnRegisterLoginCompleted(bool success)
+        {
+            isAnyTaskRunning = false;
+            HFLogger.LogSuccess(this, "User registered and logged in.");
+            onAddDeviceDataCompleted.Invoke(success);
         }
 
         /// <summary>
@@ -218,10 +229,17 @@ namespace Flameborn.Azure
         private void OnAddDeviceDataCompleted(AddDeviceDataResponse response)
         {
             isAnyTaskRunning = false;
-            PlayerPrefs.SetString("UserEmail", response.Email);
-            PlayerPrefs.SetString("UserPassword", response.Password);
             HFLogger.Log(response, response.Message);
+
+            if (response.Success)
+            {
+                ValidateLogin(OnRegisterLoginCompleted);
+                return;
+            }
+
+            UIManager.Instance.AlertController.Show("Register Failed", response.Message);
             OnUserDataAddCompleted.Invoke();
+            onAddDeviceDataCompleted.Invoke(response.Success);
         }
 
         public void UpdateDeviceIdData(out string errorLog, string email, string password)
@@ -232,7 +250,7 @@ namespace Flameborn.Azure
                 errorLog = "Task is busy.";
                 return;
             }
-
+            isAnyTaskRunning = true;
             updateDeviceDataController = new UpdateDeviceDataController(config.UpdateDeviceDataFunctionConnection, OnUpdateDeviceDateCompleted);
             _ = updateDeviceDataController.PostRequestUpdateDeviceData(email, password, true);
 
@@ -240,10 +258,13 @@ namespace Flameborn.Azure
 
         public void OnUpdateDeviceDateCompleted(UpdateDeviceDataResponse response)
         {
+            isAnyTaskRunning = false;
             HFLogger.Log(response, response.Message);
         }
 
-        public void UpdateUserPassword(out string errorLog, string email, string password)
+        private UnityEvent<bool> onPasswordRecoveryCompleted = new UnityEvent<bool>();
+
+        public void RecoveryUserPassword(out string errorLog, string email, UnityAction<bool> onRecoveryCompleted)
         {
             errorLog = "";
             if (isAnyTaskRunning)
@@ -252,18 +273,32 @@ namespace Flameborn.Azure
                 return;
             }
 
-            updateUserPasswordController = new UpdateUserPasswordController(config.UpdateUserPasswordFunctionConnection, OnUpdateUserPasswordCompleted);
-            _ = updateUserPasswordController.PostRequestUpdateUserPassword(email, password);
+            onPasswordRecoveryCompleted.AddListener(onRecoveryCompleted);
+            isAnyTaskRunning = true;
+            recoveryUserPasswordController = new RecoveryUserPasswordController(config.UpdateUserPasswordFunctionConnection, OnRecoveryUserPasswordCompleted);
+            _ = recoveryUserPasswordController.PostRequestRecoveryUserPassword(email);
         }
 
-        private void OnUpdateUserPasswordCompleted(UpdateUserPasswordResponse response)
+        private void OnRecoveryUserPasswordCompleted(RecoveryUserPasswordResponse response)
         {
-            HFLogger.Log(response, response.Message);
+            isAnyTaskRunning = false;
 
-            if (response.Success)
+            HFLogger.Log(response, "User password recovered.");
+            onPasswordRecoveryCompleted.Invoke(response.Success);
+
+            if (!response.Success)
             {
-                UserManager.Instance.SetPassword(response.Password);
+                UIManager.Instance.AlertController.Show("Account Recovery Error", response.Message);
+            }
+            else
+            {
+                PlayerPrefs.SetString("UserEmail", UserManager.Instance.currentUserData.EMail);
                 PlayerPrefs.SetString("UserPassword", response.Password);
+                UserManager.Instance.SetEmail("");
+                UserManager.Instance.SetPassword("");
+                Debug.Log(response.Password);
+                FindUserData();
+                UIManager.Instance.AlertController.Show("Success", "Your password recovered.");
             }
         }
 
@@ -276,12 +311,14 @@ namespace Flameborn.Azure
                 return;
             }
 
+            isAnyTaskRunning = true;
             updateLaunchCountController = new UpdateLaunchCountController(config.UpdateLaunchCountFunctionConnection, OnUpdateLaunchCountCompleted);
             _ = updateLaunchCountController.PostRequestUpdateLaunchCount(email, password, newLaunchCount, true);
         }
 
         private void OnUpdateLaunchCountCompleted(UpdateLaunchCountResponse response)
         {
+            isAnyTaskRunning = false;
             HFLogger.Log(response, response.Message);
         }
 
@@ -294,12 +331,14 @@ namespace Flameborn.Azure
                 return;
             }
 
+            isAnyTaskRunning = true;
             updateRatingController = new UpdateRatingController(config.UpdateRatingFunctionConnection, OnUpdateRatingCompleted);
             _ = updateRatingController.PostRequestUpdateRating(email, password, newRating, true);
         }
 
         private void OnUpdateRatingCompleted(UpdateRatingResponse response)
         {
+            isAnyTaskRunning = false;
             HFLogger.Log(response, response.Message);
         }
 

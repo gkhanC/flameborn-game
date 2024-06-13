@@ -10,17 +10,17 @@ using UnityEngine.Networking;
 
 namespace Flameborn.Azure
 {
-    internal class UpdateUserPasswordController : IUpdateUserPasswordController
+    internal class RecoveryUserPasswordController : IRecoveryUserPasswordController
     {
         private readonly string _connectionString;
-        private readonly UnityAction<UpdateUserPasswordResponse> _onResponseCompleted;
+        private readonly UnityAction<RecoveryUserPasswordResponse> _onResponseCompleted;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserPasswordController"/> class.
+        /// Initializes a new instance of the <see cref="RecoveryUserPasswordController"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string for the API.</param>
         /// <param name="onResponseCompleted">The action to invoke when the response is completed.</param>
-        internal UpdateUserPasswordController(string connectionString, UnityAction<UpdateUserPasswordResponse> onResponseCompleted)
+        internal RecoveryUserPasswordController(string connectionString, UnityAction<RecoveryUserPasswordResponse> onResponseCompleted)
         {
             _connectionString = connectionString;
             _onResponseCompleted = onResponseCompleted;
@@ -31,11 +31,10 @@ namespace Flameborn.Azure
         /// </summary>
         /// <param name="email">The email associated with the device.</param>
         /// <param name="password">The password to be updated.</param>
-        public async Task PostRequestUpdateUserPassword(string email, string password)
+        public async Task PostRequestRecoveryUserPassword(string email)
         {
             var deviceData = new DeviceDataFactory()
                 .SetEmail(email)
-                .SetPassword(password)
                 .Create();
 
             if (deviceData.errorLogs.Count > 0)
@@ -109,7 +108,7 @@ namespace Flameborn.Azure
         private void HandleRequestSuccess(UnityWebRequest request)
         {
             string responseText = request.downloadHandler.text;
-            var updateDeviceDataResponse = JsonConvert.DeserializeObject<UpdateUserPasswordResponse>(responseText);
+            var updateDeviceDataResponse = JsonConvert.DeserializeObject<RecoveryUserPasswordResponse>(responseText);
 
             if (updateDeviceDataResponse != null)
             {

@@ -419,6 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4876867361118415687}
+  - component: {fileID: 3826157076866462178}
   m_Layer: 5
   m_Name: RecoveryScreen
   m_TagString: Untagged
@@ -446,6 +447,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3826157076866462178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929113185764739786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ae5cf41502f3a4bab46ce0317ab6ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <emailInputField>k__BackingField: {fileID: 2457553919382871546}
+  <passwordInputField>k__BackingField: {fileID: 1937971535722301324}
+  <passwordInfo>k__BackingField: {fileID: 1937971536973779914}
+  <popupMenu>k__BackingField: {fileID: 929113185764739786}
 --- !u!1 &1015568844324102209
 GameObject:
   m_ObjectHideFlags: 0
@@ -12251,7 +12268,7 @@ MonoBehaviour:
     <UserRatingText>k__BackingField: {fileID: 9175231372264973420}
     <UserLaunchCountText>k__BackingField: {fileID: 4937809341801588715}
     <MainMenuScreen>k__BackingField: {fileID: 5414868005510374774}
-  <UIProfileController>k__BackingField:
+  <ProfileController>k__BackingField:
     <profileMenu>k__BackingField: {fileID: 2504426630925546616}
     <loginMenu>k__BackingField: {fileID: 5194710941459479182}
     <registerMenu>k__BackingField: {fileID: 7842821300809759606}
@@ -20561,6 +20578,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3613499212258111129, guid: 76d1486a5fdf5463882d950afaeee34a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 681db73f19fb24efe843aad713eccb43,
+        type: 3}
     - target: {fileID: 3613499212258111131, guid: 76d1486a5fdf5463882d950afaeee34a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -20860,6 +20883,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -315.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5294214585644886002, guid: d8e1f218912714fb49eae883f1916235,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294214585644886002, guid: d8e1f218912714fb49eae883f1916235,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294214585644886002, guid: d8e1f218912714fb49eae883f1916235,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3826157076866462178}
+    - target: {fileID: 5294214585644886002, guid: d8e1f218912714fb49eae883f1916235,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294214585644886002, guid: d8e1f218912714fb49eae883f1916235,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Btn_Recovery
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294214585644886002, guid: d8e1f218912714fb49eae883f1916235,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Flameborn.UI.UIRecoveryController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294214585644886002, guid: d8e1f218912714fb49eae883f1916235,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5294214585644886013, guid: d8e1f218912714fb49eae883f1916235,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -21018,7 +21076,7 @@ PrefabInstance:
     - target: {fileID: 5294214586191769779, guid: d8e1f218912714fb49eae883f1916235,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5294214586307569002, guid: d8e1f218912714fb49eae883f1916235,
         type: 3}
@@ -21490,6 +21548,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 428012553740221016}
   m_SourcePrefab: {fileID: 100100000, guid: d8e1f218912714fb49eae883f1916235, type: 3}
+--- !u!114 &1937971535722301324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5294214586191769777, guid: d8e1f218912714fb49eae883f1916235,
+    type: 3}
+  m_PrefabInstance: {fileID: 6025212419174643517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1937971536252309697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5294214585644886012, guid: d8e1f218912714fb49eae883f1916235,
@@ -21550,6 +21620,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 2
   m_AspectRatio: 0.6984127
+--- !u!114 &1937971536973779914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5294214586802562295, guid: d8e1f218912714fb49eae883f1916235,
+    type: 3}
+  m_PrefabInstance: {fileID: 6025212419174643517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1937971537100321762 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5294214586894091487, guid: d8e1f218912714fb49eae883f1916235,
