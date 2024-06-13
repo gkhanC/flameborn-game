@@ -1,21 +1,22 @@
-using Flameborn.Azure;
-using Flameborn.Device;
-using Flameborn.Managers;
-using HF.Extensions;
-using HF.Logger;
-using TMPro;
-using UnityEngine;
-
-namespace Flameborn.UI.Profile
+namespace Flameborn.UI
 {
-    public class UIRegisterController : MonoBehaviour
+    using Flameborn.Azure;
+    using Flameborn.Device;
+    using Flameborn.Managers;
+    using HF.Extensions;
+    using HF.Logger;
+    using TMPro;
+    using UnityEngine;
+
+    public class UIRecoveryController : MonoBehaviour
     {
+
         private bool isEmailValid;
         private string dummyTextEmail;
         private string emailErrorText = $"<color=#ff0000>Please enter a valid Email Address.</color>";
 
         [field: SerializeField]
-        public TMP_InputField emailInputField { get; private set; }
+        private TMP_InputField emailInputField { get; set; }
 
 
         private bool isPasswordValid;
@@ -23,17 +24,13 @@ namespace Flameborn.UI.Profile
         private string passwordErrorText = $"<color=#ff0000>Your password must be longer than 6 characters.</color>";
 
         [field: SerializeField]
-        public TMP_InputField passwordInputField { get; private set; }
+        private TMP_InputField passwordInputField { get; set; }
 
         [field: SerializeField]
-        public TextMeshProUGUI passwordInfo { get; private set; }
-
-        private bool isNickNameValid;
-        private string dummyTextNickName;
-        private string nickNameErrorText = $"<color=#ff0000>Your nickname must be longer than 4 characters without special letters..</color>";
+        private TextMeshProUGUI passwordInfo { get; set; }
 
         [field: SerializeField]
-        public TMP_InputField nickNameInputField { get; private set; }
+        private GameObject popupMenu { get; set; }
 
         public void OnEmailFieldSelect(string email)
         {
@@ -80,7 +77,7 @@ namespace Flameborn.UI.Profile
         {
             var data = new DeviceDataFactory().SetPassword(password).Create();
 
-            if (data.errorLogs.Count > 0 || password.Equals(dummyTextPassword) || password.Equals(passwordErrorText) || password.Length < 6)
+            if (data.errorLogs.Count > 0 || password.Equals(dummyTextPassword) || password.Equals(passwordErrorText))
             {
                 passwordInputField.text = "";
                 passwordInfo.text = passwordErrorText;
@@ -100,42 +97,9 @@ namespace Flameborn.UI.Profile
             }
         }
 
-        public void OnNickNameFieldSelect(string nickName)
+        public void Btn_Recovery()
         {
-            if (nickNameInputField.text.Equals(dummyTextNickName) || nickNameInputField.text.Equals(nickNameErrorText))
-            {
-                nickNameInputField.text = "";
-                isNickNameValid = false;
-            }
-        }
-
-        public void OnNickNameFieldEndEdit(string nickName)
-        {
-            var data = new DeviceDataFactory().SetUserName(nickName).Create();
-
-            if (data.errorLogs.Count > 0 || nickName.Equals(dummyTextNickName) || nickName.Equals(passwordErrorText) || nickName.Length < 4)
-            {
-
-                nickNameInputField.text = nickNameErrorText;
-                isNickNameValid = false;
-                return;
-            }
-
-            isNickNameValid = true;
-
-        }
-
-        public void OnNickNameFieldDeselect(string nickName)
-        {
-            if (!isNickNameValid)
-            {
-                nickNameInputField.text = nickNameErrorText;
-            }
-        }
-
-        public void Btn_SingUp()
-        {
-            if (!isEmailValid || !isPasswordValid || !isNickNameValid) return;
+            if (!isEmailValid) return;
 
             if (AzureManager.Instance.IsNull() || AzureManager.Instance.gameObject.IsNull())
             {
@@ -153,30 +117,26 @@ namespace Flameborn.UI.Profile
 
             UserManager.Instance.SetEmail(emailInputField.text);
             UserManager.Instance.SetPassword(passwordInputField.text);
-            UserManager.Instance.SetUserName(nickNameInputField.text);
 
-            AzureManager.Instance.AddDeviceDataRequest(out var _, emailInputField.text, nickNameInputField.text, passwordInputField.text, 0, 0, this.OnRegisterCompleted);
+
+            AzureManager.Instance.RecoveryUserPassword(out var _, emailInputField.text, this.OnRecoveryCompleted);
             UIManager.Instance.LoadingUIController.SetActiveLoadingScreen(true);
         }
 
-        internal void OnRegisterCompleted(bool isRegisterValidated)
+        internal void OnRecoveryCompleted(bool isRecoveryValidated)
         {
             UIManager.Instance.LoadingUIController.SetActiveLoadingScreen(false);
 
-            if (isRegisterValidated)
+            if (isRecoveryValidated)
             {
-                UIManager.Instance.MainMenuUIController.SetUIData();
-            }
-            else
-            {
-                nickNameInputField.text = dummyTextNickName;
-                passwordInputField.text = "";
-                emailInputField.text = dummyTextEmail;
-                passwordInfo.text = dummyTextPassword;
+                UIManager.Instance.ProfileController.CloseAll();
             }
 
-            gameObject.SetActive(!isRegisterValidated);
+            gameObject.SetActive(!isRecoveryValidated);
+
+
         }
+
 
         private void OnEnable()
         {
@@ -190,10 +150,6 @@ namespace Flameborn.UI.Profile
             passwordInputField.onEndEdit.AddListener(OnPasswordFieldEndEdit);
             passwordInputField.onDeselect.AddListener(OnPasswordFieldDeselect);
 
-            dummyTextNickName = nickNameInputField.text;
-            nickNameInputField.onSelect.AddListener(OnNickNameFieldSelect);
-            nickNameInputField.onEndEdit.AddListener(OnNickNameFieldEndEdit);
-            nickNameInputField.onDeselect.AddListener(OnNickNameFieldDeselect);
         }
 
         private void OnDisable()

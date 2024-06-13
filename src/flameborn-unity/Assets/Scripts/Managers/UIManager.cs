@@ -13,15 +13,15 @@ namespace Flameborn.Managers
     public class UIManager : MonoBehaviour
     {
         [field: SerializeField]
-        public LoadingUIController LoadingUIController { get; private set; }
+        public LoadingUIController LoadingUIController { get; private set; } = new LoadingUIController();
 
         [field: SerializeField]
-        public MainMenuUIController MainMenuUIController { get; private set; }
+        public MainMenuUIController MainMenuUIController { get; private set; } = new MainMenuUIController();
 
-        [field: SerializeField] public UIProfileController UIProfileController { get; private set; }
+        [field: SerializeField] public UIProfileController ProfileController { get; private set; } = new UIProfileController();
 
         [field: SerializeField]
-        public UIAlertController AlertController { get; private set; }
+        public UIAlertController AlertController { get; private set; } = new UIAlertController();
 
         /// <summary>
         /// Singleton instance of UIManager.
@@ -44,7 +44,7 @@ namespace Flameborn.Managers
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        public void ActiveProfileMenu() => UIProfileController.ActiveMenu();
+        public void ActiveProfileMenu() => ProfileController.ActiveMenu();
 
         /// <summary>
         /// Called when a scene is loaded.
@@ -55,6 +55,7 @@ namespace Flameborn.Managers
         {
             LoadingUIController.CloseAll();
             MainMenuUIController.CloseAll();
+            ProfileController.CloseAll();
         }
 
         /// <summary>

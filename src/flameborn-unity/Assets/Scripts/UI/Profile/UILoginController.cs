@@ -109,6 +109,12 @@ namespace Flameborn.UI
                 return;
             }
 
+            if (AzureManager.Instance.isAnyTaskRunning)
+            {
+                UIManager.Instance.AlertController.Show("Warning", "Please wait API is busy.");
+                return;
+            }
+
             UserManager.Instance.SetEmail(emailInputField.text);
             UserManager.Instance.SetPassword(passwordInputField.text);
 

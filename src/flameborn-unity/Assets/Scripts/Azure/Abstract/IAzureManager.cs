@@ -16,7 +16,7 @@ namespace Flameborn.Azure
         /// <param name="password">Password of the user.</param>
         /// <param name="launchCount">Launch count of the device.</param>
         /// <param name="rating">Rating of the device.</param>
-        void AddDeviceDataRequest(out string errorLog, string email, string userName, string password, int launchCount = 1, int rating = 0);
+        void AddDeviceDataRequest(out string errorLog, string email, string userName, string password, int launchCount, int rating, UnityAction<bool> onCompletedListener);
 
         /// <summary>
         /// Updates device data with the specified email and password.
@@ -27,12 +27,12 @@ namespace Flameborn.Azure
         void UpdateDeviceIdData(out string errorLog, string email, string password);
 
         /// <summary>
-        /// Updates user password with the specified email and password.
+        /// Recovery user password with the specified email and password.
         /// </summary>
         /// <param name="errorLog">Output parameter for error logging.</param>
         /// <param name="email">Email address of the user.</param>
         /// <param name="password">New password for the user.</param>
-        void UpdateUserPassword(out string errorLog, string email, string password);
+        void RecoveryUserPassword(out string errorLog, string email, UnityAction<bool> onCompletedListener);
 
         /// <summary>
         /// Updates launch count with the specified email, password, and new launch count.

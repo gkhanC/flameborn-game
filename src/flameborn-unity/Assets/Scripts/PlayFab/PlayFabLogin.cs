@@ -35,6 +35,7 @@ namespace Flameborn.PlayFab
         private void OnRegisterSuccess(RegisterPlayFabUserResult result)
         {
             LoginEmail(out _);
+            HFLogger.LogSuccess(this, "User account registered.");
         }
 
         /// <summary>
