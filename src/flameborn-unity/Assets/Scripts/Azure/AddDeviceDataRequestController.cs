@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -5,6 +6,7 @@ using Flameborn.Device;
 using Flameborn.Managers;
 using HF.Logger;
 using Newtonsoft.Json;
+using Sirenix.Utilities;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
@@ -13,17 +15,18 @@ namespace Flameborn.Azure
     internal class AddDeviceDataRequestController : IAddDeviceDataRequestController
     {
         private readonly string _connectionString;
-        private readonly UnityAction<AddDeviceDataResponse> _onResponseCompleted;
+        private readonly UnityEvent<AddDeviceDataResponse> _onResponseCompleted;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AddDeviceDataRequestController"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string for the API.</param>
         /// <param name="onResponseCompleted">The action to invoke when the response is completed.</param>
-        internal AddDeviceDataRequestController(string connectionString, UnityAction<AddDeviceDataResponse> onResponseCompleted)
+        internal AddDeviceDataRequestController(string connectionString, params Action<AddDeviceDataResponse>[] onResponseCompleted)
         {
+            _onResponseCompleted = new UnityEvent<AddDeviceDataResponse>();
             _connectionString = connectionString;
-            _onResponseCompleted = onResponseCompleted;
+            onResponseCompleted.ForEach(a => _onResponseCompleted.AddListener(new UnityAction<AddDeviceDataResponse>(a)));
         }
 
         /// <summary>

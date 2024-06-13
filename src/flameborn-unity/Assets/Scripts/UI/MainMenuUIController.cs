@@ -1,5 +1,6 @@
 using System;
 using Flameborn.Managers;
+using Flameborn.UI.Profile;
 using TMPro;
 using UnityEngine;
 
@@ -20,6 +21,9 @@ namespace Flameborn.UI
         [field: SerializeField]
         private GameObject MainMenuScreen { get; set; }
 
+        [field: SerializeField]
+        private UIProfileController uiProfileController { get; set; }
+
         public void Init()
         {
             SetUIData();
@@ -31,6 +35,11 @@ namespace Flameborn.UI
             UserNameText.text = UserManager.Instance.currentUserData.UserName;
             UserRatingText.text = UserManager.Instance.currentUserData.Rating.ToString();
             UserLaunchCountText.text = UserManager.Instance.currentUserData.LaunchCount.ToString();
+
+            uiProfileController.userName.text = UserManager.Instance.currentUserData.UserName;
+            uiProfileController.rating.text = UserManager.Instance.currentUserData.Rating.ToString();
+            uiProfileController.ranking.text = UserManager.Instance.currentUserData.Rank.ToString();
+
         }
 
         public void CloseAll()

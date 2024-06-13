@@ -6,6 +6,8 @@ using HF.Logger;
 using UnityEngine;
 using UnityEngine.Events;
 using Flameborn.PlayFab;
+using System;
+using System.Collections.Generic;
 
 namespace Flameborn.Azure
 {
@@ -25,10 +27,152 @@ namespace Flameborn.Azure
         private UpdateRatingController updateRatingController;
         private ValidateDeviceIdController validateDeviceIdController;
         private ValidateUserEmailController validateUserEmailController;
-        private ValidateUserPasswordController validatePasswordController;
+        private ValidateLoginController validatePasswordController;
 
         private UnityEvent OnUserDataLoadCompleted { get; set; } = new UnityEvent();
         private UnityEvent OnUserDataAddCompleted { get; set; } = new UnityEvent();
+
+        /// <summary>
+        /// Adds device data request with specified parameters.
+        /// </summary>
+        /// <param name="errorLog">Output parameter for error logging.</param>
+        /// <param name="email">Email address of the user.</param>
+        /// <param name="userName">Username of the user.</param>
+        /// <param name="password">Password of the user.</param>
+        /// <param name="launchCount">Launch count of the device.</param>
+        /// <param name="rating">Rating of the device.</param>
+        public void AddDeviceDataRequest(out string errorLog, string email, string userName, string password, int launchCount, int rating, params Action<AddDeviceDataResponse>[] responseListener)
+        {
+            errorLog = "";
+            if (isAnyTaskRunning)
+            {
+                errorLog = "Task is busy.";
+                return;
+            }
+
+            isAnyTaskRunning = true;
+
+            var listeners = new List<Action<AddDeviceDataResponse>>(responseListener)
+            {
+                OnAddDeviceDataCompleted
+            };
+
+            addDeviceDataRequestController = new AddDeviceDataRequestController(config.AddDeviceDataFunctionConnection, listeners.ToArray());
+            _ = addDeviceDataRequestController.PostRequestAddDeviceData(email, userName, password, launchCount, rating);
+        }
+
+        /// <summary>
+        /// Called when add device data response is completed.
+        /// </summary>
+        /// <param name="response">The response object.</param>
+        private void OnAddDeviceDataCompleted(AddDeviceDataResponse response)
+        {
+            isAnyTaskRunning = false;
+            HFLogger.Log(response, response.Message);
+
+            if (response.Success)
+            {
+                ValidateLogin(UIManager.Instance.ProfileController.UILoginController.OnLoginCompleted);
+                return;
+            }
+
+            UIManager.Instance.AlertController.Show("Register Failed", response.Message);
+            OnUserDataAddCompleted.Invoke();
+        }
+
+        public void RecoveryUserPassword(out string errorLog, string email, params Action<RecoveryUserPasswordResponse>[] responseListener)
+        {
+            errorLog = "";
+            if (isAnyTaskRunning)
+            {
+                errorLog = "Task is busy.";
+                return;
+            }
+
+            var listeners = new List<Action<RecoveryUserPasswordResponse>>(responseListener) { OnRecoveryUserPasswordCompleted };
+
+            isAnyTaskRunning = true;
+            recoveryUserPasswordController = new RecoveryUserPasswordController(config.UpdateUserPasswordFunctionConnection, listeners.ToArray());
+            _ = recoveryUserPasswordController.PostRequestRecoveryUserPassword(email);
+        }
+
+        private void OnRecoveryUserPasswordCompleted(RecoveryUserPasswordResponse response)
+        {
+            isAnyTaskRunning = false;
+            HFLogger.Log(response, "User password recovered.");
+        }
+
+        public void UpdateLaunchCountRequest(out string errorLog, string email, string password, int newLaunchCount, params Action<UpdateLaunchCountResponse>[] responseListener)
+        {
+            errorLog = "";
+            if (isAnyTaskRunning)
+            {
+                errorLog = "Task is busy.";
+                return;
+            }
+
+            var listeners = new List<Action<UpdateLaunchCountResponse>>(responseListener) { OnUpdateLaunchCountCompleted };
+
+
+            isAnyTaskRunning = true;
+            updateLaunchCountController = new UpdateLaunchCountController(config.UpdateLaunchCountFunctionConnection, listeners.ToArray());
+            _ = updateLaunchCountController.PostRequestUpdateLaunchCount(email, password, newLaunchCount, true);
+        }
+
+        private void OnUpdateLaunchCountCompleted(UpdateLaunchCountResponse response)
+        {
+            isAnyTaskRunning = false;
+            HFLogger.Log(response, response.Message);
+        }
+
+        public void UpdateRatingRequest(out string errorLog, string email, string password, int newRating, params Action<UpdateRatingResponse>[] responseListener)
+        {
+            errorLog = "";
+            if (isAnyTaskRunning)
+            {
+                errorLog = "Task is busy.";
+                return;
+            }
+
+            var listeners = new List<Action<UpdateRatingResponse>>(responseListener) { OnUpdateRatingCompleted };
+
+            isAnyTaskRunning = true;
+            updateRatingController = new UpdateRatingController(config.UpdateRatingFunctionConnection, listeners.ToArray());
+            _ = updateRatingController.PostRequestUpdateRating(email, password, newRating, true);
+        }
+
+        private void OnUpdateRatingCompleted(UpdateRatingResponse response)
+        {
+            isAnyTaskRunning = false;
+            HFLogger.Log(response, response.Message);
+        }
+
+        /// <summary>
+        /// Validates the user date for login.
+        /// </summary>
+        public void ValidateLogin(params Action<ValidateLoginResponse>[] responseListeners)
+        {
+            if (isAnyTaskRunning) return;
+
+            var listeners = new List<Action<ValidateLoginResponse>>(responseListeners)
+            {
+                OnValidateLoginCompleted
+            };
+
+            validatePasswordController = new ValidateLoginController(config.ValidateUserPassword, listeners.ToArray());
+            _ = validatePasswordController.PostRequestValidateUserPassword(UserManager.Instance.currentUserData.Email, UserManager.Instance.currentUserData.Password);
+            isAnyTaskRunning = true;
+        }
+
+        /// <summary>
+        /// Called when validate login response is completed.
+        /// </summary>
+        /// <param name="response">The response object.</param>
+        private void OnValidateLoginCompleted(ValidateLoginResponse response)
+        {
+            isAnyTaskRunning = false;
+            HFLogger.LogWarning(response, response.Message, response.UserName);
+        }
 
         /// <summary>
         /// Called when the script instance is being loaded.
@@ -62,58 +206,10 @@ namespace Flameborn.Azure
             ConfigurationManager.Instance.SubscribeOnConfigurationLoadAzureEvent(OnConfigurationLoadedEvent);
         }
 
-        private UnityEvent<bool> loginValidationEvent;
-
-        /// <summary>
-        /// Validates the user date for login.
-        /// </summary>
-        public void ValidateLogin(UnityAction<bool> validationEventListener)
-        {
-            if (isAnyTaskRunning) return;
-
-            loginValidationEvent = new UnityEvent<bool>();
-            loginValidationEvent.AddListener(validationEventListener);
-            validatePasswordController = new ValidateUserPasswordController(config.ValidateUserPassword, OnValidateLoginCompleted);
-            _ = validatePasswordController.PostRequestValidateUserPassword(UserManager.Instance.currentUserData.EMail, UserManager.Instance.currentUserData.Password);
-            isAnyTaskRunning = true;
-        }
-
-        /// <summary>
-        /// Called when validate login response is completed.
-        /// </summary>
-        /// <param name="response">The response object.</param>
-        private void OnValidateLoginCompleted(ValidateUserPasswordResponse response)
-        {
-            isAnyTaskRunning = false;
-            if (response.Success)
-            {
-                UserManager.Instance.SetPassword(response.Message, true);
-                UserManager.Instance.SetUserName(response.UserName);
-                UserManager.Instance.SetLaunchCount(response.LaunchCount);
-                UserManager.Instance.SetRating(response.Rating);
-                UserManager.Instance.SetIsRegistered(true);
-                var pass = response.Message[..6];
-                UserManager.Instance.SetPassword(pass, true);
-                PlayerPrefs.SetString("UserEmail", UserManager.Instance.currentUserData.EMail);
-                PlayerPrefs.SetString("UserPassword", pass);
-                PlayFabManager.Instance.OnUserDataLoadCompleted();
-                UIManager.Instance.AlertController.Show("SUCCESS", "You are logged in.");
-                HFLogger.LogValidate(response, $"User is logged in. {response.UserName}");
-            }
-            else
-            {
-                UserManager.Instance.SetPassword("-1");
-                HFLogger.LogWarning(response, response.Message);
-                UIManager.Instance.AlertController.Show("ERROR", response.Message);
-            }
-
-            loginValidationEvent.Invoke(response.Success);
-        }
-
         /// <summary>
         /// Finds user data and initializes necessary processes.
         /// </summary>
-        private void FindUserData()
+        public void FindUserData()
         {
             if (isAnyTaskRunning) return;
 
@@ -136,7 +232,7 @@ namespace Flameborn.Azure
 
             var currentUserData = UserManager.Instance.currentUserData;
 
-            if (string.IsNullOrEmpty(currentUserData.EMail))
+            if (string.IsNullOrEmpty(currentUserData.Email))
             {
                 isAnyTaskRunning = true;
                 ValidateUserEmail();
@@ -189,159 +285,6 @@ namespace Flameborn.Azure
             FindUserData();
         }
 
-        private UnityEvent<bool> onAddDeviceDataCompleted = new UnityEvent<bool>();
-
-        /// <summary>
-        /// Adds device data request with specified parameters.
-        /// </summary>
-        /// <param name="errorLog">Output parameter for error logging.</param>
-        /// <param name="email">Email address of the user.</param>
-        /// <param name="userName">Username of the user.</param>
-        /// <param name="password">Password of the user.</param>
-        /// <param name="launchCount">Launch count of the device.</param>
-        /// <param name="rating">Rating of the device.</param>
-        public void AddDeviceDataRequest(out string errorLog, string email, string userName, string password, int launchCount, int rating, UnityAction<bool> onCompletedListener)
-        {
-            errorLog = "";
-            if (isAnyTaskRunning)
-            {
-                errorLog = "Task is busy.";
-                return;
-            }
-
-            isAnyTaskRunning = true;
-            onAddDeviceDataCompleted.AddListener(onCompletedListener);
-            addDeviceDataRequestController = new AddDeviceDataRequestController(config.AddDeviceDataFunctionConnection, OnAddDeviceDataCompleted);
-            _ = addDeviceDataRequestController.PostRequestAddDeviceData(email, userName, password, launchCount, rating);
-        }
-
-        public void OnRegisterLoginCompleted(bool success)
-        {
-            isAnyTaskRunning = false;
-            HFLogger.LogSuccess(this, "User registered and logged in.");
-            onAddDeviceDataCompleted.Invoke(success);
-        }
-
-        /// <summary>
-        /// Called when add device data response is completed.
-        /// </summary>
-        /// <param name="response">The response object.</param>
-        private void OnAddDeviceDataCompleted(AddDeviceDataResponse response)
-        {
-            isAnyTaskRunning = false;
-            HFLogger.Log(response, response.Message);
-
-            if (response.Success)
-            {
-                ValidateLogin(OnRegisterLoginCompleted);
-                return;
-            }
-
-            UIManager.Instance.AlertController.Show("Register Failed", response.Message);
-            OnUserDataAddCompleted.Invoke();
-            onAddDeviceDataCompleted.Invoke(response.Success);
-        }
-
-        public void UpdateDeviceIdData(out string errorLog, string email, string password)
-        {
-            errorLog = "";
-            if (isAnyTaskRunning)
-            {
-                errorLog = "Task is busy.";
-                return;
-            }
-            isAnyTaskRunning = true;
-            updateDeviceDataController = new UpdateDeviceDataController(config.UpdateDeviceDataFunctionConnection, OnUpdateDeviceDateCompleted);
-            _ = updateDeviceDataController.PostRequestUpdateDeviceData(email, password, true);
-
-        }
-
-        public void OnUpdateDeviceDateCompleted(UpdateDeviceDataResponse response)
-        {
-            isAnyTaskRunning = false;
-            HFLogger.Log(response, response.Message);
-        }
-
-        private UnityEvent<bool> onPasswordRecoveryCompleted = new UnityEvent<bool>();
-
-        public void RecoveryUserPassword(out string errorLog, string email, UnityAction<bool> onRecoveryCompleted)
-        {
-            errorLog = "";
-            if (isAnyTaskRunning)
-            {
-                errorLog = "Task is busy.";
-                return;
-            }
-
-            onPasswordRecoveryCompleted.AddListener(onRecoveryCompleted);
-            isAnyTaskRunning = true;
-            recoveryUserPasswordController = new RecoveryUserPasswordController(config.UpdateUserPasswordFunctionConnection, OnRecoveryUserPasswordCompleted);
-            _ = recoveryUserPasswordController.PostRequestRecoveryUserPassword(email);
-        }
-
-        private void OnRecoveryUserPasswordCompleted(RecoveryUserPasswordResponse response)
-        {
-            isAnyTaskRunning = false;
-
-            HFLogger.Log(response, "User password recovered.");
-            onPasswordRecoveryCompleted.Invoke(response.Success);
-
-            if (!response.Success)
-            {
-                UIManager.Instance.AlertController.Show("Account Recovery Error", response.Message);
-            }
-            else
-            {
-                PlayerPrefs.SetString("UserEmail", UserManager.Instance.currentUserData.EMail);
-                PlayerPrefs.SetString("UserPassword", response.Password);
-                UserManager.Instance.SetEmail("");
-                UserManager.Instance.SetPassword("");
-                Debug.Log(response.Password);
-                FindUserData();
-                UIManager.Instance.AlertController.Show("Success", "Your password recovered.");
-            }
-        }
-
-        public void UpdateLaunchCountRequest(out string errorLog, string email, string password, int newLaunchCount)
-        {
-            errorLog = "";
-            if (isAnyTaskRunning)
-            {
-                errorLog = "Task is busy.";
-                return;
-            }
-
-            isAnyTaskRunning = true;
-            updateLaunchCountController = new UpdateLaunchCountController(config.UpdateLaunchCountFunctionConnection, OnUpdateLaunchCountCompleted);
-            _ = updateLaunchCountController.PostRequestUpdateLaunchCount(email, password, newLaunchCount, true);
-        }
-
-        private void OnUpdateLaunchCountCompleted(UpdateLaunchCountResponse response)
-        {
-            isAnyTaskRunning = false;
-            HFLogger.Log(response, response.Message);
-        }
-
-        public void UpdateRatingRequest(out string errorLog, string email, string password, int newRating)
-        {
-            errorLog = "";
-            if (isAnyTaskRunning)
-            {
-                errorLog = "Task is busy.";
-                return;
-            }
-
-            isAnyTaskRunning = true;
-            updateRatingController = new UpdateRatingController(config.UpdateRatingFunctionConnection, OnUpdateRatingCompleted);
-            _ = updateRatingController.PostRequestUpdateRating(email, password, newRating, true);
-        }
-
-        private void OnUpdateRatingCompleted(UpdateRatingResponse response)
-        {
-            isAnyTaskRunning = false;
-            HFLogger.Log(response, response.Message);
-        }
-
         /// <summary>
         /// Checks the user email.
         /// </summary>
@@ -380,15 +323,15 @@ namespace Flameborn.Azure
         private void ValidateUserPassword()
         {
             var password = PlayerPrefs.GetString("UserPassword");
-            validatePasswordController = new ValidateUserPasswordController(config.ValidateUserPassword, OnValidateUserPasswordCompleted);
-            _ = validatePasswordController.PostRequestValidateUserPassword(UserManager.Instance.currentUserData.EMail, password, true);
+            validatePasswordController = new ValidateLoginController(config.ValidateUserPassword, OnValidateUserPasswordCompleted);
+            _ = validatePasswordController.PostRequestValidateUserPassword(UserManager.Instance.currentUserData.Email, password, true);
         }
 
         /// <summary>
         /// Called when device data response is completed.
         /// </summary>
         /// <param name="response">The response object.</param>
-        private void OnValidateUserPasswordCompleted(ValidateUserPasswordResponse response)
+        private void OnValidateUserPasswordCompleted(ValidateLoginResponse response)
         {
             isAnyTaskRunning = false;
             if (response.Success)
@@ -413,7 +356,7 @@ namespace Flameborn.Azure
         /// </summary>
         public void GetLaunchCount()
         {
-            var email = UserManager.Instance.currentUserData.EMail;
+            var email = UserManager.Instance.currentUserData.Email;
             var password = PlayerPrefs.GetString("UserPassword");
             getLaunchCountController = new GetLaunchCountController(config.GetLaunchCountFunctionConnection, OnGetLaunchCount);
             _ = getLaunchCountController.PostRequestGetLaunchCount(email, password, true);
@@ -424,7 +367,7 @@ namespace Flameborn.Azure
         /// </summary>
         public void GetRating()
         {
-            var email = UserManager.Instance.currentUserData.EMail;
+            var email = UserManager.Instance.currentUserData.Email;
             var password = PlayerPrefs.GetString("UserPassword");
             getRatingController = new GetRatingController(config.GetRatingFunctionConnection, OnGetRatingCompleted);
             _ = getRatingController.PostRequestGetRating(email, password, true);

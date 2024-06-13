@@ -159,8 +159,10 @@ namespace Flameborn.UI.Profile
             UIManager.Instance.LoadingUIController.SetActiveLoadingScreen(true);
         }
 
-        internal void OnRegisterCompleted(bool isRegisterValidated)
+        internal void OnRegisterCompleted(AddDeviceDataResponse response)
         {
+            var isRegisterValidated = response.Success;
+            
             UIManager.Instance.LoadingUIController.SetActiveLoadingScreen(false);
 
             if (isRegisterValidated)

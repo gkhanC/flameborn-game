@@ -1,3 +1,4 @@
+using System;
 using UnityEngine.Events;
 
 namespace Flameborn.Azure
@@ -16,15 +17,7 @@ namespace Flameborn.Azure
         /// <param name="password">Password of the user.</param>
         /// <param name="launchCount">Launch count of the device.</param>
         /// <param name="rating">Rating of the device.</param>
-        void AddDeviceDataRequest(out string errorLog, string email, string userName, string password, int launchCount, int rating, UnityAction<bool> onCompletedListener);
-
-        /// <summary>
-        /// Updates device data with the specified email and password.
-        /// </summary>
-        /// <param name="errorLog">Output parameter for error logging.</param>
-        /// <param name="email">Email address of the user.</param>
-        /// <param name="password">Password of the user.</param>
-        void UpdateDeviceIdData(out string errorLog, string email, string password);
+        void AddDeviceDataRequest(out string errorLog, string email, string userName, string password, int launchCount, int rating, params Action<AddDeviceDataResponse>[] responseListener);
 
         /// <summary>
         /// Recovery user password with the specified email and password.
@@ -32,7 +25,7 @@ namespace Flameborn.Azure
         /// <param name="errorLog">Output parameter for error logging.</param>
         /// <param name="email">Email address of the user.</param>
         /// <param name="password">New password for the user.</param>
-        void RecoveryUserPassword(out string errorLog, string email, UnityAction<bool> onCompletedListener);
+        void RecoveryUserPassword(out string errorLog, string email, params Action<RecoveryUserPasswordResponse>[] responseListener);
 
         /// <summary>
         /// Updates launch count with the specified email, password, and new launch count.
@@ -41,7 +34,7 @@ namespace Flameborn.Azure
         /// <param name="email">Email address of the user.</param>
         /// <param name="password">Password of the user.</param>
         /// <param name="newLaunchCount">New launch count to be updated.</param>
-        void UpdateLaunchCountRequest(out string errorLog, string email, string password, int newLaunchCount);
+        void UpdateLaunchCountRequest(out string errorLog, string email, string password, int newLaunchCount, params Action<UpdateLaunchCountResponse>[] responseListener);
 
         /// <summary>
         /// Updates rating with the specified email, password, and new rating.
@@ -50,7 +43,7 @@ namespace Flameborn.Azure
         /// <param name="email">Email address of the user.</param>
         /// <param name="password">Password of the user.</param>
         /// <param name="newRating">New rating to be updated.</param>
-        void UpdateRatingRequest(out string errorLog, string email, string password, int newRating);
+        void UpdateRatingRequest(out string errorLog, string email, string password, int newRating, params Action<UpdateRatingResponse>[] responseListener);
 
         /// <summary>
         /// Subscribes to the event that is invoked when user data load is completed.

@@ -6841,3 +6841,868 @@ Don't use this function in the constructor or field initializers, instead move i
 
 [04:34][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 5
 
+# FileLogger Initialized at 13.06.2024 18:04
+[18:04][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[18:04][ LOG ]: GameManager => Start Game from LoadingScene
+
+[18:04][ SUCCESS ]: GameManager => Game running.
+
+[18:04][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[18:04][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[18:04][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[18:04][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[18:04][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[18:04][ LOG ]: PlayFabLogin => Login process completed.
+
+[18:04][ SUCCESS ]: LoginResult => Device login: 1E4B2C6B3E3FDE4E
+
+[18:04][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 6
+
+# FileLogger Initialized at 13.06.2024 19:06
+[19:06][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:06][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:06][ SUCCESS ]: GameManager => Game running.
+
+[19:06][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:06][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:06][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:06][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:06][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:06][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:06][ SUCCESS ]: LoginResult => Device login: 1E4B2C6B3E3FDE4E
+
+[19:06][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 7
+
+# FileLogger Initialized at 13.06.2024 19:07
+[19:07][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:07][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:07][ SUCCESS ]: GameManager => Game running.
+
+[19:07][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:07][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:07][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:07][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:07][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:07][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:07][ SUCCESS ]: LoginResult => Device login: 1E4B2C6B3E3FDE4E
+
+[19:07][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 8
+
+# FileLogger Initialized at 13.06.2024 19:11
+[19:11][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:11][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:11][ SUCCESS ]: GameManager => Game running.
+
+[19:11][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:11][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:11][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:11][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:11][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:11][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:11][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:11][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 9
+
+[19:11][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+# FileLogger Initialized at 13.06.2024 19:18
+[19:18][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:18][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:18][ SUCCESS ]: GameManager => Game running.
+
+[19:18][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:18][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:18][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:18][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:18][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:18][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:18][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:18][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 10
+
+[19:18][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+# FileLogger Initialized at 13.06.2024 19:19
+[19:19][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:19][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:19][ SUCCESS ]: GameManager => Game running.
+
+[19:19][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:19][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:19][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:19][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:19][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:19][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:19][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:19][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 11
+
+[19:19][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+# FileLogger Initialized at 13.06.2024 19:25
+[19:25][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:25][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:25][ SUCCESS ]: GameManager => Game running.
+
+[19:25][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:25][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:25][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:25][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:25][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:25][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:25][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:25][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 12
+
+[19:25][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+# FileLogger Initialized at 13.06.2024 19:26
+[19:26][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:26][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:26][ SUCCESS ]: GameManager => Game running.
+
+[19:26][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:26][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:26][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:26][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:26][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:26][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:26][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:26][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 13
+
+[19:26][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+# FileLogger Initialized at 13.06.2024 19:29
+[19:29][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:29][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:29][ SUCCESS ]: GameManager => Game running.
+
+[19:29][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:29][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:29][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:29][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:29][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:29][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:29][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:29][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 14
+
+[19:29][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+# FileLogger Initialized at 13.06.2024 19:30
+[19:30][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:30][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:30][ SUCCESS ]: GameManager => Game running.
+
+[19:30][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:30][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:30][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:30][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:30][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:30][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:30][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:30][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 15
+
+[19:30][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+# FileLogger Initialized at 13.06.2024 19:31
+[19:31][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:31][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:31][ SUCCESS ]: GameManager => Game running.
+
+[19:31][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:31][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:31][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:31][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:31][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:31][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:31][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:31][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 16
+
+[19:31][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+[19:31][ ERROR ]: PlayFabError => Invalid input parameters
+
+[19:31][ ERROR ]: PlayFabManager => Exiting the application.
+
+[19:31][ ERROR ]: PlayFabError => Invalid input parameters
+
+[19:31][ ERROR ]: PlayFabManager => Exiting the application.
+
+# FileLogger Initialized at 13.06.2024 19:34
+[19:34][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[19:34][ LOG ]: GameManager => Start Game from LoadingScene
+
+[19:34][ SUCCESS ]: GameManager => Game running.
+
+[19:34][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[19:34][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[19:34][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[19:34][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[19:34][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[19:34][ LOG ]: PlayFabLogin => Login process completed.
+
+[19:34][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[19:34][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 17
+
+[19:34][ SUCCESS ]: UpdatePlayerStatisticsResult => Player statistics updated.
+
+# FileLogger Initialized at 13.06.2024 20:14
+[20:14][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[20:14][ LOG ]: GameManager => Start Game from LoadingScene
+
+[20:14][ SUCCESS ]: GameManager => Game running.
+
+[20:14][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[20:14][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[20:14][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[20:14][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[20:14][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[20:14][ LOG ]: PlayFabLogin => Login process completed.
+
+[20:14][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[20:14][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 18
+
+[20:14][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[20:14][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 13.06.2024 20:47
+[20:47][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[20:47][ LOG ]: GameManager => Start Game from LoadingScene
+
+[20:47][ SUCCESS ]: GameManager => Game running.
+
+[20:47][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[20:47][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[20:47][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[20:47][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[20:47][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[20:47][ LOG ]: PlayFabLogin => Login process completed.
+
+[20:48][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[20:48][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 19
+
+[20:48][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[20:48][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 13.06.2024 20:49
+[20:49][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[20:49][ LOG ]: GameManager => Start Game from LoadingScene
+
+[20:49][ SUCCESS ]: GameManager => Game running.
+
+[20:49][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[20:49][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[20:49][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[20:49][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[20:49][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[20:49][ LOG ]: PlayFabLogin => Login process completed.
+
+[20:49][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[20:49][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 20
+
+[20:49][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[20:49][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+[20:49][ LOG ]: UpdateRatingResponse => Response saved. Rating 0
+
+# FileLogger Initialized at 13.06.2024 20:52
+[20:52][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[20:52][ LOG ]: GameManager => Start Game from LoadingScene
+
+[20:52][ SUCCESS ]: GameManager => Game running.
+
+[20:52][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[20:52][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[20:52][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[20:52][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[20:52][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[20:52][ LOG ]: PlayFabLogin => Login process completed.
+
+[20:52][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[20:52][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 21
+
+[20:52][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[20:52][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+[20:52][ LOG ]: UpdateRatingResponse => Response saved. Rating 120
+
+# FileLogger Initialized at 13.06.2024 20:55
+[20:55][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[20:55][ LOG ]: GameManager => Start Game from LoadingScene
+
+[20:55][ SUCCESS ]: GameManager => Game running.
+
+[20:55][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[20:55][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[20:55][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[20:55][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[20:55][ VALIDATED ]: ValidateUserPasswordResponse => User legged in. gkhan
+
+[20:55][ LOG ]: PlayFabLogin => Login process completed.
+
+[20:55][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[20:55][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 22
+
+[20:55][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[20:55][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+[20:55][ SUCCESS ]: UpdatePlayerStatisticsResult => User rating updated on Play Fab
+
+# FileLogger Initialized at 13.06.2024 22:15
+[22:15][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[22:15][ LOG ]: GameManager => Start Game from LoadingScene
+
+[22:15][ SUCCESS ]: GameManager => Game running.
+
+[22:15][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[22:15][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[22:15][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[22:15][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[22:15][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[22:15][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:15][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[22:15][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 23
+
+[22:15][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:15][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 13.06.2024 22:16
+[22:16][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[22:16][ LOG ]: GameManager => Start Game from LoadingScene
+
+[22:16][ SUCCESS ]: GameManager => Game running.
+
+[22:16][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[22:16][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[22:16][ WARNING ]: AzureManager => User email not found.
+
+[22:16][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[22:16][ LOG ]: ValidateDeviceIdResponse => Device is found.
+
+[22:16][ WARNING ]: AzureManager => User email not found.
+
+[22:16][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:16][ SUCCESS ]: LoginResult => login: ; 681BFE99A8F12E7F; False
+
+[22:16][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:16][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+[22:17][ WARNING ]: ValidateLoginResponse => The passwords do not match. If you do not remember your password, you need to recover your account.; 
+
+[22:17][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:17][ WARNING ]: ValidateLoginResponse => 8d969e; gkhan
+
+[22:17][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[22:17][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:17][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 24
+
+[22:17][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 13.06.2024 22:19
+[22:19][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[22:19][ LOG ]: GameManager => Start Game from LoadingScene
+
+[22:19][ SUCCESS ]: GameManager => Game running.
+
+[22:19][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[22:19][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[22:19][ WARNING ]: AzureManager => User email not found.
+
+[22:19][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[22:19][ LOG ]: ValidateDeviceIdResponse => Device is found.
+
+[22:19][ WARNING ]: AzureManager => User email not found.
+
+[22:19][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:19][ SUCCESS ]: LoginResult => login: ; 681BFE99A8F12E7F; False
+
+[22:19][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:19][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+[22:19][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:19][ WARNING ]: ValidateLoginResponse => 8d969e; gkhan
+
+[22:19][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[22:19][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:19][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+[22:19][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 25
+
+# FileLogger Initialized at 13.06.2024 22:20
+[22:20][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[22:20][ LOG ]: GameManager => Start Game from LoadingScene
+
+[22:20][ SUCCESS ]: GameManager => Game running.
+
+[22:20][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[22:20][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[22:20][ WARNING ]: AzureManager => User email not found.
+
+[22:20][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[22:20][ LOG ]: ValidateDeviceIdResponse => Device is found.
+
+[22:20][ WARNING ]: AzureManager => User email not found.
+
+[22:20][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:20][ SUCCESS ]: LoginResult => login: ; 681BFE99A8F12E7F; False
+
+[22:20][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:20][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+[22:20][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:20][ WARNING ]: ValidateLoginResponse => 8d969e; gkhan
+
+[22:20][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[22:20][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:20][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 26
+
+[22:20][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 13.06.2024 22:22
+[22:22][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[22:22][ LOG ]: GameManager => Start Game from LoadingScene
+
+[22:22][ SUCCESS ]: GameManager => Game running.
+
+[22:22][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[22:22][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[22:22][ WARNING ]: AzureManager => User email not found.
+
+[22:22][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[22:22][ LOG ]: ValidateDeviceIdResponse => Device is found.
+
+[22:22][ WARNING ]: AzureManager => User email not found.
+
+[22:22][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:22][ SUCCESS ]: LoginResult => login: ; 681BFE99A8F12E7F; False
+
+[22:22][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:22][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+[22:22][ LOG ]: PlayFabLogin => Login process completed.
+
+[22:22][ WARNING ]: ValidateLoginResponse => 8d969e; gkhan
+
+[22:22][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[22:22][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 27
+
+[22:22][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[22:22][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 14.06.2024 00:27
+[00:27][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:27][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:27][ SUCCESS ]: GameManager => Game running.
+
+[00:27][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:27][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:27][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:27][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:27][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:27][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:27][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:27][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[00:27][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 28
+
+# FileLogger Initialized at 14.06.2024 00:29
+[00:29][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:29][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:29][ SUCCESS ]: GameManager => Game running.
+
+[00:29][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:29][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:29][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:29][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:29][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:29][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:29][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:29][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 29
+
+[00:29][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+# FileLogger Initialized at 14.06.2024 00:30
+[00:30][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:30][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:30][ SUCCESS ]: GameManager => Game running.
+
+[00:30][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:30][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:30][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:30][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:30][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:30][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:30][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:30][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 30
+
+[00:30][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+# FileLogger Initialized at 14.06.2024 00:31
+[00:31][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:31][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:31][ SUCCESS ]: GameManager => Game running.
+
+[00:31][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:31][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:31][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:31][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:31][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:31][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:31][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:32][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 31
+
+[00:32][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[00:32][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 14.06.2024 00:34
+[00:34][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:34][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:34][ SUCCESS ]: GameManager => Game running.
+
+[00:34][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:34][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:34][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:34][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:34][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:34][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:34][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:34][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[00:34][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 32
+
+[00:34][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 14.06.2024 00:35
+[00:35][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:35][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:35][ SUCCESS ]: GameManager => Game running.
+
+[00:35][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:35][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:35][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:35][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:35][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:35][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:35][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:35][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 33
+
+[00:35][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[00:35][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 14.06.2024 00:38
+[00:38][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:38][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:38][ SUCCESS ]: GameManager => Game running.
+
+[00:38][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:38][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:38][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:38][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:38][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:38][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:38][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:38][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 34
+
+[00:38][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[00:38][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 14.06.2024 00:47
+[00:47][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:47][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:47][ SUCCESS ]: GameManager => Game running.
+
+[00:47][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:47][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:47][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:47][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:47][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:47][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:47][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:47][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 35
+
+[00:47][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[00:47][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+
+# FileLogger Initialized at 14.06.2024 00:50
+[00:50][ SUCCESS ]: FileLog => HF.Logger.FileLogger.FileLog added on HFLogger.
+
+[00:50][ LOG ]: GameManager => Start Game from LoadingScene
+
+[00:50][ SUCCESS ]: GameManager => Game running.
+
+[00:50][ SUCCESS ]: AzureConfigurationController => Azure Configurations loaded.
+
+[00:50][ LOG ]: AzureConfiguration => Azure configurations saved.
+
+[00:50][ SUCCESS ]: PlayFabConfigurationController => PlayFab Configurations loaded.
+
+[00:50][ LOG ]: ValidateUserEmailResponse => Information verified.
+
+[00:50][ VALIDATED ]: ValidateLoginResponse => User legged in. gkhan
+
+[00:50][ LOG ]: PlayFabLogin => Login process completed.
+
+[00:50][ SUCCESS ]: LoginResult => login: ; 1E4B2C6B3E3FDE4E; False
+
+[00:50][ LOG ]: UpdateLaunchCountResponse => Response saved. LaunchCount: 36
+
+[00:50][ SUCCESS ]: GetLeaderboardResult => Leaderboard leader saved: []: 2147483647
+
+[00:50][ SUCCESS ]: GetLeaderboardAroundPlayerResult => Player leader board saved.
+

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace Flameborn.Azure
 {
     [Serializable]
-    internal class ValidateUserPasswordResponse
+    public class ValidateLoginResponse
     {
         [JsonProperty("success")]
         public bool Success { get; set; }

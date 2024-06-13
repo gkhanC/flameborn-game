@@ -49,7 +49,7 @@ namespace Flameborn.PlayFab
                 HFLogger.LogError(this, "Login with email error:" + playFabError.Error);
                 var registerRequest = new RegisterPlayFabUserRequest
                 {
-                    Email = UserManager.Instance.currentUserData.EMail,
+                    Email = UserManager.Instance.currentUserData.Email,
                     Password = UserManager.Instance.currentUserData.Password,
                     Username = UserManager.Instance.currentUserData.UserName,
                     DisplayName = UserManager.Instance.currentUserData.UserName
@@ -66,7 +66,7 @@ namespace Flameborn.PlayFab
         {
             var requestEmail = new LoginWithEmailAddressRequest
             {
-                Email = UserManager.Instance.currentUserData.EMail,
+                Email = UserManager.Instance.currentUserData.Email,
                 Password = UserManager.Instance.currentUserData.Password
             };
 

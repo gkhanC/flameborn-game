@@ -47,7 +47,7 @@ namespace Flameborn.Managers
 
         public void SetEmail(string email)
         {
-            currentUserData.EMail = email;
+            currentUserData.Email = email;
         }
 
         public void SetPassword(string password, bool isCorrect = false)
@@ -80,11 +80,19 @@ namespace Flameborn.Managers
             if (!currentUserData.IsPasswordCorrect) return;
             if (!PlayFabManager.Instance.IsLogin) return;
 
-            currentUserData.LaunchCount++;
-            AzureManager.Instance.UpdateLaunchCountRequest(out var errorLog, currentUserData.EMail, currentUserData.Password, currentUserData.LaunchCount);
-            UIManager.Instance.MainMenuUIController.SetUIData();
+
+            AzureManager.Instance.UpdateLaunchCountRequest(out var errorLog, currentUserData.Email, currentUserData.Password, currentUserData.LaunchCount + 1, OnLaunchCountUpdated);
 
             if (!string.IsNullOrEmpty(errorLog)) HFLogger.LogError(errorLog, errorLog);
+        }
+
+        public void OnLaunchCountUpdated(UpdateLaunchCountResponse response)
+        {
+            if (response.Success)
+            {
+                currentUserData.LaunchCount = response.LaunchCount;
+                UIManager.Instance.MainMenuUIController.SetUIData();
+            }
         }
 
         private void OnEnable()

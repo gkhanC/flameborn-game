@@ -25,7 +25,7 @@ namespace Flameborn.User
         /// <summary>
         /// Gets or sets the user's email address.
         /// </summary>
-        public string EMail { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
 
         // <summary>
         /// Gets or sets the user's password.
@@ -44,5 +44,6 @@ namespace Flameborn.User
 
         public int LaunchCount { get; set; } = 0;
         public int Rating { get; set; } = 0;
+        public int Rank { get; set; } = 0;
     }
 }

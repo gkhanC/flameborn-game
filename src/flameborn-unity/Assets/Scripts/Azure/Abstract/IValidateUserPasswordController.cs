@@ -5,7 +5,7 @@ namespace Flameborn.Azure
     /// <summary>
     /// Interface for validating the user password.
     /// </summary>
-    public interface IValidateUserPasswordController
+    public interface IValidateLoginController
     {
         /// <summary>
         /// Posts request to validate the user password with the specified email and password.

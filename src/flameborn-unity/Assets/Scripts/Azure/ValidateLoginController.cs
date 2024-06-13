@@ -8,23 +8,26 @@ using Newtonsoft.Json;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using UnityEngine;
+using System;
+using Sirenix.Utilities;
 
 namespace Flameborn.Azure
 {
-    internal class ValidateUserPasswordController : IValidateUserPasswordController
+    internal class ValidateLoginController : IValidateLoginController
     {
         private readonly string _connectionString;
-        private readonly UnityAction<ValidateUserPasswordResponse> _onResponseCompleted;
+        private readonly UnityEvent<ValidateLoginResponse> _onResponseCompleted;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ValidateUserPasswordController"/> class.
+        /// Initializes a new instance of the <see cref="ValidateLoginController"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string for the API.</param>
         /// <param name="onResponseCompleted">The action to invoke when the response is completed.</param>
-        internal ValidateUserPasswordController(string connectionString, UnityAction<ValidateUserPasswordResponse> onResponseCompleted)
+        internal ValidateLoginController(string connectionString, params Action<ValidateLoginResponse>[] responseListeners)
         {
+            _onResponseCompleted = new UnityEvent<ValidateLoginResponse>();
             _connectionString = connectionString;
-            _onResponseCompleted = onResponseCompleted;
+            responseListeners.ForEach(a => _onResponseCompleted.AddListener(new UnityAction<ValidateLoginResponse>(a)));
         }
 
         /// <summary>
@@ -101,7 +104,7 @@ namespace Flameborn.Azure
             {
                 UIManager.Instance.AlertController.Show("ERROR", error);
                 HFLogger.LogError(typeof(DeviceData), error);
-                var deviceDataResponse = new ValidateUserPasswordResponse();
+                var deviceDataResponse = new ValidateLoginResponse();
                 deviceDataResponse.Success = false;
                 _onResponseCompleted.Invoke(deviceDataResponse);
             }
@@ -125,7 +128,7 @@ namespace Flameborn.Azure
         private void HandleRequestSuccess(UnityWebRequest request)
         {
             string responseText = request.downloadHandler.text;
-            var deviceDataResponse = JsonConvert.DeserializeObject<ValidateUserPasswordResponse>(responseText);
+            var deviceDataResponse = JsonConvert.DeserializeObject<ValidateLoginResponse>(responseText);
 
             if (deviceDataResponse != null)
             {

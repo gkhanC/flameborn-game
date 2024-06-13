@@ -18,7 +18,7 @@ namespace Flameborn.User
         /// <summary>
         /// Gets the user's email address.
         /// </summary>
-        string EMail { get; }
+        string Email { get; }
 
         // <summary>
         /// Gets or sets the user's password.

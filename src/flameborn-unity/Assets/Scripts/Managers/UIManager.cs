@@ -18,7 +18,8 @@ namespace Flameborn.Managers
         [field: SerializeField]
         public MainMenuUIController MainMenuUIController { get; private set; } = new MainMenuUIController();
 
-        [field: SerializeField] public UIProfileController ProfileController { get; private set; } = new UIProfileController();
+        [field: SerializeField] public ProfileMenuUIController ProfileController { get; private set; } = new ProfileMenuUIController();
+        [field: SerializeField] public LeaderboardMenuUIController LeaderboardController { get; private set; } = new LeaderboardMenuUIController();
 
         [field: SerializeField]
         public UIAlertController AlertController { get; private set; } = new UIAlertController();

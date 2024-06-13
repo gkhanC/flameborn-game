@@ -41,4 +41,19 @@
 - Dosyadaki değişkenlerin isimlerini sonra düzenleyeceğim.
 
 # [4.Gün] [11/06/2024] Azure Configurasyonlarını Tamamla
+- Refectoring yaptım.
+- Azure tabloları ile yaptığım crud işlemleri için test senaryonarı uyguladım.
+- Login işlemlerini test ettim.
+- Login, Register, Recovery için logic hazırladım ve ui testleri yaptım.
+
+# [5.Gün] [12/06/2024]
+- Azure functionları güncellendi.
+- Mevcut kod yeni fonksiyonlar için uygun hale getirildi.
+- Azure tobloları ile ilgili işlemler tamamlandı.
+- Login, registeri recovery işlemleri tamamlandı.
+- Playfab için email ile giriş eklendi.
+
+# [6.Gün] [12/06/2024]
+
+
 

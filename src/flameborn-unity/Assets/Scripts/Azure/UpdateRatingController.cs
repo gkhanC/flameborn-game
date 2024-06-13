@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -5,6 +6,7 @@ using Flameborn.Device;
 using Flameborn.Managers;
 using HF.Logger;
 using Newtonsoft.Json;
+using Sirenix.Utilities;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
@@ -13,17 +15,18 @@ namespace Flameborn.Azure
     internal class UpdateRatingController : IUpdateRatingController
     {
         private readonly string _connectionString;
-        private readonly UnityAction<UpdateRatingResponse> _onResponseCompleted;
+        private readonly UnityEvent<UpdateRatingResponse> _onResponseCompleted;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateRatingController"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string for the API.</param>
         /// <param name="onResponseCompleted">The action to invoke when the response is completed.</param>
-        internal UpdateRatingController(string connectionString, UnityAction<UpdateRatingResponse> onResponseCompleted)
+        internal UpdateRatingController(string connectionString, params Action<UpdateRatingResponse>[] onResponseCompleted)
         {
+            _onResponseCompleted = new UnityEvent<UpdateRatingResponse>();
             _connectionString = connectionString;
-            _onResponseCompleted = onResponseCompleted;
+            onResponseCompleted.ForEach(a => _onResponseCompleted.AddListener(new UnityAction<UpdateRatingResponse>(a)));
         }
 
         /// <summary>
@@ -123,7 +126,7 @@ namespace Flameborn.Azure
             var ratingResponse = JsonConvert.DeserializeObject<UpdateRatingResponse>(responseText);
 
             if (ratingResponse != null)
-            {               
+            {
                 _onResponseCompleted.Invoke(ratingResponse);
             }
             else

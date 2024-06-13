@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -5,6 +6,7 @@ using Flameborn.Device;
 using Flameborn.Managers;
 using HF.Logger;
 using Newtonsoft.Json;
+using Sirenix.Utilities;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
@@ -13,17 +15,18 @@ namespace Flameborn.Azure
     internal class RecoveryUserPasswordController : IRecoveryUserPasswordController
     {
         private readonly string _connectionString;
-        private readonly UnityAction<RecoveryUserPasswordResponse> _onResponseCompleted;
-
+        private readonly UnityEvent<RecoveryUserPasswordResponse> _onResponseCompleted;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="RecoveryUserPasswordController"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string for the API.</param>
-        /// <param name="onResponseCompleted">The action to invoke when the response is completed.</param>
-        internal RecoveryUserPasswordController(string connectionString, UnityAction<RecoveryUserPasswordResponse> onResponseCompleted)
+        /// <param name="listeners">The action to invoke when the response is completed.</param>
+        internal RecoveryUserPasswordController(string connectionString, params Action<RecoveryUserPasswordResponse>[] listeners)
         {
+            _onResponseCompleted = new UnityEvent<RecoveryUserPasswordResponse>();
             _connectionString = connectionString;
-            _onResponseCompleted = onResponseCompleted;
+            listeners.ForEach(a => _onResponseCompleted.AddListener(new UnityAction<RecoveryUserPasswordResponse>(a)));
         }
 
         /// <summary>

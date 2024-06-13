@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace Flameborn.Azure
 {
     [Serializable]
-    internal class UpdateLaunchCountResponse
+    public class UpdateLaunchCountResponse
     {
         [JsonProperty("success")]
         public bool Success { get; set; }

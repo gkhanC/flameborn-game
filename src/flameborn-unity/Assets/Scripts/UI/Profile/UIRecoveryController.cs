@@ -123,8 +123,27 @@ namespace Flameborn.UI
             UIManager.Instance.LoadingUIController.SetActiveLoadingScreen(true);
         }
 
-        internal void OnRecoveryCompleted(bool isRecoveryValidated)
+        internal void OnRecoveryCompleted(RecoveryUserPasswordResponse response)
         {
+            var isRecoveryValidated = response.Success;
+
+            if (response.Success)
+            {
+
+                PlayerPrefs.SetString("UserEmail", UserManager.Instance.currentUserData.Email);
+                PlayerPrefs.SetString("UserPassword", response.Password);
+
+                UserManager.Instance.SetEmail("");
+                UserManager.Instance.SetPassword("");
+
+                AzureManager.Instance.FindUserData();
+                UIManager.Instance.AlertController.Show("Success", "Your password recovered.");
+            }
+            else
+            {
+                UIManager.Instance.AlertController.Show("Account Recovery Error", response.Message);
+            }
+
             UIManager.Instance.LoadingUIController.SetActiveLoadingScreen(false);
 
             if (isRecoveryValidated)

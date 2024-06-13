@@ -3,6 +3,7 @@ namespace Flameborn.UI
     using Flameborn.Azure;
     using Flameborn.Device;
     using Flameborn.Managers;
+    using Flameborn.PlayFab;
     using HF.Extensions;
     using HF.Logger;
     using TMPro;
@@ -10,7 +11,6 @@ namespace Flameborn.UI
 
     public class UILoginController : MonoBehaviour
     {
-
         private bool isEmailValid;
         private string dummyTextEmail;
         private string emailErrorText = $"<color=#ff0000>Please enter a valid Email Address.</color>";
@@ -122,8 +122,33 @@ namespace Flameborn.UI
             UIManager.Instance.LoadingUIController.SetActiveLoadingScreen(true);
         }
 
-        internal void OnLoginCompleted(bool isLoginValidated)
+        public void OnLoginCompleted(ValidateLoginResponse response)
         {
+            var isLoginValidated = response.Success;
+
+            if (response.Success)
+            {
+                var pass = response.Message[..6];
+                PlayerPrefs.SetString("UserEmail", UserManager.Instance.currentUserData.Email);
+                PlayerPrefs.SetString("UserPassword", pass);
+
+                UserManager.Instance.SetPassword(response.Message, true);
+                UserManager.Instance.SetUserName(response.UserName);
+                UserManager.Instance.SetLaunchCount(response.LaunchCount);
+                UserManager.Instance.SetRating(response.Rating);
+                UserManager.Instance.SetIsRegistered(true);
+                UserManager.Instance.SetIsContainEmail(true);
+                UserManager.Instance.SetPassword(pass, true);
+
+                PlayFabManager.Instance.OnUserDataLoadCompleted();
+                UIManager.Instance.AlertController.Show("SUCCESS", "You are logged in.");
+            }
+            else
+            {
+                UserManager.Instance.SetPassword("-1");
+                UIManager.Instance.AlertController.Show("ERROR", response.Message);
+            }
+
             UIManager.Instance.LoadingUIController.SetActiveLoadingScreen(false);
             UIManager.Instance.MainMenuUIController.SetUIData();
             gameObject.SetActive(!isLoginValidated);
