@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HF.Extensions
@@ -35,5 +37,15 @@ namespace HF.Extensions
         public static bool IsNull(this SpriteRenderer Value) => ReferenceEquals(Value, null) ? false : (Value ? false : true);
 
         public static bool IsNotNull(this SpriteRenderer Value) => (ReferenceEquals(Value, null) ? true : (Value ? true : false));
+
+        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            foreach (T item in source)
+            {
+                action(item);
+            }
+
+            return source;
+        }
     }
 }

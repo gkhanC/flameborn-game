@@ -7,17 +7,30 @@ namespace HF.Library.Utilities.Singleton
 	/// Singleton niteliği eklenmek istenilen MonoBehaviour yapıları için temel sınıftır.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
+	public class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
 	{
+		public static bool isExits => _instance.IsNotNull() && _instance.gameObject.IsNotNull();
 		protected static T _instance = null;
+		protected static T GetInstance() => CreateOrFind();
 		private static readonly object padlock = new object();
-		[field: SerializeField] public bool useDontDestroy { get; set; } = false;
-		public static T GetInstance() => CreateOrFind();
-		public bool isExits => _instance.IsNotNull() && _instance.gameObject.IsNotNull();
+		[field: SerializeField] public bool UseDontDestroy { get; set; } = true;
+
+		protected virtual void Awake()
+		{
+			if (GetInstance() == this)
+			{
+				FindAndDeleteOthers();
+
+				if (UseDontDestroy)
+				{
+					DontDestroyOnLoad(this.gameObject);
+				}
+			}
+		}
 
 		private static T CreateOrFind()
 		{
-			if (_instance.IsNull() || _instance.gameObject.IsNull())
+			if (!isExits)
 			{
 				var objs = FindObjectsOfType(typeof(T)) as T[];
 				if (objs.Length > 0)
@@ -42,28 +55,16 @@ namespace HF.Library.Utilities.Singleton
 			return _instance;
 		}
 
-		public virtual void Awake()
-		{
-			FindAndDeleteOthers();
-
-			if (useDontDestroy)
-			{
-				DontDestroyOnLoad(this.gameObject);
-			}
-		}
-
-		public void SetInstance(T instance) => _instance = instance;
-
-		public void FindAndDeleteOthers()
+		private void FindAndDeleteOthers()
 		{
 			var objs = FindObjectsOfType(typeof(T)) as T[];
 			if (objs.Length > 1)
 			{
 				foreach (var component in objs)
 				{
-					if (!component.gameObject.Equals(_instance.gameObject))
+					if (!component.gameObject.Equals(GetInstance().gameObject))
 					{
-						DestroyImmediate(component);
+						DestroyImmediate(component.gameObject);
 					}
 				}
 			}
