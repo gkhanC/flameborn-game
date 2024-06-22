@@ -41,6 +41,11 @@ namespace flameborn.Sdk.Photon
             }
 
             PhotonNetwork.AutomaticallySyncScene = true;
+            PhotonNetwork.KeepAliveInBackground = 600.0f;
+            PhotonNetwork.NetworkingClient.LoadBalancingPeer.DisconnectTimeout = 60000;
+            PhotonNetwork.NetworkingClient.LoadBalancingPeer.SentCountAllowance = 15;
+            PhotonNetwork.NetworkingClient.LoadBalancingPeer.TimePingInterval = 3000;
+
         }
 
         private void Start()
@@ -196,7 +201,7 @@ namespace flameborn.Sdk.Photon
         public override void OnDisconnected(DisconnectCause cause)
         {
             if (!isMatchStop)
-                uiManager.alert.Show("Alert", "You are disconnected.", Application.Quit);
+                uiManager.alert.Show("Alert", $"You are disconnected. {cause.ToString()}", Application.Quit);
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)

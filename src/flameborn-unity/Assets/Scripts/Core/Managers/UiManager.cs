@@ -23,6 +23,9 @@ namespace flameborn.Core.Managers
         [FoldoutGroup("Alert Objects", expanded: true)]
         [field: SerializeField] public AlertPanel alert = new AlertPanel();
 
+        [FoldoutGroup("Game Panel Objects", expanded: true)]
+        [field: SerializeField] public GamePanel gamePanel = new GamePanel();
+
         #region Unity Function
 
         public UiManager()
@@ -56,6 +59,11 @@ namespace flameborn.Core.Managers
                 mainMenu.Show();
             }
 
+            if (scene.buildIndex == 2)
+            {
+                gamePanel.Show();
+            }
+
         }
 
 
@@ -63,7 +71,8 @@ namespace flameborn.Core.Managers
         {
             loader.Hide();
             mainMenu.Hide();
-            alert.Hide();            
+            alert.Hide();
+            gamePanel.Hide();
             lobbyMenu.Hide();
 
         }

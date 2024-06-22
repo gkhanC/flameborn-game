@@ -1,50 +1,65 @@
 using flameborn.Core.Game.Inputs;
 using flameborn.Core.Game.Inputs.Abstract;
 using flameborn.Core.Game.Inputs.Controllers;
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
-
-public class CameraController : MonoBehaviour, IInputListener<TouchResult>
+namespace flameborn.Core.Game.Cameras
 {
-    public float magnitude = 3f;
-    public float speed = 20f;
-    TouchResult result = new TouchResult();  
-    public NavMeshAgent navMeshAgent;
-
-
-    void Start()
+    public class CameraController : MonoBehaviour, IInputListener<TouchResult>
     {
-        InputManager.GlobalAccess.SubscribeInputController(this.InputListener);
-        navMeshAgent.speed = speed;
-    }
+        public static CameraController GlobalAccess { get; private set; }
+        public float magnitude = 3f;
+        public float speed = 20f;
+        TouchResult result = new TouchResult();
+        public NavMeshAgent navMeshAgent;
 
-    private void Update()
-    {       
-        if (result.status == InputStatus.Continuos)
+        private bool isPositionSet;
+
+        private void Awake()
         {
-            Vector2 deltaPos = result.endPosition - result.startPosition;
-            Vector3 dir = new Vector3(-deltaPos.x, 0f, -deltaPos.y).normalized;
-            navMeshAgent.SetDestination(transform.position + (dir * magnitude));
+            GlobalAccess = this;
         }
-        else
+
+        void Start()
         {
-            navMeshAgent.SetDestination(transform.position);
+            InputManager.GlobalAccess.SubscribeInputController(this.InputListener);
+            navMeshAgent.speed = speed;
         }
-    }
 
-    public void AddSpeed(float speed)
-    {
-        navMeshAgent.speed += speed;      
-    }
+        private void Update()
+        {
+            if (result.status == InputStatus.Continuos)
+            {
+                Vector2 deltaPos = result.endPosition - result.startPosition;
+                Vector3 dir = new Vector3(-deltaPos.x, 0f, -deltaPos.y).normalized;
+                navMeshAgent.SetDestination(transform.position + (dir * magnitude));
+                isPositionSet = false;
+            }
+            else if (!isPositionSet)
+            {
+                navMeshAgent.SetDestination(transform.position);
+            }
+        }
 
-    public void AddMagnitude(float speed)
-    {
-        magnitude += speed;        
-    }
+        public void SetDestination(Vector3 position)
+        {
+            isPositionSet = true;
+            navMeshAgent.SetDestination(position);
+        }
 
-    public void InputListener(TouchResult result)
-    {
-        this.result = result;
+        public void AddSpeed(float speed)
+        {
+            navMeshAgent.speed += speed;
+        }
+
+        public void AddMagnitude(float speed)
+        {
+            magnitude += speed;
+        }
+
+        public void InputListener(TouchResult result)
+        {
+            this.result = result;
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace flameborn.Core.Managers
     public class MatchMakingManager : MonoBehaviourSingleton<MatchMakingManager>, IManager
     {
         [field: SerializeField] private string queueName = "flameborn_match";
-        [field: SerializeField] private int coroutineIterationCount = 10;
+        [field: SerializeField] private int coroutineIterationCount = 12;
         private int iteration = 0;
         ICreateMatchTicketResponse ticketResponse = null;
         IFindMatchResponse findResponse = null;
@@ -94,7 +94,7 @@ namespace flameborn.Core.Managers
                 }
 
                 iteration++;
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(4f);
             }
 
             yield return null;
