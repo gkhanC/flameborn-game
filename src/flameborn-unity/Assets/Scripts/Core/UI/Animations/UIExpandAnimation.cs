@@ -47,6 +47,7 @@ namespace flameborn.Core.UI.Animations
             {
                 playListeners.ForEach(p => p.Invoke());
                 isPlaying = false;
+                isStopping = false;
             });
         }
 
@@ -63,6 +64,7 @@ namespace flameborn.Core.UI.Animations
             {
                 stopListeners.ForEach(p => p.Invoke());
                 isStopping = false;
+                isPlaying = false;
             });
         }
     }

@@ -9,7 +9,7 @@ namespace HF.Library.Utilities.Singleton
 	/// <typeparam name="T"></typeparam>
 	public class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
 	{
-		public static bool isExits => _instance.IsNotNull() && _instance.gameObject.IsNotNull();
+		public static bool isExits => _instance != null && _instance.gameObject != null;
 		protected static T _instance = null;
 		protected static T GetInstance() => CreateOrFind();
 		private static readonly object padlock = new object();

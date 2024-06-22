@@ -1,6 +1,5 @@
 using System;
 using flameborn.Core.Game.Inputs.Controllers.Abstract;
-using flameborn.Core.Game.Objects.Abstract;
 using HF.Extensions;
 using UnityEngine;
 
@@ -43,6 +42,28 @@ namespace flameborn.Core.Game.Inputs.Controllers
             return false;
         }
 
+        private bool IsMouseOnUI()
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, RayMask))
+            {
+                return hitInfo.collider.gameObject.layer == 5;
+            }
+
+            return false;
+        }
+
+        private Vector3 FindPosition()
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, RayMask))
+            {
+                return hitInfo.point;
+            }
+
+            return Vector3.zero;
+        }
+
         public void HandleInput(params Action<TouchResult>[] inputListeners)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -50,6 +71,8 @@ namespace flameborn.Core.Game.Inputs.Controllers
                 result = new TouchResult();
                 result.status = InputStatus.Touched;
                 inputContinuosTimer = 0f;
+
+                result.startPosition = FindPosition();
 
                 if (!FindSelectableObjects())
                 {
@@ -62,33 +85,46 @@ namespace flameborn.Core.Game.Inputs.Controllers
                 inputContinuosTimer += Time.deltaTime;
                 if (inputContinuosTimer >= inputContinuosDelay)
                 {
-                    if (result.status != InputStatus.Continuos && Input.mousePosition == result.startPosition) return;
 
-                    if (Input.mousePosition != result.endPosition)
+                    if (result.endPosition == Vector3.zero)
                     {
-                        if (result.endPosition != Vector3.zero && Vector3.Distance(result.endPosition, Input.mousePosition) >= 2f)
-                        {
-                            result.startPosition = result.endPosition;
-                        }
-
-                        result.endPosition = Input.mousePosition;
-
-                        result.status = InputStatus.Continuos;
-                        result.selectedObject = null;
-                        inputListeners.ForEach(l =>
-                        {
-                            l.Invoke(result);
-                        });
+                        result.startPosition = Input.mousePosition;
                     }
+
+                    if (result.endPosition != Vector3.zero && Vector3.Distance(result.endPosition, Input.mousePosition) >= 2f)
+                    {
+                        result.startPosition = result.endPosition;
+                    }
+
+                    result.endPosition = Input.mousePosition;
+
+                    if (result.endPosition != result.startPosition)
+                        result.status = InputStatus.Continuos;
+
+                    result.selectedObject = null;
+                    inputListeners.ForEach(l =>
+                    {
+                        l.Invoke(result);
+                    });
+
 
                 }
             }
 
             if (Input.GetButtonUp("Fire1"))
             {
-                result.startPosition = result.endPosition;
                 result.status = result.status == InputStatus.ObjectSelect ? InputStatus.ObjectSelect : InputStatus.TouchCompleted;
                 inputContinuosTimer = 0f;
+
+                if (result.status == InputStatus.TouchCompleted)
+                {
+                    FindPosition();
+                }
+                else
+                {
+                    result.startPosition = result.endPosition;
+                }
+
                 inputListeners.ForEach(l =>
                 {
                     l.Invoke(result);
