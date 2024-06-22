@@ -6,11 +6,17 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+
 namespace flameborn.Core.Managers
 {
+    /// <summary>
+    /// Manages the UI components of the game.
+    /// </summary>
     public class UiManager : SingletonManager<UiManager>, IManager
     {
-        [InfoBox("This structure is responsible for providing the necessary definitions for the ui controller. ", InfoMessageType = InfoMessageType.None)]
+        #region Fields
+
+        [InfoBox("This structure is responsible for providing the necessary definitions for the UI controller.", InfoMessageType = InfoMessageType.None)]
         [FoldoutGroup("Main Menu Objects", expanded: true)]
         [field: SerializeField] public MainMenuPanel mainMenu = new MainMenuPanel();
 
@@ -26,17 +32,29 @@ namespace flameborn.Core.Managers
         [FoldoutGroup("Game Panel Objects", expanded: true)]
         [field: SerializeField] public GamePanel gamePanel = new GamePanel();
 
-        #region Unity Function
+        #endregion
 
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UiManager"/> class.
+        /// </summary>
         public UiManager()
         {
-
         }
 
+        #endregion
+
+        #region Unity Functions
+
+        /// <summary>
+        /// Called when the script instance is being loaded.
+        /// </summary>
         private void Start()
         {
             SceneManager.sceneLoaded += OnSceneLoad;
             GameManager.Instance.SetManager(this);
+
             var accountManager = GameManager.Instance.GetManager<AccountManager>();
             if (accountManager.IsContain)
             {
@@ -48,6 +66,11 @@ namespace flameborn.Core.Managers
             alert.Init();
         }
 
+        /// <summary>
+        /// Called when a scene is loaded.
+        /// </summary>
+        /// <param name="scene">The loaded scene.</param>
+        /// <param name="mode">The load scene mode.</param>
         private void OnSceneLoad(Scene scene, LoadSceneMode mode)
         {
             if (scene.buildIndex == 0) return;
@@ -63,10 +86,15 @@ namespace flameborn.Core.Managers
             {
                 gamePanel.Show();
             }
-
         }
 
+        #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Closes all UI panels.
+        /// </summary>
         public void CloseAll()
         {
             loader.Hide();
@@ -74,7 +102,6 @@ namespace flameborn.Core.Managers
             alert.Hide();
             gamePanel.Hide();
             lobbyMenu.Hide();
-
         }
 
         #endregion

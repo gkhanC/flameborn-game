@@ -14,18 +14,30 @@ using UnityEngine;
 
 namespace flameborn.Core.Managers
 {
+    /// <summary>
+    /// Manages matchmaking operations.
+    /// </summary>
     [Serializable]
     public class MatchMakingManager : MonoBehaviourSingleton<MatchMakingManager>, IManager
     {
+        #region Fields
+
         [field: SerializeField] private string queueName = "flameborn_match";
         [field: SerializeField] private int coroutineIterationCount = 12;
         private int iteration = 0;
-        ICreateMatchTicketResponse ticketResponse = null;
-        IFindMatchResponse findResponse = null;
-        UiManager uiManager;
-        AccountManager accountManager;
-        IApiRequest<IFindMatchResponse> findMatchRequest;
+        private ICreateMatchTicketResponse ticketResponse = null;
+        private IFindMatchResponse findResponse = null;
+        private UiManager uiManager;
+        private AccountManager accountManager;
+        private IApiRequest<IFindMatchResponse> findMatchRequest;
 
+        #endregion
+
+        #region UnityFunctions
+
+        /// <summary>
+        /// Initializes the MatchMakingManager and sets up dependencies.
+        /// </summary>
         private void Start()
         {
             GameManager.Instance.SetManager(this);
@@ -33,12 +45,26 @@ namespace flameborn.Core.Managers
             accountManager = GameManager.Instance.GetManager<AccountManager>().Instance;
         }
 
+        #endregion
+
+        #region PublicMethods
+
+        /// <summary>
+        /// Initiates a new match if no ticket response is present.
+        /// </summary>
         public void NewMatch()
         {
             if (ticketResponse.IsNotNull()) return;
             CreateTicket();
         }
 
+        #endregion
+
+        #region PrivateMethods
+
+        /// <summary>
+        /// Creates a new matchmaking ticket.
+        /// </summary>
         private void CreateTicket()
         {
             uiManager.mainMenu.Lock(this);
@@ -55,13 +81,19 @@ namespace flameborn.Core.Managers
             }
         }
 
+        /// <summary>
+        /// Starts the process of finding a match.
+        /// </summary>
         private void FindMatch()
         {
             findMatchRequest = new FindMatchRequest(new FindMatchController_Playfab(ticketResponse.TicketId, queueName));
             StartCoroutine(nameof(this.MatchSearchingCoroutine));
         }
 
-        private void GetMachInfo()
+        /// <summary>
+        /// Retrieves match information.
+        /// </summary>
+        private void GetMatchInfo()
         {
             var getMatchInfo = new GetMatchInfoRequest(new GetMatchInfoController_Playfab(findResponse.MatchId, queueName));
             getMatchInfo.SendRequest(out string errorLog, OnGetMatchInfoResponse_EventListener);
@@ -74,6 +106,9 @@ namespace flameborn.Core.Managers
             }
         }
 
+        /// <summary>
+        /// Coroutine that repeatedly attempts to find a match.
+        /// </summary>
         private IEnumerator MatchSearchingCoroutine()
         {
             while (iteration < coroutineIterationCount)
@@ -100,13 +135,16 @@ namespace flameborn.Core.Managers
             yield return null;
         }
 
+        /// <summary>
+        /// Event listener for match info response.
+        /// </summary>
+        /// <param name="response">The response received for match info.</param>
         private void OnGetMatchInfoResponse_EventListener(IGetMatchInfoResponse response)
         {
             if (response.IsRequestSuccess)
             {
                 uiManager.mainMenu.UnLock(this);
                 uiManager.mainMenu.waitingPanel.SetActive(false);
-
 
                 uiManager.lobbyMenu.Show();
 
@@ -118,6 +156,10 @@ namespace flameborn.Core.Managers
             uiManager.alert.Show("Alert", response.Message);
         }
 
+        /// <summary>
+        /// Event listener for find match response.
+        /// </summary>
+        /// <param name="response">The response received for find match.</param>
         private void OnGetFindMatchResponse_EventListener(IFindMatchResponse response)
         {
             if (response.IsRequestSuccess)
@@ -146,11 +188,13 @@ namespace flameborn.Core.Managers
                 }
             }
 
-
             HFLogger.Log(response, response.Message);
-
         }
 
+        /// <summary>
+        /// Event listener for match ticket response.
+        /// </summary>
+        /// <param name="response">The response received for match ticket.</param>
         private void OnGetMatchTicketResponse_EventListener(ICreateMatchTicketResponse response)
         {
             if (!response.IsRequestSuccess)
@@ -167,5 +211,6 @@ namespace flameborn.Core.Managers
             FindMatch();
         }
 
+        #endregion
     }
 }

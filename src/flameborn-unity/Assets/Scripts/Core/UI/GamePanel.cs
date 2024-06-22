@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using flameborn.Core.Game.Cameras;
+using flameborn.Core.Game.Events;
+using flameborn.Core.Game.Objects.Abstract;
 using flameborn.Core.UI.Abstract;
 using flameborn.Core.UI.Animations;
 using TMPro;
@@ -26,6 +28,9 @@ namespace flameborn.Core.UI
             campFireButton.onClick.AddListener(new UnityAction(() =>
             {
                 CameraController.GlobalAccess.SetDestination(campFire.transform.position);
+                var selectable = campFire.GetComponent<ISelectable>();
+                EventManager.GlobalAccess.current = selectable;
+                selectable.Select();
                 Debug.Log("Camp fire Click");
             }));
             campFireButton.interactable = true;

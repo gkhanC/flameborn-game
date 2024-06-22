@@ -471,13 +471,10 @@ MonoBehaviour:
   userName: 
   userColor: 
   woodInfo: {fileID: 3477056063554470231}
-  UserNameInfo: {fileID: 80255170738731941}
+  userNameInfo: {fileID: 0}
   workers:
   - {fileID: 8796656963046229325, guid: de72ca195c740d042b4cd3af24e8b0e5, type: 3}
   - {fileID: 6865747828367688221, guid: cf3021fe65f678a48ae8c361d3e1bf26, type: 3}
-  currentWorkers: []
-  nextWorkerCost: 25
-  selectedObject: {fileID: 0}
   campFireButtons:
   - btnName: Create Worker
     btnImage: {fileID: 21300000, guid: dad351d12223b2b40bcee1eef41b00fa, type: 3}

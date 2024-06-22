@@ -1635,10 +1635,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fd8412c764ea845bdb2a25c0d570e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: -4259332104757559886}
-  animator: {fileID: 2212796474162149753}
   isAttackAnim: 0
   isIdle: 0
+  animator: {fileID: 2212796474162149753}
+  controller: {fileID: -4259332104757559886}
 --- !u!114 &-4259332104757559886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,16 +1651,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47dca16f938c5ed45a9eca654e482f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonView: {fileID: 6029264501986546763}
   animationInfo: 0
-  animationController: {fileID: -8365050121791713187}
   agent: {fileID: 2902035597286509379}
+  animationController: {fileID: -8365050121791713187}
+  photonView: {fileID: 6029264501986546763}
   target: {fileID: 0}
   prob: {fileID: 0}
-  isGathered: 0
-  isMovingAroundProb: 0
-  isGathering: 0
   wood: {fileID: 4862534791134871874}
+  isGathered: 0
+  isGathering: 0
+  isMovingAroundProb: 0
 --- !u!114 &6029264501986546763
 MonoBehaviour:
   m_ObjectHideFlags: 0

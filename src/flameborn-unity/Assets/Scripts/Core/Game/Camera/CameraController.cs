@@ -3,26 +3,47 @@ using flameborn.Core.Game.Inputs.Abstract;
 using flameborn.Core.Game.Inputs.Controllers;
 using UnityEngine;
 using UnityEngine.AI;
+
 namespace flameborn.Core.Game.Cameras
 {
+    /// <summary>
+    /// Controls the camera movement and interactions.
+    /// </summary>
     public class CameraController : MonoBehaviour, IInputListener<TouchResult>
     {
+        // Public variables
+        /// <summary>
+        /// Global access to the CameraController.
+        /// </summary>
         public static CameraController GlobalAccess { get; private set; }
+
+        /// <summary>
+        /// The magnitude of the camera movement.
+        /// </summary>
         public float magnitude = 3f;
+
+        /// <summary>
+        /// The speed of the NavMeshAgent.
+        /// </summary>
         public float speed = 20f;
-        TouchResult result = new TouchResult();
+
+        /// <summary>
+        /// The NavMeshAgent component.
+        /// </summary>
         public NavMeshAgent navMeshAgent;
 
+        // Private variables
         private bool isPositionSet;
+        private TouchResult result = new TouchResult();
 
         private void Awake()
         {
             GlobalAccess = this;
         }
 
-        void Start()
+        private void Start()
         {
-            InputManager.GlobalAccess.SubscribeInputController(this.InputListener);
+            InputManager.GlobalAccess.SubscribeInputController(InputListener);
             navMeshAgent.speed = speed;
         }
 
@@ -31,8 +52,8 @@ namespace flameborn.Core.Game.Cameras
             if (result.status == InputStatus.Continuos)
             {
                 Vector2 deltaPos = result.endPosition - result.startPosition;
-                Vector3 dir = new Vector3(-deltaPos.x, 0f, -deltaPos.y).normalized;
-                navMeshAgent.SetDestination(transform.position + (dir * magnitude));
+                Vector3 direction = new Vector3(-deltaPos.x, 0f, -deltaPos.y).normalized;
+                navMeshAgent.SetDestination(transform.position + (direction * magnitude));
                 isPositionSet = false;
             }
             else if (!isPositionSet)
@@ -41,22 +62,38 @@ namespace flameborn.Core.Game.Cameras
             }
         }
 
+        /// <summary>
+        /// Sets the destination of the NavMeshAgent.
+        /// </summary>
+        /// <param name="position">The target position.</param>
         public void SetDestination(Vector3 position)
         {
             isPositionSet = true;
             navMeshAgent.SetDestination(position);
         }
 
-        public void AddSpeed(float speed)
+        /// <summary>
+        /// Adds speed to the NavMeshAgent.
+        /// </summary>
+        /// <param name="additionalSpeed">The speed to add.</param>
+        public void AddSpeed(float additionalSpeed)
         {
-            navMeshAgent.speed += speed;
+            navMeshAgent.speed += additionalSpeed;
         }
 
-        public void AddMagnitude(float speed)
+        /// <summary>
+        /// Adds magnitude to the camera movement.
+        /// </summary>
+        /// <param name="additionalMagnitude">The magnitude to add.</param>
+        public void AddMagnitude(float additionalMagnitude)
         {
-            magnitude += speed;
+            magnitude += additionalMagnitude;
         }
 
+        /// <summary>
+        /// Handles input events.
+        /// </summary>
+        /// <param name="result">The touch result from input.</param>
         public void InputListener(TouchResult result)
         {
             this.result = result;

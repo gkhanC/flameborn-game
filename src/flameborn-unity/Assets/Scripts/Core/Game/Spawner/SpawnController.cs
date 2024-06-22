@@ -15,6 +15,9 @@ namespace flameborn.Core.Game.Spawner
         public List<GameObject> spawnPoints;
 
 
+        /// <summary>
+        /// Initializes the SpawnController and spawns players at the designated spawn points.
+        /// </summary>
         private void Start()
         {
             var photonManager = GameManager.Instance.GetManager<PhotonManager>().Instance;
@@ -24,12 +27,21 @@ namespace flameborn.Core.Game.Spawner
             {
                 if (players[i] == PhotonNetwork.LocalPlayer)
                 {
-                    var name = i == 0 ? "PlayerBlue" : "PlayerGreen";
-                    CameraController.GlobalAccess.transform.position = spawnPoints[i].transform.position;
-                    var player = PhotonNetwork.Instantiate(name, spawnPoints[i].transform.position, Quaternion.identity).GetComponent<PlayerCampFire>();
-                    player.userColor = i == 0 ? "Blue" : "Green";
+                    SpawnPlayer(i);
                 }
             }
+        }
+
+        /// <summary>
+        /// Spawns the player at the specified index and sets the camera position.
+        /// </summary>
+        /// <param name="index">The index of the player in the list.</param>
+        private void SpawnPlayer(int index)
+        {
+            string playerName = index == 0 ? "PlayerBlue" : "PlayerGreen";
+            Vector3 spawnPosition = spawnPoints[index].transform.position;
+            CameraController.GlobalAccess.transform.position = spawnPosition;
+            PhotonNetwork.Instantiate(playerName, spawnPosition, Quaternion.identity).GetComponent<PlayerCampFire>();
         }
     }
 }

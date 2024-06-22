@@ -9,99 +9,24 @@ using UnityEngine;
 
 namespace flameborn.Core.Game.Events
 {
+    /// <summary>
+    /// Manages game events and input handling.
+    /// </summary>
     public class EventManager : MonoBehaviour, IInputListener<TouchResult>
     {
-        TouchResult touchResult;
-        public PlayerCampFire localPlayer;
+        // Public variables
         public static EventManager GlobalAccess { get; private set; }
 
-        GameObject neww; GameObject old;
+        /// <summary>
+        /// The local player's campfire.
+        /// </summary>
+        public PlayerCampFire localPlayer;
+
+        // Private variables
+        private TouchResult touchResult;
         public ISelectable current;
-
-        public void InputListener(TouchResult result)
-        {
-            touchResult = result;
-            CheckInput();
-        }
-
-        public void SetLocalPlayer(PlayerCampFire campFire)
-        {
-            localPlayer = campFire;
-        }
-
-        public void CheckInput()
-        {
-            if (localPlayer.IsNull()) return;
-            if (touchResult == null) return;
-
-            if (touchResult.status == InputStatus.ObjectSelect)
-            {
-                if (current == null)
-                {
-                    var view = touchResult.selectedObject.GetComponent<PhotonView>();
-                    if (view.IsMine)
-                    {
-                        var selectable = touchResult.selectedObject.GetComponent<ISelectable>();
-                        selectable.Select();
-                        current = selectable;
-                        neww = touchResult.selectedObject;
-                        Debug.LogError("A");
-                    }
-                }
-                else
-                {
-                    var view = touchResult.selectedObject.GetComponent<PhotonView>();
-                    var selectable = touchResult.selectedObject.GetComponent<ISelectable>();
-                    if (view != null && view.IsMine)
-                    {
-                        if (selectable != current) current.DeSelect();
-
-                        selectable.Select();
-                        current = selectable;
-                        old = neww;
-                        neww = touchResult.selectedObject;
-                        Debug.LogError("B");
-                    }
-                    else
-                    {
-                        if (current.selectableType == SelectableTypes.Worker)
-                        {
-                            current.SetTarget(selectable);
-
-                            current = null;
-                        }
-                    }
-
-                }
-
-            }
-            else if (touchResult.status == InputStatus.TouchCompleted)
-            {
-                if (current != null)
-                {
-                    if (current.selectableType == SelectableTypes.Worker)
-                    {
-                        current.SetDestination(touchResult.startPosition);
-                        current = null;
-                        neww = null;
-                        Debug.LogError("D");
-                    }
-                    else
-                    {
-                        current.DeSelect();
-                        Debug.LogError("E");
-                    }
-
-                }
-            }
-
-            if (touchResult.status == InputStatus.ObjectSelect)
-            {
-                touchResult.status = InputStatus.None;
-            }
-
-        }
-
+        private GameObject newSelectedObject;
+        private GameObject oldSelectedObject;
 
         private void Awake()
         {
@@ -110,12 +35,106 @@ namespace flameborn.Core.Game.Events
 
         private void Start()
         {
-            InputManager.GlobalAccess.SubscribeInputController(this.InputListener);
+            InputManager.GlobalAccess.SubscribeInputController(InputListener);
         }
 
         private void Update()
         {
+            // Update logic can be implemented here
+        }
 
+        /// <summary>
+        /// Sets the local player reference.
+        /// </summary>
+        /// <param name="campFire">The local player's campfire.</param>
+        public void SetLocalPlayer(PlayerCampFire campFire)
+        {
+            localPlayer = campFire;
+        }
+
+        /// <summary>
+        /// Handles input events.
+        /// </summary>
+        /// <param name="result">The touch result from input.</param>
+        public void InputListener(TouchResult result)
+        {
+            touchResult = result;
+            CheckInput();
+        }
+
+        private void CheckInput()
+        {
+            if (localPlayer.IsNull() || touchResult == null) return;
+
+            switch (touchResult.status)
+            {
+                case InputStatus.ObjectSelect:
+                    HandleObjectSelect();
+                    break;
+                case InputStatus.TouchCompleted:
+                    HandleTouchCompleted();
+                    break;
+            }
+
+            if (touchResult.status == InputStatus.ObjectSelect)
+            {
+                touchResult.status = InputStatus.None;
+            }
+        }
+
+        private void HandleObjectSelect()
+        {
+
+            if (current == null)
+            {
+                SelectNewObject(touchResult.selectedObject);
+
+            }
+            else
+            {
+                var view = touchResult.selectedObject.GetComponent<PhotonView>();
+                var selectable = touchResult.selectedObject.GetComponent<ISelectable>();
+                if (view != null && view.IsMine)
+                {
+                    if (selectable != current)
+                    {
+                        current.DeSelect();
+                    }
+
+                    SelectNewObject(touchResult.selectedObject);
+                }
+                else
+                {
+                    if (current.selectableType == SelectableTypes.Worker)
+                    {
+                        current.SetTarget(selectable);
+                        current = null;
+                    }
+                }
+            }
+        }
+
+        private void HandleTouchCompleted()
+        {
+            if (current == null) return;
+
+            if (current.selectableType == SelectableTypes.Worker)
+            {
+                current.SetDestination(touchResult.startPosition);
+            }
+
+        }
+
+        private void SelectNewObject(GameObject selectedObject)
+        {
+            var view = selectedObject.GetComponent<PhotonView>();
+            if (view == null || !view.IsMine) return;
+
+            var selectable = selectedObject.GetComponent<ISelectable>();
+            if (selectable == null) return;
+
+            selectable.Select();
+            current = selectable;
         }
     }
 }

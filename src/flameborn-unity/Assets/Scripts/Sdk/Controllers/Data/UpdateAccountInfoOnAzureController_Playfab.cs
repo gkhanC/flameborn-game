@@ -27,7 +27,7 @@ namespace flameborn.Sdk.Controllers.Data
             errorLog = "";
 
             if (string.IsNullOrEmpty(functionName)) { errorLog = $"{nameof(functionName)} is null or empty."; }
-
+            
             listeners.ForEach(l => onGetResult += l);
             var request = TakeRequest();
             PlayFabCloudScriptAPI.ExecuteFunction(request, OnGetAccountInfoResult_EventListener, OnError);
@@ -40,7 +40,7 @@ namespace flameborn.Sdk.Controllers.Data
             var json = result.FunctionResult.ToString();
             var data = JsonConvert.DeserializeObject<UpdatedAccountResponse>(json);
 
-            response.SetResponse(data.success, result, data.Message);
+            response.SetResponse(data.Success, result, data.Message);
             onGetResult?.Invoke(response);
         }
 

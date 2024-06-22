@@ -715,6 +715,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4371598942714797371, guid: dff7db583fa38c84e9b62f8378c7b84a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371598942714797371, guid: dff7db583fa38c84e9b62f8378c7b84a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371598942714797371, guid: dff7db583fa38c84e9b62f8378c7b84a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371598942714797371, guid: dff7db583fa38c84e9b62f8378c7b84a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1655.103
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371598942714797371, guid: dff7db583fa38c84e9b62f8378c7b84a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5633024251222234787, guid: dff7db583fa38c84e9b62f8378c7b84a,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -743,6 +768,16 @@ PrefabInstance:
     - target: {fileID: 5633024251222234787, guid: dff7db583fa38c84e9b62f8378c7b84a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6541413040323077738, guid: dff7db583fa38c84e9b62f8378c7b84a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6541413041056750063, guid: dff7db583fa38c84e9b62f8378c7b84a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8399450759561360197, guid: dff7db583fa38c84e9b62f8378c7b84a,

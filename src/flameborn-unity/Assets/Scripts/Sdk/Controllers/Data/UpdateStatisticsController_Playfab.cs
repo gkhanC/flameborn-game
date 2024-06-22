@@ -9,11 +9,24 @@ using PlayFab.ClientModels;
 
 namespace flameborn.Sdk.Controllers.Data
 {
+    /// <summary>
+    /// Controller for updating player statistics on PlayFab.
+    /// </summary>
     public class UpdateStatisticsController_Playfab : Controller<IUpdateStatisticsResponse>, IApiController<IUpdateStatisticsResponse>
     {
-        List<StatisticUpdate> statistics = new List<StatisticUpdate>();
+        #region Fields
+
+        private List<StatisticUpdate> statistics = new List<StatisticUpdate>();
         private event Action<IUpdateStatisticsResponse> onGetResult;
 
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateStatisticsController_Playfab"/> class.
+        /// </summary>
+        /// <param name="statistics">An array of tuples containing the statistic names and values.</param>
         public UpdateStatisticsController_Playfab((string name, int value)[] statistics)
         {
             statistics.ForEach(s =>
@@ -22,10 +35,22 @@ namespace flameborn.Sdk.Controllers.Data
             });
         }
 
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Sends the request to update player statistics.
+        /// </summary>
+        /// <param name="errorLog">The error log to be populated in case of an error.</param>
+        /// <param name="listeners">The listeners to process the response.</param>
         public override void SendRequest(out string errorLog, params Action<IUpdateStatisticsResponse>[] listeners)
         {
             errorLog = "";
-            if (statistics.Count == 0) { errorLog = $"{nameof(statistics)} is null or empty."; }
+            if (statistics.Count == 0) 
+            { 
+                errorLog = $"{nameof(statistics)} is null or empty."; 
+            }
 
             listeners.ForEach(l => onGetResult += l);
 
@@ -33,6 +58,22 @@ namespace flameborn.Sdk.Controllers.Data
             PlayFabClientAPI.UpdatePlayerStatistics(request, OnGetUpdateStatisticsResult_EventListener, OnError);
         }
 
+        /// <summary>
+        /// Takes the request for updating player statistics.
+        /// </summary>
+        /// <returns>The request to update player statistics.</returns>
+        private UpdatePlayerStatisticsRequest TakeRequest()
+        {
+            return new UpdatePlayerStatisticsRequest
+            {
+                Statistics = this.statistics
+            };
+        }
+
+        /// <summary>
+        /// Handles the event when the update statistics result is received.
+        /// </summary>
+        /// <param name="result">The result of the update statistics request.</param>
         private void OnGetUpdateStatisticsResult_EventListener(UpdatePlayerStatisticsResult result)
         {
             var response = new UpdateStatisticsResponse();
@@ -40,6 +81,10 @@ namespace flameborn.Sdk.Controllers.Data
             onGetResult?.Invoke(response);
         }
 
+        /// <summary>
+        /// Handles errors that occur during the update statistics request.
+        /// </summary>
+        /// <param name="error">The error that occurred.</param>
         private void OnError(PlayFabError error)
         {
             var response = new UpdateStatisticsResponse();
@@ -48,12 +93,6 @@ namespace flameborn.Sdk.Controllers.Data
             onGetResult?.Invoke(response);
         }
 
-        private UpdatePlayerStatisticsRequest TakeRequest()
-        {
-            return new UpdatePlayerStatisticsRequest
-            {
-                Statistics = this.statistics
-            };
-        }
+        #endregion
     }
 }
