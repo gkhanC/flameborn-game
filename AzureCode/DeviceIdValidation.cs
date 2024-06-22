@@ -7,18 +7,18 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Azure;
 using Azure.Data.Tables;
 using System.Linq;
-using Azure;
 
-public static class CheckDeviceIdFunction
+namespace Company.Function
 {
-    [FunctionName("CheckDeviceIdFunction")]
-    public static async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-        ILogger log)
+    public static class DeviceIdValidation
     {
-        try
+        [FunctionName("DeviceIdValidation")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
@@ -26,7 +26,7 @@ public static class CheckDeviceIdFunction
 
             if (string.IsNullOrEmpty(deviceId))
             {
-                return new BadRequestObjectResult(new { success = false, message = "DeviceId is null or empty" });
+                return new OkObjectResult(new { isValid = false, message = "DeviceId is null or empty" });
             }
 
             string connectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
@@ -37,12 +37,7 @@ public static class CheckDeviceIdFunction
 
             bool exists = queryResults.Any();
 
-            return new OkObjectResult(new { success = exists, message = "Device is found." });
-        }
-        catch (Exception ex)
-        {
-            log.LogError($"Hata: {ex.Message}\n{ex.StackTrace}");
-            return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+            return new OkObjectResult(new { isValid = exists, message = "Device is found." });
         }
     }
 }
