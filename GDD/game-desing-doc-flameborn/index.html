@@ -1,0 +1,2273 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>Game desing doc flameborn - Flameborn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#game-design-document-flameborn" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Flameborn Documentation" class="md-header__button md-logo" aria-label="Flameborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Flameborn Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Game desing doc flameborn
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Flameborn Documentation" class="md-nav__button md-logo" aria-label="Flameborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Flameborn Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development-report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Account
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AccountInfoResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AccountInfoResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AccountManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AccountManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AzureManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BoxGroupAttribute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoxGroupAttribute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ConfigurationManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConfigurationManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Controller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Controller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CreateMatchTicketController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CreateMatchTicketController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CreateMatchTicketRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CreateMatchTicketRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CreateMatchTicketResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CreateMatchTicketResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataPanelBase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DataPanelBase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DeviceLoginController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DeviceLoginController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EmailLoginController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmailLoginController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FindMatchController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FindMatchController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FindMatchRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FindMatchRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FindMatchResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FindMatchResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GameButton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GameButton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GameManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GameManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GamePanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GamePanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GenericResponseEntity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GenericResponseEntity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GetAccountInfoController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetAccountInfoController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GetAccountInfoRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetAccountInfoRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GetMatchInfoController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetMatchInfoController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GetMatchInfoRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetMatchInfoRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GetMatchInfoResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetMatchInfoResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GetPlayerStatisticsController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetPlayerStatisticsController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GetStatisticsRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetStatisticsRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GetStatisticsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetStatisticsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IAccount/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAccount
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IAccountInfoResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAccountInfoResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IAccountManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAccountManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IApiController/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IApiController
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IApiRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IApiRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IApiResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IApiResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IConfigurationManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IConfigurationManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICreateMatchTicketResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ICreateMatchTicketResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IDataPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IDataPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IFindMatchResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IFindMatchResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IGetMatchInfoResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IGetMatchInfoResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IGetStatisticsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IGetStatisticsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IHideable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IHideable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ILobbyPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ILobbyPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ILockable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ILockable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ILoginPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ILoginPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ILoginResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ILoginResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IMainMenuPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IMainMenuPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IPasswordResetResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPasswordResetResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IRecoveryPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IRecoveryPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IRegisterPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IRegisterPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IRegisterResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IRegisterResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IShowable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IShowable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IUpdateStatisticsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IUpdateStatisticsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeaderPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LeaderPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LoaderPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoaderPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LobbyPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LobbyPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LoginRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoginRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LoginResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoginResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MatchMakingManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MatchMakingManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PanelBase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PanelBase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PasswordResetController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PasswordResetController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PasswordResetRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PasswordResetRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PasswordResetResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PasswordResetResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PhotonManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PhotonManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PhotonRoomController/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PhotonRoomController
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PlayfabManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PlayfabManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RegisterController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RegisterController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RegisterRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RegisterRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RegisterResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RegisterResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Request/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Request
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ResponseEntity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResponseEntity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UiManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UiManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UpdateAccountInfoOnAzureController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateAccountInfoOnAzureController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UpdatedAccountResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdatedAccountResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UpdateStatisticsController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateStatisticsController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UpdateStatisticsRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateStatisticsRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UpdateStatisticsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateStatisticsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diaries/daily-log.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    daily-log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-desing-doc-flameborn.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    game-desing-doc-flameborn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#game-design-document-flameborn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Design Document: Flameborn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contents-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contents {#contents}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gameplay-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gameplay Mechanics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gameplay Mechanics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#player-movement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Player Movement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#character-roles-and-abilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Roles and Abilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Character Roles and Abilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soldiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soldiers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplayer-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiplayer Dynamics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Balance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrades
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-user-interface-ui-user-interface-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. User Interface (UI) {#user-interface-ui}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. User Interface (UI) {#user-interface-ui}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Menu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campfire-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Campfire UI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monetization-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monetization Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monetization Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-app-purchases" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-App Purchases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advertisements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advertisements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Specifications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#art-and-sound-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Art and Sound Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Art and Sound Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#art-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Art Style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sound-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Game desing doc flameborn</h1>
+
+<h2 id="game-design-document-flameborn">Game Design Document: Flameborn<a class="headerlink" href="#game-design-document-flameborn" title="Permanent link">&para;</a></h2>
+<p><strong>Platform:</strong> Mobile (iOS, Android)</p>
+<p><strong>Genre:</strong> Real-Time Strategy (RTS), Multiplayer</p>
+<h2 id="contents-contents">Contents {#contents}<a class="headerlink" href="#contents-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#Game-Overview">Game Overview</a></li>
+<li><a href="#Gameplay-Mechanics">Gameplay Mechanics</a></li>
+<li><a href="#Player-Movement">Player Movement</a></li>
+<li><a href="#Character-Selection">Character Selection</a></li>
+<li><a href="#Command-System">Command System</a></li>
+<li><a href="#Character-Roles-and-Abilities">Character Roles and Abilities</a></li>
+<li><a href="#Workers">Workers</a></li>
+<li><a href="#Woldiers">Soldiers</a></li>
+<li><a href="#Multiplayer-Dynamics">Multiplayer Dynamics</a></li>
+<li><a href="#Resource-Management">Resource Management</a></li>
+<li><a href="#User-Interface-ui">User Interface (UI)</a></li>
+<li><a href="#Monetization-Strategy">Monetization Strategy</a></li>
+<li><a href="#Technical-Specifications">Technical Specifications</a></li>
+<li><a href="#Art-and-Sound-Design">Art and Sound Design</a></li>
+</ol>
+<hr />
+<h2 id="game-overview">Game Overview<a class="headerlink" href="#game-overview" title="Permanent link">&para;</a></h2>
+<p>Flameborn is a real-time multiplayer strategy game where players control a team of characters to gather resources and defend or attack campfires. The goal is to collect wood and use strategic commands to make your campfire bigger than your opponents'.</p>
+<h2 id="gameplay-mechanics">Gameplay Mechanics<a class="headerlink" href="#gameplay-mechanics" title="Permanent link">&para;</a></h2>
+<h3 id="player-movement">Player Movement<a class="headerlink" href="#player-movement" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Players can drag the screen to move their view around the map.</li>
+<li>Tap on a character to select it and activate command options.</li>
+</ul>
+<h3 id="character-selection">Character Selection<a class="headerlink" href="#character-selection" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Players can select characters by tapping on them.</li>
+<li>When a character is selected, an action menu with various commands appears.</li>
+</ul>
+<h3 id="command-system">Command System<a class="headerlink" href="#command-system" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Idle:</strong> The character stands still.</li>
+<li><strong>Gather Resources:</strong> The character gathers nearby resources (wood).</li>
+<li><strong>Defense Mode:</strong> (Soldiers only) The character defends the campfire.</li>
+<li><strong>Attack Mode:</strong> (Soldiers only) The character attacks designated targets.</li>
+</ul>
+<h2 id="character-roles-and-abilities">Character Roles and Abilities<a class="headerlink" href="#character-roles-and-abilities" title="Permanent link">&para;</a></h2>
+<h3 id="workers">Workers<a class="headerlink" href="#workers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Move:</strong> Walk to a designated location.</li>
+<li><strong>Gather Resources:</strong> Collect wood from the nearest resource point.</li>
+<li><strong>Auto-Gather:</strong> Automatically gather resources within a certain range.</li>
+<li><strong>Call:</strong> Summon all workers to the player's current screen location.</li>
+</ul>
+<h3 id="soldiers">Soldiers<a class="headerlink" href="#soldiers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Defend Campfire:</strong> Protect the campfire from enemy attacks.</li>
+<li><strong>Attack Enemy Character:</strong> Fight with a selected enemy character.</li>
+<li><strong>Attack Enemy Campfire:</strong> Target and damage the enemy campfire.</li>
+<li><strong>Move:</strong> Walk to a designated location.</li>
+<li><strong>Guard Area:</strong> Protect a specific area from enemy entry.</li>
+</ul>
+<h2 id="multiplayer-dynamics">Multiplayer Dynamics<a class="headerlink" href="#multiplayer-dynamics" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Real-Time Strategy:</strong> Players compete in real-time to grow their campfires by gathering resources and attacking opponents.</li>
+<li><strong>Resource Competition:</strong> Players must strategically gather wood from shared resource points.</li>
+<li><strong>Campfire Battle:</strong> The size of the campfire reflects the player's progress and strength. Attacks on enemy campfires reduce their size.</li>
+</ul>
+<h2 id="resource-management">Resource Management<a class="headerlink" href="#resource-management" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Wood:</strong> The primary resource used to grow the campfire and upgrade units.</li>
+</ul>
+<h3 id="balance">Balance<a class="headerlink" href="#balance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>When a player attacks the opponent's campfire, their soldier dies, and the opponent's campfire shrinks.</li>
+<li>When a player attacks the opponent's soldier character, both soldiers die.</li>
+<li>When a player attacks the opponent's worker character, the worker dies, and the soldier's health reduces to half of its total health.</li>
+</ul>
+<h3 id="upgrades">Upgrades<a class="headerlink" href="#upgrades" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Create Worker:</strong> Increase the number of workers to gather resources faster.</li>
+<li><strong>Create Soldier:</strong> Increase the number of soldiers for defense and attack.</li>
+</ul>
+<h2 id="6-user-interface-ui-user-interface-ui">6. User Interface (UI) {#user-interface-ui}<a class="headerlink" href="#6-user-interface-ui-user-interface-ui" title="Permanent link">&para;</a></h2>
+<h3 id="main-screen">Main Screen<a class="headerlink" href="#main-screen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Drag to move the view around the map.</li>
+<li>Tap to select characters and resources.</li>
+</ul>
+<h3 id="character-menu">Character Menu<a class="headerlink" href="#character-menu" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Appears when a character is selected.</li>
+<li>Includes commands like move, gather, attack, defend, and call.</li>
+</ul>
+<h3 id="campfire-ui">Campfire UI<a class="headerlink" href="#campfire-ui" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Shows the size and health of the campfire.</li>
+<li>Displays available upgrades and current resource amount.</li>
+</ul>
+<h2 id="monetization-strategy">Monetization Strategy<a class="headerlink" href="#monetization-strategy" title="Permanent link">&para;</a></h2>
+<h3 id="in-app-purchases">In-App Purchases<a class="headerlink" href="#in-app-purchases" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cosmetic skins for characters.</li>
+<li>Resource packs to accelerate progress.</li>
+<li>Special abilities or boosts providing temporary advantages.</li>
+</ul>
+<h3 id="advertisements">Advertisements<a class="headerlink" href="#advertisements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Optional video ads for rewards.</li>
+<li>Banner ads on the main menu screen.</li>
+</ul>
+<h2 id="technical-specifications">Technical Specifications<a class="headerlink" href="#technical-specifications" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engine:</strong> Unity</li>
+<li><strong>Supported Devices:</strong> iOS 10.0+ and Android 5.0+</li>
+<li><strong>Network:</strong> Real-time multiplayer via P2P or dedicated servers</li>
+<li><strong>Performance:</strong> Optimized for smooth performance on mid-range mobile devices</li>
+</ul>
+<h2 id="art-and-sound-design">Art and Sound Design<a class="headerlink" href="#art-and-sound-design" title="Permanent link">&para;</a></h2>
+<h3 id="art-style">Art Style<a class="headerlink" href="#art-style" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Visuals:</strong> Stylized, colorful graphics suitable for mobile screens.</li>
+<li><strong>Characters:</strong> Distinct designs for workers and soldiers.</li>
+<li><strong>Environment:</strong> Vibrant landscapes filled with resource points and campfires.</li>
+</ul>
+<h3 id="sound-design">Sound Design<a class="headerlink" href="#sound-design" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Background Music:</strong> Dynamic music that changes based on game state (calm during resource gathering, intense during battles).</li>
+<li><strong>Sound Effects:</strong> Feedback sounds for commands, resource gathering, and combat.</li>
+</ul>
+<hr />
+<p>This document serves as a foundational guide for the development of Flameborn, outlining core gameplay mechanics, character functions, multiplayer dynamics, resource management, and other critical elements. More details and iterations will be added as development progresses.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>
