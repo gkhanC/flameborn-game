@@ -2,7 +2,7 @@ site_name: Flameborn Documentation
 theme:
   name: material
   palette:
-    primary: blue
+    primary: bluehttps://chatgpt.com/c/8c4a8c15-61b3-428d-86f9-653cdae5b3d3
     accent: light blue
   font:
     text: Roboto
