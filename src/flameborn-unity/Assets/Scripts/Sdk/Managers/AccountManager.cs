@@ -70,7 +70,9 @@ namespace flameborn.Core.Managers
         /// </summary>
         public void Login()
         {
+            if (isRegisterProcess) isRegisterProcess = false;
             var request = new LoginRequest(new EmailLoginController_Playfab(account.Email, account.Password, PlayFabSettings.TitleId, true));
+           
             request.SendRequest(out string errorLog, OnGetLoginResponse_EventListener);
             if (errorLog.Length > 0)
             {
@@ -99,6 +101,7 @@ namespace flameborn.Core.Managers
             isRegisterProcess = true;
             var request = new RegisterRequest(new RegisterController_Playfab(account.Email, account.Password, account.UserData.UserName));
             request.SendRequest(out string errorLog, OnGetRegisterResponse_EventListener);
+           
             if (errorLog.Length > 0)
             {
                 HFLogger.LogError(errorLog);
@@ -273,13 +276,14 @@ namespace flameborn.Core.Managers
             if (response.IsRequestSuccess && account.IsAccountLoaded)
             {
                 account.IsAccountLoggedIn = true;
+              
                 SaveAccountCredentials(account.Email, account.Password);
                 LoadAccountInfo();
                 return;
             }
 
             account.UserData.UserName = "#" + SystemInfo.deviceUniqueIdentifier[..4];
-
+         
             if (response.IsRequestSuccess)
                 LoadPlayerStatistics();
 
@@ -298,7 +302,7 @@ namespace flameborn.Core.Managers
             account.UserData.IsLogin = response.IsRequestSuccess;
             if (response.IsRequestSuccess)
             {
-                account.UserData.UserName = response.UserName;
+                account.UserData.UserName = string.IsNullOrEmpty(response.UserName) ? account.UserData.UserName : response.UserName;
                 account.UserData.Rating = response.Rating;
                 account.UserData.LaunchCount = response.LaunchCount;
             }
@@ -373,7 +377,7 @@ namespace flameborn.Core.Managers
             account.IsAccountLoggedIn = true;
             account.UserData.IsLogin = true;
 
-            if (isRegisterProcess) isRegisterProcess = false;
+            if (response.IsRequestSuccess && isRegisterProcess) isRegisterProcess = false;
             Event_OnAccountDataOnChanged.Invoke(account);
 
             if (!response.IsRequestSuccess)
@@ -391,8 +395,7 @@ namespace flameborn.Core.Managers
 
             HFLogger.LogError(response, response.Message);
             uiManager.alert.Show("Alert", response.Message);
-            SaveAccountCredentials(account.Email, account.Password);
-            LoadPlayerStatistics();
+            SaveAccountCredentials(account.Email, account.Password);           
             Login();
         }
 
