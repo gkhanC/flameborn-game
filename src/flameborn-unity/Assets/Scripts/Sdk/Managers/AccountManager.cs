@@ -393,7 +393,7 @@ namespace flameborn.Core.Managers
         {
             if (response.IsRequestSuccess) account.IsAccountLoaded = true;
 
-            HFLogger.LogError(response, response.Message);
+            HFLogger.Log(response, response.Message);
             uiManager.alert.Show("Alert", response.Message);
             SaveAccountCredentials(account.Email, account.Password);           
             Login();
