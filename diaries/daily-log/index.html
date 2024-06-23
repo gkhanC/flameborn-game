@@ -16,7 +16,7 @@
     
     
       
-        <title>[1.Gün] [08/06/2024] Proje Hazırlığı - Flameborn Documentation</title>
+        <title>[1. Gün] [08/06/2024] Proje Hazırlığı - Flameborn Documentation</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1gun-08062024-proje-hazrlg" class="md-skip">
+        <a href="#1-gun-08062024-proje-hazrlg" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              [1.Gün] [08/06/2024] Proje Hazırlığı
+              [1. Gün] [08/06/2024] Proje Hazırlığı
             
           </span>
         </div>
@@ -1821,67 +1821,98 @@
                   
 
 
-<h1 id="1gun-08062024-proje-hazrlg">[1.Gün] [08/06/2024] Proje Hazırlığı<a class="headerlink" href="#1gun-08062024-proje-hazrlg" title="Permanent link">&para;</a></h1>
+<h1 id="1-gun-08062024-proje-hazrlg">[1. Gün] [08/06/2024] Proje Hazırlığı<a class="headerlink" href="#1-gun-08062024-proje-hazrlg" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Case study dosyasını inceledim.</li>
 <li>Proje gereksinimlerini tespit ettim.</li>
 <li>Proje için GDD dökümanı hazırladım.</li>
-<li>Github reposu oluşturdum.</li>
+<li>GitHub reposu oluşturdum.</li>
 <li>Photon'un son güncelleme notlarına göz attım.</li>
 <li>Proje için mimari yapıyı belirledim.</li>
 <li>Yapılacaklar listesi oluşturdum.</li>
 </ul>
-<h1 id="2gun-09062024-projenin-olusturulmas">[2.Gün] [09/06/2024] Projenin oluşturulması<a class="headerlink" href="#2gun-09062024-projenin-olusturulmas" title="Permanent link">&para;</a></h1>
+<h1 id="2-gun-09062024-projenin-olusturulmas">[2. Gün] [09/06/2024] Projenin Oluşturulması<a class="headerlink" href="#2-gun-09062024-projenin-olusturulmas" title="Permanent link">&para;</a></h1>
 <ul>
-<li><a href="https://github.com/gkhanC/flameborn-game/blob/dev/images/Architecture%20Diagram.png">Architecture Diagram</a> oluşturuldu ve repo'ya eklendi.</li>
 <li>Unity Editor'ün 2022.3.10f1 versiyonunu yükledim.</li>
 <li>PlayFab dökümantasyonunu inceledim.</li>
 <li>flameborn-unity projesini oluşturdum. Proje <strong>src</strong> klasörü altına yerleştirildi.</li>
 <li>[Error] PlayFab Login hatası: PlayFab SDK'sini yapılandırırken, Editor Extension Resources klasörü altında bulunan PlayFabEditorPrefsSo.asset objesi statik tanımı üzerinden bulunamadı. Bu sebeple yeni bir instance yaratmaya çalışırken hata oluştu. İlgili kod bloğuna elle hata yönetimi eklenerek sorun aşıldı.</li>
-<li>API bilgilerinin gizliliğini sağlamak için, <strong><em>.\src\flameborn-unity\Assets\PlayFabEditorExtensions\Editor\Resources\PlayFabEditorPrefsSO.asset</em></strong> ve <strong><em>.\src\flameborn-unity\Assets\PlayFabSDK\Shared\Public\Resources\PlayFabSharedSettings.asset</em></strong> dosyalarındaki değişiklikler git tarafından izlenmeyecek şekilde ayarlandı.</li>
-<li><a href="https://github.com/gkhanC/flameborn-game/blob/dev/packages/HypeFire-v0f1-OLD.unitypackage">HypeFire</a> eklendi.</li>
 <li>Geliştirme loglarımı file'a kaydetmemi sağlayan Logger ekliyorum.</li>
-<li><a href="https://github.com/gkhanC/flameborn-game/blob/dev/logs/Logs.md">Geliştirme Logları</a></li>
 <li>PlayFab için login ve User bilgilerini barındıran json formatında configuration file oluşturdum. Login ve register için gerekli bilgileri barındıracak.</li>
-<li>Login sistemi tamamlandı, PlayFab üzerinde API test edildi. </li>
-<li>PlayFab üzerinde user register işlemleri için kullanıcının, ilk oyununu bitirmesini veya 2.kez oyunu başlatmasını bekleyecek şekilde yapılandıracağım.</li>
+<li>Login sistemi tamamlandı, PlayFab üzerinde API test edildi.</li>
+<li>PlayFab üzerinde user register işlemleri için kullanıcının, ilk oyununu bitirmesini veya 2. kez oyunu başlatmasını bekleyecek şekilde yapılandıracağım.</li>
 </ul>
-<h1 id="3gun-10062024-playfab-user-register">[3.Gün] [10/06/2024] PlayFab User Register<a class="headerlink" href="#3gun-10062024-playfab-user-register" title="Permanent link">&para;</a></h1>
+<h1 id="3-gun-10062024-playfab-user-register">[3. Gün] [10/06/2024] PlayFab User Register<a class="headerlink" href="#3-gun-10062024-playfab-user-register" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Azure portal üzerinde tablo oluşturdum</li>
+<li>Azure portal üzerinde tablo oluşturdum.</li>
 <li>Device temelli deneysel bir register sistemi kurguladım tabloyu buna uygun olarak şekillendirdim. 
-    Tablo şunları içerir:
-        - DeviceId
-        - EMail
-        - LaunchCount
-        - Password
-        - Rating
-        - UserName</li>
-<li>Register olan kullanıcılar bu bilgilerle azure'da kayıt edilicek.</li>
-<li>Tabloda ki veriler üzerinde crud işlemleri yapabilmem için Azure Functionları oluşturdum.</li>
-<li><a href="https://github.com/gkhanC/flameborn-game/tree/playfab-register/AzureCode">Function</a> source kodu <a href="https://github.com/gkhanC/flameborn-game/tree/playfab-register/AzureCode">buarda</a>.</li>
-<li>Functionları power shell kullanarak test ettim.</li>
+  Tablo şunları içerir:</li>
+<li>DeviceId</li>
+<li>EMail</li>
+<li>LaunchCount</li>
+<li>Password</li>
+<li>Rating</li>
+<li>UserName</li>
+<li>Register olan kullanıcılar bu bilgilerle Azure'da kayıt edilecek.</li>
+<li>Tablodaki veriler üzerinde CRUD işlemleri yapabilmem için Azure Functionları oluşturdum.</li>
+<li>Functionları PowerShell kullanarak test ettim.</li>
 <li>Azure API oluşturmak için Unity'de logic'i şekillendirdim.</li>
 <li>Azure functionların bağlantı adresini tutan Azure Configuration dosyasını json formatında oluşturdum. Dosya değişiklikleri git tarafından izlenmeyecek şekilde ayarlandı.</li>
-<li><a href="https://github.com/gkhanC/flameborn-game/blob/playfab-register/src/flameborn-unity/Assets/StreamingAssets/AzureConfiguration.json">Configuration</a> dosyası <a href="https://github.com/gkhanC/flameborn-game/blob/playfab-register/src/flameborn-unity/Assets/StreamingAssets/AzureConfiguration.json">buarada</a> dosyanın sizin functionlarınıza göre doldurulması gerekir.</li>
-<li>Dosyadaki değişkenlerin isimlerini sonra düzenleyeceğim.</li>
 </ul>
-<h1 id="4gun-11062024-azure-configurasyonlarn-tamamla">[4.Gün] [11/06/2024] Azure Configurasyonlarını Tamamla<a class="headerlink" href="#4gun-11062024-azure-configurasyonlarn-tamamla" title="Permanent link">&para;</a></h1>
+<h1 id="4-gun-11062024-azure-konfigurasyonlarn-tamamla">[4. Gün] [11/06/2024] Azure Konfigurasyonlarını Tamamla<a class="headerlink" href="#4-gun-11062024-azure-konfigurasyonlarn-tamamla" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Refectoring yaptım.</li>
-<li>Azure tabloları ile yaptığım crud işlemleri için test senaryonarı uyguladım.</li>
+<li>Refactoring yaptım.</li>
+<li>Azure tabloları ile yaptığım CRUD işlemleri için test senaryonları uyguladım.</li>
 <li>Login işlemlerini test ettim.</li>
-<li>Login, Register, Recovery için logic hazırladım ve ui testleri yaptım.</li>
+<li>Login, Register, Recovery için logic hazırladım ve UI testleri yaptım.</li>
 </ul>
-<h1 id="5gun-12062024">[5.Gün] [12/06/2024]<a class="headerlink" href="#5gun-12062024" title="Permanent link">&para;</a></h1>
+<h1 id="5-gun-12062024">[5. Gün] [12/06/2024]<a class="headerlink" href="#5-gun-12062024" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Azure functionları güncellendi.</li>
 <li>Mevcut kod yeni fonksiyonlar için uygun hale getirildi.</li>
-<li>Azure tobloları ile ilgili işlemler tamamlandı.</li>
-<li>Login, registeri recovery işlemleri tamamlandı.</li>
-<li>Playfab için email ile giriş eklendi.</li>
+<li>Azure tabloları ile ilgili işlemler tamamlandı.</li>
+<li>Login, register ve recovery işlemleri tamamlandı.</li>
+<li>PlayFab için email ile giriş eklendi.</li>
 </ul>
-<h1 id="6gun-12062024">[6.Gün] [12/06/2024]<a class="headerlink" href="#6gun-12062024" title="Permanent link">&para;</a></h1>
+<h1 id="6-gun-12062024">[6. Gün] [12/06/2024]<a class="headerlink" href="#6-gun-12062024" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Login işlemleri tamamlandı.</li>
+<li>Register işlemleri oluşturuldu.</li>
+<li>Password reset yöntemi oluşturuldu.</li>
+</ul>
+<h1 id="7-gun-14062024">[7. Gün] [14/06/2024]<a class="headerlink" href="#7-gun-14062024" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Case study belgesini incelediğimde API yapısını yanlış ele aldığımı fark ettim. Yeni yapı için mimari tasarlandı.</li>
+<li>Temel işlevleri ele alan fonksiyonlar güncellendi.</li>
+</ul>
+<h1 id="8-gun-15062024">[8. Gün] [15/06/2024]<a class="headerlink" href="#8-gun-15062024" title="Permanent link">&para;</a></h1>
+<ul>
+<li>API, Cloud scriptler ve app functionlar ile çalışacak şekilde yapılandırıldı.</li>
+<li>API bağımlılıklarını ortadan kaldırmak için soyutlama yapısı tasarlandı.</li>
+<li>Temel API fonksiyonları test edildi.</li>
+<li>Azure cloud scriptsler güncellendi.</li>
+</ul>
+<h1 id="9-gun-16062024">[9. Gün] [16/06/2024]<a class="headerlink" href="#9-gun-16062024" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Matchmaking yapısı oluşturuldu.</li>
+<li>Azure tabloları ile çalışma işlevleri tamamlandı.</li>
+<li>Photon'a giriş yapıldı.</li>
+</ul>
+<h1 id="10-gun-19062024">[10. Gün] [19/06/2024]<a class="headerlink" href="#10-gun-19062024" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Core mekanikler oluşturuldu.</li>
+<li>Photon senkronizasyonu tamamlandı.</li>
+</ul>
+<h1 id="11-gun-20062024">[11. Gün] [20/06/2024]<a class="headerlink" href="#11-gun-20062024" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Oyun varlıkları tamamlandı.</li>
+<li>UI tamamlandı.</li>
+</ul>
+<h1 id="12-gun-21062024">[12. Gün] [21/06/2024]<a class="headerlink" href="#12-gun-21062024" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Test, Test, Test.</li>
+<li>Fix, Fix, Fix. :D :D</li>
+</ul>
 
 
 
