@@ -40,7 +40,7 @@ nav:
 - GetPlayerStatisticsController_Playfab: GetPlayerStatisticsController_Playfab.md
 - GetStatisticsRequest: GetStatisticsRequest.md
 - GetStatisticsResponse: GetStatisticsResponse.md
-- Git Logs: commit-logs.md
+- GitLogs: commit_logs.md
 - IAccount: IAccount.md
 - IAccountInfoResponse: IAccountInfoResponse.md
 - IAccountManager: IAccountManager.md
@@ -90,7 +90,7 @@ nav:
 - UpdateStatisticsController_Playfab: UpdateStatisticsController_Playfab.md
 - UpdateStatisticsRequest: UpdateStatisticsRequest.md
 - UpdateStatisticsResponse: UpdateStatisticsResponse.md
-- daily-log: diaries\daily-log.md
+- daily-log: daily-log.md
 - game-desing-doc-flameborn: GDD\game-desing-doc-flameborn.md
 markdown_extensions:
 - admonition
