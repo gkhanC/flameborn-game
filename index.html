@@ -1886,12 +1886,24 @@
 <p>The Core segment ensures that player actions are accurately processed and reflected in the game environment.</p>
 <h2 id="sdk">SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
 <p>The SDK provides API support for the Core segment and is designed to work with various APIs through its abstraction structure. Currently, the SDK layer uses PlayFab for user identity registration and authentication, cloud data storage, and data synchronization via Azure tables using cloud scripts and function apps. The SDK ensures accurate processing and synchronization of player data between PlayFab and Azure, and then injects this processed data into the game.</p>
+<p><strong>User Account Features</strong>:
+The SDK offers robust user account management features, including:</p>
+<ul>
+<li><strong>Login</strong>: Secure user authentication.</li>
+<li><strong>Register</strong>: Creating new user accounts.</li>
+<li><strong>Password Reset</strong>: Recovering and resetting forgotten passwords.</li>
+</ul>
+<p>These features are essential for managing player accounts and ensuring a seamless user experience.</p>
+<p>Currently, the SDK layer uses PlayFab for user identity registration and authentication, cloud data storage, and data synchronization via Azure tables using cloud scripts and function apps. The SDK ensures accurate processing and synchronization of player data between PlayFab and Azure, and then injects this processed data into the game.</p>
 <p>The SDK layer also uses Photon Network API to distribute player information among players. Flameborn supports multiplayer functionality through Photon Network API. Match information created using match-making tickets from PlayFab is integrated with Photon to create rooms and start matches. Photon ensures real-time synchronization of essential character attributes, such as position and animation, among players.</p>
 <h2 id="game-features">Game Features<a class="headerlink" href="#game-features" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Navigation</strong>: Players can navigate the game scene by touching the screen.</li>
 <li><strong>Character Selection</strong>: Players can select game characters by tapping on them.</li>
 <li><strong>Commanding Characters</strong>: Players can command their characters to perform actions like walking or gathering resources by tapping on them.</li>
+<li><strong>Login</strong>: Players can log in to their accounts through the main menu's "Profile" button.</li>
+<li><strong>Register</strong>: Players can create new accounts via the main menu's "Profile" button.</li>
+<li><strong>Password Reset</strong>: Players can recover and reset their passwords using the main menu's "Profile" button.</li>
 <li><strong>Score Update</strong>: Scores obtained by players in a match are updated in the cloud using function apps.</li>
 <li><strong>Resource Management</strong>: Resources collected in-game are converted to a virtual currency called Rating, which can be spent in-game.</li>
 <li><strong>Matchmaking</strong>: Rating is also used to match players during matchmaking.</li>
