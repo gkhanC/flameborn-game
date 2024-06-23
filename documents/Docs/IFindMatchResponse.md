@@ -22,4 +22,4 @@ string MatchId { get; }
 ```
 
 ## References
-- [IApiResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiResponse)
+- [IApiResponse](https://gkhanc.github.io/flameborn-game/IApiResponse)

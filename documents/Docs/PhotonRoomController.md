@@ -48,4 +48,4 @@ if (roomController.IsMasterClient())
 ```
 
 ## Related Documentation
-- [PhotonManager](https://github.com/gkhanC/flameborn-game/tree/dev/documents/PhotonManager.md)
+- [PhotonManager](https://gkhanc.github.io/flameborn-game/PhotonManager.md)

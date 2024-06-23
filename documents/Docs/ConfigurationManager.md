@@ -85,9 +85,9 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IConfigurationManager` interface, refer to the [IConfigurationManager documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IConfigurationManager).
+For more information on the `IConfigurationManager` interface, refer to the [IConfigurationManager documentation](https://gkhanc.github.io/flameborn-game/IConfigurationManager).
 
-For more information on the `IConfigurationLoader` interface, refer to the [IConfigurationLoader documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IConfigurationLoader).
+For more information on the `IConfigurationLoader` interface, refer to the [IConfigurationLoader documentation](https://gkhanc.github.io/flameborn-game/IConfigurationLoader).
 
 ## File Location
 This class is defined in the `ConfigurationManager.cs` file, located in the `flameborn.Sdk.Managers` namespace.

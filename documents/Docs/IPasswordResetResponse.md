@@ -11,4 +11,4 @@ namespace flameborn.Sdk.Requests.Login.Abstract
 ```
 
 ## References
-- [IApiResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiResponse)
+- [IApiResponse](https://gkhanc.github.io/flameborn-game/IApiResponse)

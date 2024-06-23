@@ -166,7 +166,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IFindMatchResponse` interface, refer to the [IFindMatchResponse documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IFindMatchResponse).
+For more information on the `IFindMatchResponse` interface, refer to the [IFindMatchResponse documentation](https://gkhanc.github.io/flameborn-game/IFindMatchResponse).
 
 ## File Location
 This class is defined in the `FindMatchController_Playfab.cs` file, located in the `flameborn.Sdk.Controllers.MatchMaking` namespace.

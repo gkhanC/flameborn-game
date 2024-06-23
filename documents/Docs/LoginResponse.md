@@ -84,5 +84,5 @@ loginResponse.SetResponse(true, true, false, "PlayFab123", new object(), "Succes
 ```
 
 ## References
-- [ILoginResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ILoginResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [ILoginResponse](https://gkhanc.github.io/flameborn-game/ILoginResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

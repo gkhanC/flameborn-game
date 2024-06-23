@@ -485,7 +485,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IAccountManager` interface, refer to the [IAccountManager documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IAccountManager).
+For more information on the `IAccountManager` interface, refer to the [IAccountManager documentation](https://gkhanc.github.io/flameborn-game/IAccountManager).
 
 ## File Location
 This class is defined in the `AccountManager.cs` file, located in the `flameborn.Core.Managers` namespace.

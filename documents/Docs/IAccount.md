@@ -57,7 +57,7 @@ public class MyAccount : IAccount
 ```
 
 ## See Also
-For more information on the `UserData` class, refer to the [UserData documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/UserData).
+For more information on the `UserData` class, refer to the [UserData documentation](https://gkhanc.github.io/flameborn-game/UserData).
 
 ## File Location
 This interface is defined in the `IAccount.cs` file, located in the `flameborn.Core.Accounts` namespace.

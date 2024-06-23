@@ -134,7 +134,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IAccount` interface, refer to the [IAccount documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IAccount).
+For more information on the `IAccount` interface, refer to the [IAccount documentation](https://gkhanc.github.io/flameborn-game/IAccount).
 
 ## File Location
 This class is defined in the `Account.cs` file, located in the `flameborn.Core.Accounts` namespace.

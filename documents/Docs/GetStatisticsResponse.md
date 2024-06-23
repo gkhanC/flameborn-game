@@ -50,5 +50,5 @@ getStatisticsResponse.SetResponse(true, new Dictionary<string, int>(), new objec
 ```
 
 ## References
-- [IGetStatisticsResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IGetStatisticsResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [IGetStatisticsResponse](https://gkhanc.github.io/flameborn-game/IGetStatisticsResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

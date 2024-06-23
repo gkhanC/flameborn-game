@@ -27,5 +27,5 @@ PasswordResetResponse passwordResetResponse = new PasswordResetResponse();
 ```
 
 ## References
-- [IPasswordResetResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IPasswordResetResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [IPasswordResetResponse](https://gkhanc.github.io/flameborn-game/IPasswordResetResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

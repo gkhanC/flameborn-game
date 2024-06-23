@@ -55,5 +55,5 @@ updateStatisticsRequest.SendRequest(out string errorLog, response => { /* Handle
 ```
 
 ## References
-- [IUpdateStatisticsResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IUpdateStatisticsResponse)
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
+- [IUpdateStatisticsResponse](https://gkhanc.github.io/flameborn-game/IUpdateStatisticsResponse)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)

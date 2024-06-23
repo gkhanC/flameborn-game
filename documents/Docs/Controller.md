@@ -75,7 +75,7 @@ public class MyApiResponse : IApiResponse
 ```
 
 ## See Also
-For more information on the `IApiController` interface, refer to the [IApiController documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController).
+For more information on the `IApiController` interface, refer to the [IApiController documentation](https://gkhanc.github.io/flameborn-game/IApiController).
 
 ## File Location
 This class is defined in the `Controller.cs` file, located in the `flameborn.Sdk.Controllers` namespace.

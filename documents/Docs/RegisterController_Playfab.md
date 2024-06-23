@@ -189,7 +189,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IRegisterResponse` interface, refer to the [IRegisterResponse documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IRegisterResponse).
+For more information on the `IRegisterResponse` interface, refer to the [IRegisterResponse documentation](https://gkhanc.github.io/flameborn-game/IRegisterResponse).
 
 ## File Location
 This class is defined in the `RegisterController_Playfab.cs` file, located in the `flameborn.Sdk.Controllers.Login` namespace.

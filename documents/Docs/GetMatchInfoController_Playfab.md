@@ -174,7 +174,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IGetMatchInfoResponse` interface, refer to the [IGetMatchInfoResponse documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IGetMatchInfoResponse).
+For more information on the `IGetMatchInfoResponse` interface, refer to the [IGetMatchInfoResponse documentation](https://gkhanc.github.io/flameborn-game/IGetMatchInfoResponse).
 
 ## File Location
 This class is defined in the `GetMatchInfoController_Playfab.cs` file, located in the `flameborn.Sdk.Controllers.MatchMaking` namespace.

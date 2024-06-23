@@ -14,6 +14,18 @@ The Core segment ensures that player actions are accurately processed and reflec
 ## SDK
 The SDK provides API support for the Core segment and is designed to work with various APIs through its abstraction structure. Currently, the SDK layer uses PlayFab for user identity registration and authentication, cloud data storage, and data synchronization via Azure tables using cloud scripts and function apps. The SDK ensures accurate processing and synchronization of player data between PlayFab and Azure, and then injects this processed data into the game.
 
+
+**User Account Features**:
+The SDK offers robust user account management features, including:
+
+- **Login**: Secure user authentication.
+- **Register**: Creating new user accounts.
+- **Password Reset**: Recovering and resetting forgotten passwords.
+
+These features are essential for managing player accounts and ensuring a seamless user experience.
+
+Currently, the SDK layer uses PlayFab for user identity registration and authentication, cloud data storage, and data synchronization via Azure tables using cloud scripts and function apps. The SDK ensures accurate processing and synchronization of player data between PlayFab and Azure, and then injects this processed data into the game.
+
 The SDK layer also uses Photon Network API to distribute player information among players. Flameborn supports multiplayer functionality through Photon Network API. Match information created using match-making tickets from PlayFab is integrated with Photon to create rooms and start matches. Photon ensures real-time synchronization of essential character attributes, such as position and animation, among players.
 
 ## Game Features
@@ -21,6 +33,9 @@ The SDK layer also uses Photon Network API to distribute player information amon
 - **Navigation**: Players can navigate the game scene by touching the screen.
 - **Character Selection**: Players can select game characters by tapping on them.
 - **Commanding Characters**: Players can command their characters to perform actions like walking or gathering resources by tapping on them.
+- **Login**: Players can log in to their accounts through the main menu's "Profile" button.
+- **Register**: Players can create new accounts via the main menu's "Profile" button.
+- **Password Reset**: Players can recover and reset their passwords using the main menu's "Profile" button.
 - **Score Update**: Scores obtained by players in a match are updated in the cloud using function apps.
 - **Resource Management**: Resources collected in-game are converted to a virtual currency called Rating, which can be spent in-game.
 - **Matchmaking**: Rating is also used to match players during matchmaking.

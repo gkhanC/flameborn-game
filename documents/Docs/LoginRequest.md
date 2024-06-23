@@ -55,5 +55,5 @@ loginRequest.SendRequest(out string errorLog, response => { /* Handle response *
 ```
 
 ## References
-- [ILoginResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ILoginResponse)
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
+- [ILoginResponse](https://gkhanc.github.io/flameborn-game/ILoginResponse)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)

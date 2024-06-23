@@ -27,5 +27,5 @@ RegisterResponse registerResponse = new RegisterResponse();
 ```
 
 ## References
-- [IRegisterResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IRegisterResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [IRegisterResponse](https://gkhanc.github.io/flameborn-game/IRegisterResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

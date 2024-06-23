@@ -90,5 +90,5 @@ public class MyResponseEntity : ResponseEntity
 ```
 
 ## References
-- [IApiResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiResponse)
-- [GenericResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/GenericResponseEntity)
+- [IApiResponse](https://gkhanc.github.io/flameborn-game/IApiResponse)
+- [GenericResponseEntity](https://gkhanc.github.io/flameborn-game/GenericResponseEntity)

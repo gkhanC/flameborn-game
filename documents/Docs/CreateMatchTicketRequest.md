@@ -55,5 +55,5 @@ createMatchTicketRequest.SendRequest(out string errorLog, response => { /* Handl
 ```
 
 ## References
-- [ICreateMatchTicketResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ICreateMatchTicketResponse)
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
+- [ICreateMatchTicketResponse](https://gkhanc.github.io/flameborn-game/ICreateMatchTicketResponse)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)

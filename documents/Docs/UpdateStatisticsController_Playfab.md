@@ -123,7 +123,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IUpdateStatisticsResponse` interface, refer to the [IUpdateStatisticsResponse documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IUpdateStatisticsResponse).
+For more information on the `IUpdateStatisticsResponse` interface, refer to the [IUpdateStatisticsResponse documentation](https://gkhanc.github.io/flameborn-game/IUpdateStatisticsResponse).
 
 ## File Location
 This class is defined in the `UpdateStatisticsController_Playfab.cs` file, located in the `flameborn.Sdk.Controllers.Data` namespace.

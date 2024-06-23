@@ -55,5 +55,5 @@ passwordResetRequest.SendRequest(out string errorLog, response => { /* Handle re
 ```
 
 ## References
-- [IPasswordResetResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IPasswordResetResponse)
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
+- [IPasswordResetResponse](https://gkhanc.github.io/flameborn-game/IPasswordResetResponse)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)

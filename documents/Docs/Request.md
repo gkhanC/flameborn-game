@@ -64,5 +64,5 @@ public abstract void SendRequest(out string errorLog, params Action<T>[] listene
 - **listeners**: `params Action<T>[]` - The listeners to process the response.
 
 ## References
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
-- [IApiRequest](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiRequest)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)
+- [IApiRequest](https://gkhanc.github.io/flameborn-game/IApiRequest)

@@ -44,7 +44,7 @@ namespace flameborn.Sdk.Managers
 ```
 
 ## See Also
-For more information on the `IManager` interface, refer to the [IManager documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IManager).
+For more information on the `IManager` interface, refer to the [IManager documentation](https://gkhanc.github.io/flameborn-game/IManager).
 
 ## File Location
 This interface is defined in the `IConfigurationManager.cs` file, located in the `flameborn.Sdk.Managers.Abstract` namespace.

@@ -53,5 +53,5 @@ findMatchResponse.SetResponse(true, "Match123", new object(), "Success");
 ```
 
 ## References
-- [IFindMatchResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IFindMatchResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [IFindMatchResponse](https://gkhanc.github.io/flameborn-game/IFindMatchResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

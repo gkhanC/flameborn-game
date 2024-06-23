@@ -120,7 +120,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `PropertyGroupAttribute` class, refer to the [PropertyGroupAttribute documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/PropertyGroupAttribute).
+For more information on the `PropertyGroupAttribute` class, refer to the [PropertyGroupAttribute documentation](https://gkhanc.github.io/flameborn-game/PropertyGroupAttribute).
 
 ## File Location
 This class is defined in the `BoxGroupAttribute.cs` file, located in the `flameborn.Core.Attributes` namespace.

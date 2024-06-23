@@ -104,5 +104,5 @@ public abstract void SetResponse<V>(bool isSuccess, V response, string message =
 - **message**: `string` - The message associated with the response.
 
 ## References
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
-- [IApiResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)
+- [IApiResponse](https://gkhanc.github.io/flameborn-game/IApiResponse)

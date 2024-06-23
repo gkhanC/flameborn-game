@@ -171,7 +171,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IAccountInfoResponse` interface, refer to the [IAccountInfoResponse documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IAccountInfoResponse).
+For more information on the `IAccountInfoResponse` interface, refer to the [IAccountInfoResponse documentation](https://gkhanc.github.io/flameborn-game/IAccountInfoResponse).
 
 ## File Location
 This class is defined in the `GetAccountInfoController_Playfab.cs` file, located in the `flameborn.Sdk.Controllers.Data` namespace.

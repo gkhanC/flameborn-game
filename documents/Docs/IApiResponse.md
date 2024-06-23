@@ -84,5 +84,5 @@ public class MyResponse : IApiResponse
 ```
 
 ## References
-- [IApiRequest](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiRequest)
-- [Request](https://github.com/gkhanC/flameborn-game/tree/dev/documents/Request)
+- [IApiRequest](https://gkhanc.github.io/flameborn-game/IApiRequest)
+- [Request](https://gkhanc.github.io/flameborn-game/Request)

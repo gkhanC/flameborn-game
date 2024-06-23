@@ -37,5 +37,5 @@ public class MyRequest : IApiRequest<MyResponse>
 ```
 
 ## References
-- [IApiResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiResponse)
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
+- [IApiResponse](https://gkhanc.github.io/flameborn-game/IApiResponse)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)

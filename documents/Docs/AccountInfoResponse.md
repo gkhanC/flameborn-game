@@ -73,5 +73,5 @@ accountInfoResponse.SetResponse(true, "User123", 1500, 10, new object(), "Succes
 ```
 
 ## References
-- [IAccountInfoResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IAccountInfoResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [IAccountInfoResponse](https://gkhanc.github.io/flameborn-game/IAccountInfoResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

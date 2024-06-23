@@ -55,5 +55,5 @@ getMatchInfoRequest.SendRequest(out string errorLog, response => { /* Handle res
 ```
 
 ## References
-- [IGetMatchInfoResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IGetMatchInfoResponse)
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
+- [IGetMatchInfoResponse](https://gkhanc.github.io/flameborn-game/IGetMatchInfoResponse)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)

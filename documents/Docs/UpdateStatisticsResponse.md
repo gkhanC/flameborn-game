@@ -18,5 +18,5 @@ namespace flameborn.Sdk.Requests.Data.Entity
 - `[Serializable]`
 
 ## References
-- [IUpdateStatisticsResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IUpdateStatisticsResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [IUpdateStatisticsResponse](https://gkhanc.github.io/flameborn-game/IUpdateStatisticsResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

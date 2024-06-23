@@ -146,7 +146,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IPasswordResetResponse` interface, refer to the [IPasswordResetResponse documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IPasswordResetResponse).
+For more information on the `IPasswordResetResponse` interface, refer to the [IPasswordResetResponse documentation](https://gkhanc.github.io/flameborn-game/IPasswordResetResponse).
 
 ## File Location
 This class is defined in the `PasswordResetController_Playfab.cs` file, located in the `flameborn.Sdk.Controllers.Login` namespace.

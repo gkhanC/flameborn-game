@@ -55,5 +55,5 @@ getAccountInfoRequest.SendRequest(out string errorLog, response => { /* Handle r
 ```
 
 ## References
-- [IAccountInfoResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IAccountInfoResponse)
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
+- [IAccountInfoResponse](https://gkhanc.github.io/flameborn-game/IAccountInfoResponse)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)

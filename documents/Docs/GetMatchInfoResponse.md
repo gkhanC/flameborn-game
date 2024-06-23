@@ -53,5 +53,5 @@ getMatchInfoResponse.SetResponse(true, new List<PlayerData>(), new object(), "Su
 ```
 
 ## References
-- [IGetMatchInfoResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IGetMatchInfoResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [IGetMatchInfoResponse](https://gkhanc.github.io/flameborn-game/IGetMatchInfoResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

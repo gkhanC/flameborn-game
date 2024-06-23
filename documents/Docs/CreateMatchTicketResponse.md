@@ -53,5 +53,5 @@ createMatchTicketResponse.SetResponse(true, "Ticket123", new object(), "Success"
 ```
 
 ## References
-- [ICreateMatchTicketResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ICreateMatchTicketResponse)
-- [ResponseEntity](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ResponseEntity)
+- [ICreateMatchTicketResponse](https://gkhanc.github.io/flameborn-game/ICreateMatchTicketResponse)
+- [ResponseEntity](https://gkhanc.github.io/flameborn-game/ResponseEntity)

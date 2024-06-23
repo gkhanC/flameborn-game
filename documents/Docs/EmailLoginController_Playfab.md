@@ -171,7 +171,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `ILoginResponse` interface, refer to the [ILoginResponse documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/ILoginResponse).
+For more information on the `ILoginResponse` interface, refer to the [ILoginResponse documentation](https://gkhanc.github.io/flameborn-game/ILoginResponse).
 
 ## File Location
 This class is defined in the `EmailLoginController_Playfab.cs` file, located in the `flameborn.Sdk.Controllers.Login` namespace.

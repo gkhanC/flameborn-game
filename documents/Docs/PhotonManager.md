@@ -239,4 +239,4 @@ PhotonManager.Instance.ConnectToPhoton();
 ```
 
 ## Related Documentation
-- [PhotonRoomController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/PhotonRoomController.md)
+- [PhotonRoomController](https://gkhanc.github.io/flameborn-game/PhotonRoomController.md)

@@ -123,7 +123,7 @@ public class ExampleUsage : MonoBehaviour
 ```
 
 ## See Also
-For more information on the `IGetStatisticsResponse` interface, refer to the [IGetStatisticsResponse documentation](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IGetStatisticsResponse).
+For more information on the `IGetStatisticsResponse` interface, refer to the [IGetStatisticsResponse documentation](https://gkhanc.github.io/flameborn-game/IGetStatisticsResponse).
 
 ## File Location
 This class is defined in the `GetPlayerStatisticsController_Playfab.cs` file, located in the `flameborn.Sdk.Controllers.Data` namespace.

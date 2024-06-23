@@ -55,5 +55,5 @@ registerRequest.SendRequest(out string errorLog, response => { /* Handle respons
 ```
 
 ## References
-- [IRegisterResponse](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IRegisterResponse)
-- [IApiController](https://github.com/gkhanC/flameborn-game/tree/dev/documents/IApiController)
+- [IRegisterResponse](https://gkhanc.github.io/flameborn-game/IRegisterResponse)
+- [IApiController](https://gkhanc.github.io/flameborn-game/IApiController)
