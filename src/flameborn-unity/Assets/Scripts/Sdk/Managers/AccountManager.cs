@@ -23,7 +23,7 @@ namespace flameborn.Core.Managers
     {
         #region Fields
 
-        private Account account = new Account();        
+        private Account account = new Account();
         private UiManager uiManager;
         private bool isRegisterProcess;
         private bool isStartProcess;
@@ -148,7 +148,7 @@ namespace flameborn.Core.Managers
         {
             isHasChanged = false;
 
-            if (statistics.ContainsKey(nameof(account.UserData.Rank)) && 
+            if (statistics.ContainsKey(nameof(account.UserData.Rank)) &&
                 account.UserData.Rank != statistics[nameof(account.UserData.Rank)])
             {
                 isHasChanged = true;
@@ -156,7 +156,7 @@ namespace flameborn.Core.Managers
                     statistics[nameof(account.UserData.Rank)] : account.UserData.Rank;
             }
 
-            if (statistics.ContainsKey(nameof(account.UserData.Rating)) && 
+            if (statistics.ContainsKey(nameof(account.UserData.Rating)) &&
                 account.UserData.Rating != statistics[nameof(account.UserData.Rating)])
             {
                 isHasChanged = true;
@@ -164,7 +164,7 @@ namespace flameborn.Core.Managers
                     statistics[nameof(account.UserData.Rating)] : account.UserData.Rating;
             }
 
-            if (statistics.ContainsKey(nameof(account.UserData.LaunchCount)) && 
+            if (statistics.ContainsKey(nameof(account.UserData.LaunchCount)) &&
                 account.UserData.LaunchCount != statistics[nameof(account.UserData.LaunchCount)])
             {
                 isHasChanged = true;
@@ -355,7 +355,7 @@ namespace flameborn.Core.Managers
                 isStartProcess = false;
                 GameManager.Instance.LoadMainMenuScene();
             }
-            
+
             Event_OnUserDataOnChanged.Invoke(account.UserData);
 
             if (!response.IsRequestSuccess)
@@ -391,8 +391,9 @@ namespace flameborn.Core.Managers
 
             HFLogger.LogError(response, response.Message);
             uiManager.alert.Show("Alert", response.Message);
-
+            SaveAccountCredentials(account.Email, account.Password);
             LoadPlayerStatistics();
+            Login();
         }
 
         private void OnGetPasswordResetResponse_EventListener(IPasswordResetResponse response)
