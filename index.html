@@ -57,7 +57,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="bluehttps://chatgpt.com/c/8c4a8c15-61b3-428d-86f9-653cdae5b3d3" data-md-color-accent="light-blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#flameborn-project-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome to MkDocs
+              Flameborn Project Overview
             
           </span>
         </div>
@@ -1815,18 +1815,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#core" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Core
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#sdk" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplayer-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiplayer Functionality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Synchronization
     </span>
   </a>
   
@@ -1847,21 +1874,40 @@
                   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs<a class="headerlink" href="#welcome-to-mkdocs" title="Permanent link">&para;</a></h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<h1 id="flameborn-project-overview">Flameborn Project Overview<a class="headerlink" href="#flameborn-project-overview" title="Permanent link">&para;</a></h1>
+<p>The Flameborn project consists of two main segments: Core and SDK.</p>
+<h2 id="core">Core<a class="headerlink" href="#core" title="Permanent link">&para;</a></h2>
+<p>The Core segment directly handles game and player-related features. It includes in-game functionalities such as:</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>Navigating the game scene by touching the screen</li>
+<li>Selecting game characters by tapping</li>
+<li>Commanding game characters by tapping (e.g., walk, gather)</li>
 </ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<p>The Core segment ensures that player actions are accurately processed and reflected in the game environment.</p>
+<h2 id="sdk">SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
+<p>The SDK provides API support for the Core segment and is designed to work with various APIs through its abstraction structure. Currently, the SDK layer uses PlayFab for user identity registration and authentication, cloud data storage, and data synchronization via Azure tables using cloud scripts and function apps. The SDK ensures accurate processing and synchronization of player data between PlayFab and Azure, and then injects this processed data into the game.</p>
+<p>The SDK layer also uses Photon Network API to distribute player information among players. Flameborn supports multiplayer functionality through Photon Network API. Match information created using match-making tickets from PlayFab is integrated with Photon to create rooms and start matches. Photon ensures real-time synchronization of essential character attributes, such as position and animation, among players.</p>
+<h2 id="game-features">Game Features<a class="headerlink" href="#game-features" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Navigation</strong>: Players can navigate the game scene by touching the screen.</li>
+<li><strong>Character Selection</strong>: Players can select game characters by tapping on them.</li>
+<li><strong>Commanding Characters</strong>: Players can command their characters to perform actions like walking or gathering resources by tapping on them.</li>
+<li><strong>Score Update</strong>: Scores obtained by players in a match are updated in the cloud using function apps.</li>
+<li><strong>Resource Management</strong>: Resources collected in-game are converted to a virtual currency called Rating, which can be spent in-game.</li>
+<li><strong>Matchmaking</strong>: Rating is also used to match players during matchmaking.</li>
+</ul>
+<h2 id="multiplayer-functionality">Multiplayer Functionality<a class="headerlink" href="#multiplayer-functionality" title="Permanent link">&para;</a></h2>
+<p>Flameborn uses the Photon Network API to support multiplayer features. Match information generated from PlayFab match-making tickets is used to create rooms and start matches through Photon. Photon handles the real-time synchronization of player data, animations, and other critical character attributes among players.</p>
+<h2 id="data-synchronization">Data Synchronization<a class="headerlink" href="#data-synchronization" title="Permanent link">&para;</a></h2>
+<p>The SDK ensures seamless data synchronization between PlayFab and Azure, maintaining accurate player data across platforms. This synchronization is crucial for injecting accurate player information into the game.</p>
+<hr />
+<p>For more detailed information about the project, please refer to the <a href="https://github.com/gkhanC/flameborn-game/blob/dev/README.md">README</a>.</p>
+<p>For the development log and daily updates, check out the <a href="https://github.com/gkhanC/flameborn-game/blob/dev/documents/Docs/diaries/daily-log.md">Daily-Log</a>.</p>
+<ul>
+<li><a href="https://github.com/gkhanC/flameborn-game/blob/master/documents/Docs/diaries/daily-log.md">My Development Diaries</a></li>
+<li><a href="https://github.com/gkhanC/flameborn-game/blob/master/documents/Docs/GDD/game-desing-doc-flameborn.md">Game Design Document</a></li>
+<li><a href="https://github.com/gkhanC/flameborn-game/blob/dev/images/Architecture%20Diagram.png">Architecture Diagram</a></li>
+</ul>
 
 
 
