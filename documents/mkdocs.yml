@@ -7,6 +7,9 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+
+docs_dir: Docs
+
 nav:
 - Home: development-report.md
 - Account: Account.md
