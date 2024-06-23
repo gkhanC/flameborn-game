@@ -1,54 +1,68 @@
-#Development Report
-Bu belge flameborn multiplayer game projesine ilişkin rapordur.
+# Development Report
 
-Projenin göstermek istediği skill set;
+This document is a report on the Flameborn multiplayer game project.
 
-    * Multiplayer game api'ları ile çalışma
-    * Azure Function ve cloud scripyler ile çalışma
-    * Playfab ile çalışma
-    * Programlama skilleri
-    * Programlama mimarisi tasarlaya bilme yeteneği
-    * Unity ve oyun geliştirme ve oyun mekanikleri üzerinde ki yetkinlik
-    * Veri setleri ve tablolar ile çalışmadaki yetkinlik
-    * Kodalam becerileri
-    * Kod dökümantae edebilme yeteneği
+## Skills Demonstrated
 
-flameborn şunları içerir;
+The project aims to showcase the following skill sets:
 
-    Oyuncuların  api'lar yardımı ile login, register, password recovery ve Azure tabloları üzerinde temel crud işlemleri
-    Api yönetimi
-    Matchmaking
-    Event yönetimi
-    Player yönetimi
-    Oyun yönetimi
-    Oyun içi temel işlevler
+- Working with multiplayer game APIs
+- Using Azure Functions and cloud scripts
+- Working with PlayFab
+- Programming skills
+- Ability to design programming architecture
+- Proficiency in Unity, game development, and game mechanics
+- Competence in working with datasets and tables
+- Coding skills
+- Ability to document code
 
-Nasıl Çalışır?
+## Features of Flameborn
 
-    Uygulama Loader isimli sahne ile başlar bu sahnenin temel görevi SDK katmanından enjecte edelen [IApiRequest][Link] arayüzü aracığı ile Api ile iletişim kurarak, kullanıcının account bilgilerini ve player verileni otantikate etmek ve kullanım için hazır hale getirmektir.
-        IApiRequest türü [IApiController][Link] türü enjecte edilerek kullanılır. Böylelikle üst katmanda bir soyutlama sağlıyarak farklı türde Api'larla çalışa bilmeyi, Çok biçimliliği destekler
+Flameborn includes:
 
-    Loader scene'de veri işlemi bitince UI için bu verilen set edilme süreci başlar, Sürec tamalandığında MainMenu scene'i yüklenir.
-    MainMenu scene oyuncunun, Login, register ve yeni match başlatmak gibi işlevlerini gerçkleştire bileceği ana oyun sahnesidir.
-        Eğer oyuncu daha önceden giriş yaptı ise Uygulama bir sonraki girişinde otomatik olarak oyuncunun account'unu yükler
+- Login, register, password recovery, and basic CRUD operations on Azure tables via APIs
+- API management
+- Matchmaking
+- Event management
+- Player management
+- Game management
+- Basic in-game functions
 
-    Oyuncu yeni bir match başlatmak istediğinde, Api üzerinden bir ticket oluşturulur, ticket ile oyuncular Rating bilgileri baz alınarak eşleştirilir
-    Eşleşme başarılı olduğunda match oluşturlur ve match id oyunculara dağıtılır. Oyuncular match id kullanarak network api'ı üzerinden bir room oluşturur.
-    Newtwork Api üzerinden oyuncuların maçın başlaması için hazır olup olmadığı ve nick name gibi bilgileri dağıtılır.
-    Network api üzerinde bilgiler işlendiğinde oyun sahnesi yüklenir
+## How It Works
 
-    Oyun sahnesinde her oyuncu bir campfire ve işciye sahiptir
-    Oyuncular Rating miktarları kadar başlangıç kaynağına sahiptir
-    Oyuncular campfireda ranting puanlarından harcayarak yeni işciler spawn edebilir.
-    Oyuncular sahip oldukları işçileri seçtikten sonra ekranda boş bir noktaya tıklayarak işcileri hareket ettire bilir
-    Oyuncular parmaklarını ekranda sürükleyerek camera'yı hareket ettire bilir
-    Oyuncular sahip oldukları işcilere kaynak toplatarak, kaynaklarını ve Rating miktarını arttıra bilir.
+1. **Loader Scene**:
+    - The application starts with the Loader scene, which communicates with the API via the `IApiRequest` interface injected from the SDK layer. It authenticates the user's account information and player data for use.
+    - The `IApiRequest` type uses an injected `IApiController` type, providing an abstraction that supports working with different types of APIs and promotes polymorphism.
 
+2. **Main Menu**:
+    - Once data processing in the Loader scene is complete, the UI is set up, and the MainMenu scene is loaded.
+    - The MainMenu scene allows players to log in, register, and start a new match.
+    - If a player has previously logged in, the application automatically loads the player's account on the next login.
 
-Eklenmesi Planlana Özellikler
+3. **Matchmaking**:
+    - When a player wants to start a new match, a ticket is created via the API, and players are matched based on their rating information.
+    - Upon successful matching, a match is created, and the match ID is distributed to the players. Players create a room using the match ID through the network API.
+    - The network API distributes information such as player readiness and nicknames.
+    - Once the information is processed on the network API, the game scene is loaded.
 
-    Oyuncuların diğer bir oyuncunun işcilerine kendi işcileri ile saldırabilmesi
-    Oyuncuların diğer oyuncunun campfire'ına kendi işcileri ile saldırması
-    Maç için zaman sınırı
-    Farklı türde karakterler (Asker, Rahip vs)
-    Win Lose eventlerinin eklenmesi
+4. **Game Scene**:
+    - In the game scene, each player has a campfire and workers.
+    - Players start with resources equivalent to their rating points.
+    - Players can spend their rating points at the campfire to spawn new workers.
+    - Players can select their workers and move them by clicking on empty spots on the screen.
+    - Players can move the camera by dragging their fingers on the screen.
+    - Players can collect resources with their workers to increase their resources and rating points.
+
+## Planned Features
+
+- Allowing players to attack another player's workers with their own workers
+- Allowing players to attack another player's campfire with their workers
+- Time limit for matches
+- Different types of characters (e.g., Soldier, Priest)
+- Adding win/lose events
+
+## Additional Resources
+
+For more detailed information about the project, please refer to the [README](https://github.com/gkhanC/flameborn-game/blob/dev/README.md).
+
+For the development log and daily updates, check out the [Daily-Log](https://github.com/gkhanC/flameborn-game/blob/dev/documents/Docs/diaries/daily-log.md).

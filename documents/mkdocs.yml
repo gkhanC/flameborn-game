@@ -1,0 +1,97 @@
+site_name: Flameborn Documentation
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: light blue
+  font:
+    text: Roboto
+    code: Roboto Mono
+nav:
+- Home: development-report.md
+- Account: Account.md
+- AccountInfoResponse: AccountInfoResponse.md
+- AccountManager: AccountManager.md
+- AzureManager: AzureManager.md
+- BoxGroupAttribute: BoxGroupAttribute.md
+- ConfigurationManager: ConfigurationManager.md
+- Controller: Controller.md
+- CreateMatchTicketController_Playfab: CreateMatchTicketController_Playfab.md
+- CreateMatchTicketRequest: CreateMatchTicketRequest.md
+- CreateMatchTicketResponse: CreateMatchTicketResponse.md
+- DataPanelBase: DataPanelBase.md
+- DeviceLoginController_Playfab: DeviceLoginController_Playfab.md
+- EmailLoginController_Playfab: EmailLoginController_Playfab.md
+- FindMatchController_Playfab: FindMatchController_Playfab.md
+- FindMatchRequest: FindMatchRequest.md
+- FindMatchResponse: FindMatchResponse.md
+- GameButton: GameButton.md
+- GameManager: GameManager.md
+- GamePanel: GamePanel.md
+- GenericResponseEntity: GenericResponseEntity.md
+- GetAccountInfoController_Playfab: GetAccountInfoController_Playfab.md
+- GetAccountInfoRequest: GetAccountInfoRequest.md
+- GetMatchInfoController_Playfab: GetMatchInfoController_Playfab.md
+- GetMatchInfoRequest: GetMatchInfoRequest.md
+- GetMatchInfoResponse: GetMatchInfoResponse.md
+- GetPlayerStatisticsController_Playfab: GetPlayerStatisticsController_Playfab.md
+- GetStatisticsRequest: GetStatisticsRequest.md
+- GetStatisticsResponse: GetStatisticsResponse.md
+- IAccount: IAccount.md
+- IAccountInfoResponse: IAccountInfoResponse.md
+- IAccountManager: IAccountManager.md
+- IApiController: IApiController.md
+- IApiRequest: IApiRequest.md
+- IApiResponse: IApiResponse.md
+- IConfigurationManager: IConfigurationManager.md
+- ICreateMatchTicketResponse: ICreateMatchTicketResponse.md
+- IDataPanel: IDataPanel.md
+- IFindMatchResponse: IFindMatchResponse.md
+- IGetMatchInfoResponse: IGetMatchInfoResponse.md
+- IGetStatisticsResponse: IGetStatisticsResponse.md
+- IHideable: IHideable.md
+- ILobbyPanel: ILobbyPanel.md
+- ILockable: ILockable.md
+- ILoginPanel: ILoginPanel.md
+- ILoginResponse: ILoginResponse.md
+- IMainMenuPanel: IMainMenuPanel.md
+- IPanel: IPanel.md
+- IPasswordResetResponse: IPasswordResetResponse.md
+- IRecoveryPanel: IRecoveryPanel.md
+- IRegisterPanel: IRegisterPanel.md
+- IRegisterResponse: IRegisterResponse.md
+- IShowable: IShowable.md
+- IUpdateStatisticsResponse: IUpdateStatisticsResponse.md
+- LeaderPanel: LeaderPanel.md
+- LoaderPanel: LoaderPanel.md
+- LobbyPanel: LobbyPanel.md
+- LoginRequest: LoginRequest.md
+- LoginResponse: LoginResponse.md
+- MatchMakingManager: MatchMakingManager.md
+- PanelBase: PanelBase.md
+- PasswordResetController_Playfab: PasswordResetController_Playfab.md
+- PasswordResetRequest: PasswordResetRequest.md
+- PasswordResetResponse: PasswordResetResponse.md
+- PhotonManager: PhotonManager.md
+- PhotonRoomController: PhotonRoomController.md
+- PlayfabManager: PlayfabManager.md
+- RegisterController_Playfab: RegisterController_Playfab.md
+- RegisterRequest: RegisterRequest.md
+- RegisterResponse: RegisterResponse.md
+- Request: Request.md
+- ResponseEntity: ResponseEntity.md
+- UiManager: UiManager.md
+- UpdateAccountInfoOnAzureController_Playfab: UpdateAccountInfoOnAzureController_Playfab.md
+- UpdatedAccountResponse: UpdatedAccountResponse.md
+- UpdateStatisticsController_Playfab: UpdateStatisticsController_Playfab.md
+- UpdateStatisticsRequest: UpdateStatisticsRequest.md
+- UpdateStatisticsResponse: UpdateStatisticsResponse.md
+- daily-log: diaries\daily-log.md
+- game-desing-doc-flameborn: GDD\game-desing-doc-flameborn.md
+markdown_extensions:
+- admonition
+- codehilite
+- footnotes
+- meta
+- toc:
+    permalink: true
