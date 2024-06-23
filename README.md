@@ -6,12 +6,21 @@ Flameborn is a multiplayer strategy game developed with Unity. In this project, 
 
 Flameborn aims to offer a unique gaming experience by combining deep strategic elements and multiplayer interaction. The project is still in development, and new features are continuously being added.
 
+## Notes
+
+### API and API Keys
+
+API keys are not included in the git repository. The API packages are located in the [packages](https://github.com/gkhanC/flameborn-game/tree/dev/packages) directory. You need to configure the APIs with your own keys. For details, please refer to the README.md file under the packages directory.
+
+
 ## Development Log and Game Design Document
 
 You can follow our development process and design details from the links below:
 
-- [Development Log](https://github.com/gkhanC/flameborn-game/blob/dev/documents/diaries/daily-log.md)
+- [My Development Diaries](https://github.com/gkhanC/flameborn-game/blob/dev/documents/diaries/daily-log.md)
+- [Development Log](https://github.com/gkhanC/flameborn-game/blob/dev/logs/Logs.md)
 - [Game Design Document](https://github.com/gkhanC/flameborn-game/blob/dev/documents/game-desing-doc-flameborn.md)
+- [Architecture Diagram](https://github.com/gkhanC/flameborn-game/blob/dev/images/Architecture%20Diagram.png)
 
 ## Contributing
 

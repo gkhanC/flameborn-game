@@ -1,0 +1,11 @@
+{
+    "AddDeviceDataFunctionConnection": "",
+    "CheckDeviceDataLoginConnection": "",
+    "CheckDeviceIdAndEmailFunctionConnection": "",
+    "CheckDeviceIdFunctionConnection": "",
+    "GetLaunchCountFunctionConnection": "",
+    "GetRatingFunctionConnection": "",
+    "UpdateDeviceDataFunctionConnection": "",
+    "UpdateLaunchCountFunctionConnection": "",
+    "UpdateRatingFunctionConnection": ""
+}

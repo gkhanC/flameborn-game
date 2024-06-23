@@ -1,0 +1,2646 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../AccountInfoResponse/">
+      
+      
+        <link rel="next" href="../AzureManager/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>AccountManager - Flameborn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#accountmanager-class-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Flameborn Documentation" class="md-header__button md-logo" aria-label="Flameborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Flameborn Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AccountManager
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Flameborn Documentation" class="md-nav__button md-logo" aria-label="Flameborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Flameborn Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Account
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AccountInfoResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AccountInfoResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AccountManager
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    AccountManager
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Handlers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initializers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initializers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See Also
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Location
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AzureManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AzureManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BoxGroupAttribute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoxGroupAttribute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConfigurationManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConfigurationManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Controller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Controller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMatchTicketController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CreateMatchTicketController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMatchTicketRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CreateMatchTicketRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMatchTicketResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CreateMatchTicketResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataPanelBase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DataPanelBase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DeviceLoginController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DeviceLoginController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EmailLoginController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmailLoginController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FindMatchController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FindMatchController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FindMatchRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FindMatchRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FindMatchResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FindMatchResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GameButton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GameButton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GameManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GameManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GamePanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GamePanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GenericResponseEntity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GenericResponseEntity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetAccountInfoController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetAccountInfoController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetAccountInfoRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetAccountInfoRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMatchInfoController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetMatchInfoController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMatchInfoRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetMatchInfoRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMatchInfoResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetMatchInfoResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetPlayerStatisticsController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetPlayerStatisticsController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetStatisticsRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetStatisticsRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetStatisticsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GetStatisticsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IAccount/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAccount
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IAccountInfoResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAccountInfoResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IAccountManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAccountManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IApiController/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IApiController
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IApiRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IApiRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IApiResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IApiResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IConfigurationManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IConfigurationManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ICreateMatchTicketResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ICreateMatchTicketResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IDataPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IDataPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IFindMatchResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IFindMatchResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IGetMatchInfoResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IGetMatchInfoResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IGetStatisticsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IGetStatisticsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IHideable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IHideable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ILobbyPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ILobbyPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ILockable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ILockable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ILoginPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ILoginPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ILoginResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ILoginResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IMainMenuPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IMainMenuPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IPasswordResetResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPasswordResetResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IRecoveryPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IRecoveryPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IRegisterPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IRegisterPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IRegisterResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IRegisterResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IShowable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IShowable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IUpdateStatisticsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IUpdateStatisticsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeaderPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LeaderPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LoaderPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoaderPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LobbyPanel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LobbyPanel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LoginRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoginRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LoginResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoginResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MatchMakingManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MatchMakingManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PanelBase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PanelBase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PasswordResetController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PasswordResetController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PasswordResetRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PasswordResetRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PasswordResetResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PasswordResetResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PhotonManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PhotonManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PhotonRoomController/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PhotonRoomController
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PlayfabManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PlayfabManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RegisterController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RegisterController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RegisterRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RegisterRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RegisterResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RegisterResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Request/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Request
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResponseEntity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResponseEntity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UiManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UiManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateAccountInfoOnAzureController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateAccountInfoOnAzureController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdatedAccountResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdatedAccountResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateStatisticsController_Playfab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateStatisticsController_Playfab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateStatisticsRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateStatisticsRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateStatisticsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateStatisticsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diaries/daily-log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    daily-log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GDD/game-desing-doc-flameborn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    game-desing-doc-flameborn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Handlers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initializers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initializers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See Also
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Location
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="accountmanager-class-documentation">AccountManager Class Documentation<a class="headerlink" href="#accountmanager-class-documentation" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The <code>AccountManager</code> class manages account-related operations such as login, registration, and statistics updates. This class is a singleton derived from <code>MonoBehaviourSingleton</code> and implements the <code>IAccountManager</code> interface.</p>
+<h2 id="class-definition">Class Definition<a class="headerlink" href="#class-definition" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">HF.Library.Utilities.Singleton</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">HF.Logger</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">PlayFab</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine.Events</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Core.Accounts</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Core.User</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Sdk.Controllers.Data</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Sdk.Controllers.Login</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Sdk.Managers.Abstract</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Sdk.Requests.Data.Abstract</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Sdk.Requests.Data</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Sdk.Requests.Login.Abstract</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">flameborn.Sdk.Requests.Login</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">flameborn.Core.Managers</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Manages account-related operations including login, registration, and statistics updates.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AccountManager</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviourSingleton</span><span class="o">&lt;</span><span class="n">AccountManager</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">IAccountManager</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="cp">#region Fields</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Account</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Account</span><span class="p">();</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">UiManager</span><span class="w"> </span><span class="n">uiManager</span><span class="p">;</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isRegisterProcess</span><span class="p">;</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isStartProcess</span><span class="p">;</span>
+
+<span class="w">        </span><span class="cp">#endregion</span>
+
+<span class="w">        </span><span class="cp">#region Properties</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Gets or sets the current account.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">Account</span><span class="w"> </span><span class="n">Account</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">account</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Event triggered when the account is loaded.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">UnityEvent</span><span class="w"> </span><span class="n">Event_OnAccountLoad</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UnityEvent</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Event triggered when the account data is changed.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">UnityEvent</span><span class="o">&lt;</span><span class="n">Account</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Event_OnAccountDataOnChanged</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UnityEvent</span><span class="o">&lt;</span><span class="n">Account</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Event triggered when the user data is changed.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="n">UnityEvent</span><span class="o">&lt;</span><span class="n">UserData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Event_OnUserDataOnChanged</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UnityEvent</span><span class="o">&lt;</span><span class="n">UserData</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">        </span><span class="cp">#endregion</span>
+
+<span class="w">        </span><span class="cp">#region Constructors</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Initializes a new instance of the &lt;see cref=&quot;AccountManager&quot;/&gt; class.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">AccountManager</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cp">#endregion</span>
+
+<span class="w">        </span><span class="cp">#region Public Methods</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Logs in the user.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Login</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoginRequest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">EmailLoginController_Playfab</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Email</span><span class="p">,</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">Password</span><span class="p">,</span><span class="w"> </span><span class="n">PlayFabSettings</span><span class="p">.</span><span class="n">TitleId</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">));</span>
+<span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">SendRequest</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">OnGetLoginResponse_EventListener</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errorLog</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errorLog</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Sends a password reset request.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PasswordResetRequest</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PasswordResetRequest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PasswordResetController_Playfab</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Email</span><span class="p">));</span>
+<span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">SendRequest</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">OnGetPasswordResetResponse_EventListener</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errorLog</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errorLog</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Registers a new user.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Register</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">isRegisterProcess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RegisterRequest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">RegisterController_Playfab</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Email</span><span class="p">,</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">Password</span><span class="p">,</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">UserName</span><span class="p">));</span>
+<span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">SendRequest</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">OnGetRegisterResponse_EventListener</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errorLog</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errorLog</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Updates user statistics.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateStatistics</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpdateStatisticsRequest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">UpdateStatisticsController_Playfab</span><span class="p">(</span>
+<span class="w">                                </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="p">)[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                    </span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="p">),</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="p">),</span>
+<span class="w">                                    </span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="p">),</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="p">),</span>
+<span class="w">                                    </span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="p">),</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="p">)</span>
+<span class="w">                                </span><span class="p">}</span>
+<span class="w">                            </span><span class="p">));</span>
+
+<span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">SendRequest</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">OnGetUpdateStatisticsResponse_EventListener</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errorLog</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errorLog</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Updates account information in Azure Table.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateAccountInfo_AzureTable</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpdateStatisticsRequest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">UpdateAccountInfoOnAzureController_Playfab</span><span class="p">(</span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AddNewAccount&quot;</span><span class="p">));</span>
+<span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">SendRequest</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">OnGetUpdateAccountResponseAzure_EventListener</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errorLog</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errorLog</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cp">#endregion</span>
+
+<span class="w">        </span><span class="cp">#region Private Methods</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ApplyStatistics</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isHasChanged</span><span class="p">,</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">statistics</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">isHasChanged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">statistics</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="p">)])</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">isHasChanged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="w"> </span><span class="o">?</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="p">)]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rank</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">statistics</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="p">)])</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">isHasChanged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="w"> </span><span class="o">?</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="p">)]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">statistics</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="p">)])</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">isHasChanged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="w"> </span><span class="o">?</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">statistics</span><span class="p">[</span><span class="n">nameof</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="p">)]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">FindAccountData</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoadAccountCredentials</span><span class="p">();</span>
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">DeviceId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SystemInfo</span><span class="p">.</span><span class="n">deviceUniqueIdentifier</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">credentials</span><span class="p">.</span><span class="n">isContain</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">Email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">credentials</span><span class="p">.</span><span class="n">email</span><span class="p">;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">Password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">credentials</span><span class="p">.</span><span class="n">password</span><span class="p">;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserData</span><span class="p">();</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">LoginOnStart</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">isContain</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"> </span><span class="n">LoadAccountCredentials</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">HasKey</span><span class="p">(</span><span class="s">&quot;userEmail&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">HasKey</span><span class="p">(</span><span class="s">&quot;userPassword&quot;</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">encryptedEmail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="s">&quot;userEmail&quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">encryptedPassword</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="s">&quot;userPassword&quot;</span><span class="p">);</span>
+
+<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EncryptionUtility</span><span class="p">.</span><span class="n">Decrypt</span><span class="p">(</span><span class="n">encryptedEmail</span><span class="p">);</span>
+<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EncryptionUtility</span><span class="p">.</span><span class="n">Decrypt</span><span class="p">(</span><span class="n">encryptedPassword</span><span class="p">);</span>
+
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SaveAccountCredentials</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">password</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">encryptedEmail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EncryptionUtility</span><span class="p">.</span><span class="n">Encrypt</span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">encryptedPassword</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EncryptionUtility</span><span class="p">.</span><span class="n">Encrypt</span><span class="p">(</span><span class="n">password</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">SetString</span><span class="p">(</span><span class="s">&quot;userEmail&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">encryptedEmail</span><span class="p">);</span>
+<span class="w">            </span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">SetString</span><span class="p">(</span><span class="s">&quot;userPassword&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">encryptedPassword</span><span class="p">);</span>
+<span class="w">            </span><span class="n">PlayerPrefs</span><span class="p">.</span><span class="n">Save</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoginOnStart</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoaded</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Login</span><span class="p">();</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoginRequest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DeviceLoginController_Playfab</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">DeviceId</span><span class="p">,</span><span class="w"> </span><span class="n">PlayFabSettings</span><span class="p">.</span><span class="n">TitleId</span><span class="p">));</span>
+<span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">SendRequest</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">OnGetLoginResponse_EventListener</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errorLog</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errorLog</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadAccountInfo</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GetAccountInfoRequest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GetAccountInfoController_Playfab</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Email</span><span class="p">,</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">Password</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GetAccountInfo&quot;</span><span class="p">));</span>
+<span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">SendRequest</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">OnGetAccountInfoResponse_EventListener</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errorLog</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errorLog</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadPlayerStatistics</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GetStatisticsRequest</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GetPlayerStatisticsController_Playfab</span><span class="p">(</span><span class="s">&quot;Rank&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rating&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LaunchCount&quot;</span><span class="p">));</span>
+<span class="w">            </span><span class="n">request</span><span class="p">.</span><span class="n">SendRequest</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">OnGetStatisticsResponse_EventListener</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errorLog</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">errorLog</span><span class="p">);</span>
+<span class="w">                </span><span class="n">uiManager</span><span class="p">.</span><span class="n">alert</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Alert&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">errorLog</span><span class="p">,</span><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="n">Quit</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cp">#endregion</span>
+
+<span class="w">        </span><span class="cp">#region Event Handlers</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnGetLoginResponse_EventListener</span><span class="p">(</span><span class="n">ILoginResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">IsAccountLogged</span><span class="p">;</span>
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">PlayfabId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">PlayFabId</span><span class="p">;</span>
+
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GameManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">GetManager</span><span class="o">&lt;</span><span class="n">UiManager</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ui</span><span class="p">.</span><span class="n">IsContain</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">uiManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoaded</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoggedIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">                </span><span class="n">SaveAccountCredentials</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Email</span><span class="p">,</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">Password</span><span class="p">);</span>
+<span class="w">                </span><span class="n">LoadAccountInfo</span><span class="p">();</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">UserName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">SystemInfo</span><span class="p">.</span><span class="n">deviceUniqueIdentifier</span><span class="p">[..</span><span class="m">4</span><span class="p">];</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span>
+<span class="w">                </span><span class="n">LoadPlayerStatistics</span><span class="p">();</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">                </span><span class="n">uiManager</span><span class="p">.</span><span class="n">alert</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Alert&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">,</span><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="n">Quit</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+
+<span class="w">            </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnGetAccountInfoResponse_EventListener</span><span class="p">(</span><span class="n">IAccountInfoResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">IsLogin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">UserName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">UserName</span><span class="p">;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">Rating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Rating</span><span class="p">;</span>
+<span class="w">                </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">LaunchCount</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">LoadPlayerStatistics</span><span class="p">();</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">                </span><span class="n">uiManager</span><span class="p">.</span><span class="n">alert</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Alert&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">,</span><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="n">Quit</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnGetStatisticsResponse_EventListener</span><span class="p">(</span><span class="n">IGetStatisticsResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">bool</span><span class="w"> </span><span class="n">isHasChanged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ApplyStatistics</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="n">isHasChanged</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Statistics</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isHasChanged</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">isStartProcess</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">isRegisterProcess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isStartProcess</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">LaunchCount</span><span class="o">++</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="n">UpdateStatistics</span><span class="p">();</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoaded</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">UpdateAccountInfo_AzureTable</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">Event_OnAccountDataOnChanged</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">account</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnGetUpdateStatisticsResponse_EventListener</span><span class="p">(</span><span class="n">IUpdateStatisticsResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isStartProcess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">isStartProcess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">                </span><span class="n">GameManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">LoadMainMenuScene</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">Event_OnUserDataOnChanged</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnGetUpdateAccountResponseAzure_EventListener</span><span class="p">(</span><span class="n">IUpdateStatisticsResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoggedIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="n">UserData</span><span class="p">.</span><span class="n">IsLogin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isRegisterProcess</span><span class="p">)</span><span class="w"> </span><span class="n">isRegisterProcess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">            </span><span class="n">Event_OnAccountDataOnChanged</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">account</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnGetRegisterResponse_EventListener</span><span class="p">(</span><span class="n">IRegisterResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">IsRequestSuccess</span><span class="p">)</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">IsAccountLoaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">HFLogger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">            </span><span class="n">uiManager</span><span class="p">.</span><span class="n">alert</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Alert&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">            </span><span class="n">SaveAccountCredentials</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="n">Email</span><span class="p">,</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">Password</span><span class="p">);</span>
+<span class="w">            </span><span class="n">LoadPlayerStatistics</span><span class="p">();</span>
+<span class="w">            </span><span class="n">Login</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnGetPasswordResetResponse_EventListener</span><span class="p">(</span><span class="n">IPasswordResetResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">uiManager</span><span class="p">.</span><span class="n">alert</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&quot;Alert&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cp">#endregion</span>
+
+<span class="w">        </span><span class="cp">#region Initializers</span>
+
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Called on the first frame the script is active.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">isStartProcess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">            </span><span class="n">GameManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">SetManager</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">            </span><span class="n">FindAccountData</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cp">#endregion</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>account</strong>: An instance of the <code>Account</code> class representing the current account.</li>
+<li><strong>uiManager</strong>: An instance of the <code>UiManager</code> class.</li>
+<li><strong>isRegisterProcess</strong>: A boolean indicating if the registration process is ongoing.</li>
+<li><strong>isStartProcess</strong>: A boolean indicating if the start process is ongoing.</li>
+</ul>
+<h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Account</strong>: Gets or sets the current account.</li>
+<li><strong>Event_OnAccountLoad</strong>: Event triggered when the account is loaded.</li>
+<li><strong>Event_OnAccountDataOnChanged</strong>: Event triggered when the account data is changed.</li>
+<li><strong>Event_OnUserDataOnChanged</strong>: Event triggered when the user data is changed.</li>
+</ul>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="public-methods">Public Methods<a class="headerlink" href="#public-methods" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Login()</strong>: Logs in the user.</li>
+<li><strong>PasswordResetRequest()</strong>: Sends a password reset request.</li>
+<li><strong>Register()</strong>: Registers a new user.</li>
+<li><strong>UpdateStatistics()</strong>: Updates user statistics.</li>
+<li><strong>UpdateAccountInfo_AzureTable()</strong>: Updates account information in Azure Table.</li>
+</ul>
+<h3 id="private-methods">Private Methods<a class="headerlink" href="#private-methods" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ApplyStatistics(out bool isHasChanged, Dictionary<string, int> statistics)</strong>: Applies the retrieved statistics to the account.</li>
+<li><strong>FindAccountData()</strong>: Finds account data.</li>
+<li><strong>LoadAccountCredentials()</strong>: Loads account credentials from PlayerPrefs.</li>
+<li><strong>SaveAccountCredentials(string email, string password)</strong>: Saves account credentials to PlayerPrefs.</li>
+<li><strong>LoginOnStart()</strong>: Logs in the user on start.</li>
+<li><strong>LoadAccountInfo()</strong>: Loads account information.</li>
+<li><strong>LoadPlayerStatistics()</strong>: Loads player statistics.</li>
+</ul>
+<h3 id="event-handlers">Event Handlers<a class="headerlink" href="#event-handlers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>OnGetLoginResponse_EventListener(ILoginResponse response)</strong>: Handles the login response event.</li>
+<li><strong>OnGetAccountInfoResponse_EventListener(IAccountInfoResponse response)</strong>: Handles the account information response event.</li>
+<li><strong>OnGetStatisticsResponse_EventListener(IGetStatisticsResponse response)</strong>: Handles the statistics response event.</li>
+<li><strong>OnGetUpdateStatisticsResponse_EventListener(IUpdateStatisticsResponse response)</strong>: Handles the update statistics response event.</li>
+<li><strong>OnGetUpdateAccountResponseAzure_EventListener(IUpdateStatisticsResponse response)</strong>: Handles the update account response for Azure event.</li>
+<li><strong>OnGetRegisterResponse_EventListener(IRegisterResponse response)</strong>: Handles the register response event.</li>
+<li><strong>OnGetPasswordResetResponse_EventListener(IPasswordResetResponse response)</strong>: Handles the password reset response event.</li>
+</ul>
+<h3 id="initializers">Initializers<a class="headerlink" href="#initializers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Start()</strong>: Called on the first frame the script is active.</li>
+</ul>
+<h2 id="usage-example">Usage Example<a class="headerlink" href="#usage-example" title="Permanent link">&para;</a></h2>
+<p>Below is an example of how to use the <code>AccountManager</code> class in a Unity project.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleUsage</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">AccountManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Login</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<p>For more information on the <code>IAccountManager</code> interface, refer to the <a href="https://github.com/gkhanC/flameborn-game/tree/dev/documents/IAccountManager">IAccountManager documentation</a>.</p>
+<h2 id="file-location">File Location<a class="headerlink" href="#file-location" title="Permanent link">&para;</a></h2>
+<p>This class is defined in the <code>AccountManager.cs</code> file, located in the <code>flameborn.Core.Managers</code> namespace.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>
